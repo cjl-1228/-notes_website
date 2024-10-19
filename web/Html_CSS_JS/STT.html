@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Web Speech API Demo
+    </title>
+    <style>
+        body {
+            background: #90afa7;
+            font-family: 'helvetica neue';
+            font-weight: 200;
+            font-size: 20px;
+        }
+
+        .words {
+            max-width: 400px;
+            height: 100px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
+            padding: 1rem 2rem 1rem 3rem;
+            background: -webkit-gradient(linear,
+                    0 0,
+                    0 100%,
+                    from(#d9eaf3),
+                    color-stop(4%, #fff)) 0 4px;
+            background-size: 100% 3rem;
+            position: relative;
+            line-height: 3rem;
+            min-height: 30rem;
+        }
+
+        .words:before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            top: 0;
+            left: 30px;
+            bottom: 0;
+            border: 1px solid;
+            border-color: transparent #efe4e4;
+        }
+
+        button {
+            background-color: #e2d770;
+            position: relative;
+            border-radius: 5px;
+            margin-left: 48%;
+            font-size: 20px;
+            
+
+        }
+        button:hover {
+            /* :hover 代表滑鼠移到元素上時的狀態 */ 
+            transform: scale(1.05);
+        }
+        button:active {
+            /* :active是滑鼠點擊元素的狀態 */
+            transform: scale(1);
+            box-shadow: inset 0 0 10px 1px rgba(0, 0, 0, .2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="kv">
+        <div class="container h-100">
+          <div class="row justify-content-center align-items-center h-100">
+            <div class="col-8 col-md-6">
+              <div class="text">
+                <h1><b>語音轉成文字(Speech to Text)</b></h1><br>
+                <h3>試著對著麥克風說:"現在時間"、"蘋果"<br><br>開始請按"Start"，結束請按"Stop"或對麥克風說"結束語音辨識"</h3>
+                <button id="Btn">Start</button>
+                <div id="show" class="words" contenteditable="true"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    <script>
+        var show = document.getElementById('show');
+
+        window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+        var recognition = new webkitSpeechRecognition();
+
+        recognition.continuous = true;
+        recognition.interimResults = true;
+        recognition.lang = "cmn-Hant-TW";
+
+        
+        recognition.onresult = function (event) {
+            var i = event.resultIndex;
+            var j = event.results[i].length - 1;
+            const res = event.results[i][j].transcript;
+            var ans;
+            if(res.includes("蘋果")){
+                ans = "🍎🍎🍎🍎🍎🍎🍎"
+            }
+            else if(res.includes("現在時間")){
+                const now = new Date();
+                ans = now;
+            }
+            else if(res.includes("結束語音辨識")){
+                recognition.stop();
+                startbtn.textContent="Start"
+                startbtn.style.backgroundColor='#e2d770';
+                startbtn.style.color='black'
+                ans="已結束語音辨識"
+            }
+            else{
+                ans = res
+            }
+            show.innerHTML = ans;
+        };
+
+        var startbtn = document.getElementById('Btn');
+        
+        
+        function STT(){
+            var text = startbtn.innerHTML;  
+            if(text==="Start"){
+                startbtn.textContent="Stop"
+                startbtn.style.backgroundColor='#911';
+                startbtn.style.color='white'
+                recognition.start();
+                show.innerHTML = "已開始語音辨識";
+
+            }
+            else{
+                startbtn.textContent="Start"
+                startbtn.style.backgroundColor='#e2d770';
+                startbtn.style.color='black'
+                recognition.stop();
+                show.innerHTML = "已結束語音辨識";
+            }
+
+        }
+
+        Btn.addEventListener("click",STT)
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+
+</html>
