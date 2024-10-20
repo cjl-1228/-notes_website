@@ -1,0 +1,684 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>研究方法期中整理</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="124dcbde-013a-809d-ad8b-c8f61e1180dd" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">📁</span></div><h1 class="page-title">研究方法期中整理</h1><p class="page-description"></p></header><div class="page-body"><nav id="124dcbde-013a-8041-9644-f104c13af261" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-808d-8dc1-c193780bd76c"><strong>Re-considering Philosophy  of Research</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-80c6-bb09-f126e81a77e3"><strong>the scientific method(科學方法) requires that we formulate hypotheses that are:</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-80af-891f-d1edc9feb632"><strong>可研究問題與不可研究問題的差別(因為要有假設)</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-8003-a438-f6c3a277f49c"><strong>甚麼是假設(hypothesis)</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-800e-877e-d3442703f4d5"><strong>Management-Research Question Hierarchy(管理-研究問題層次結構)</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-8055-8ed9-c35d84aafbc2">自變項(IV) 客 vs. 依變項(DV)主</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-80df-ba60-d6b622b35578">Correlation (相關)</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-80ad-8fde-d1dd25c58a67">Difference (差異)</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-808e-b95b-f4d5e6adcbc8">metaphors (隱喻)</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-80a9-b235-ff6fd9a73beb"><strong>Deconstruction</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-808d-93a9-e340339a8a59">How can we trust the claim of research when we hear conflicting findings?    </a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-80cc-8eea-d8e96f06c661">The Philosophical Grounding of Design Research(設計研究的哲學基礎)</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-8088-9bbe-d99e15a47749">資管研究是發明還是發現</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-8081-8209-cb71a5a85e55">事實是人建構出來的</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-806c-8661-ef42dc17fd41">認識論的比較表</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-803c-9d34-daf208a8ab6e">Paradigm(ideology思想)</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-80d3-952c-e45a175a96da">如何充實資管領域的知識?</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-80c2-a7f2-d13a0dd18e7b">研究方法</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-8039-8781-d46a52409db9"> <strong>一個理論的形成與成熟可以分為兩大階段</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-80a1-8d3d-eb03f2c90926">命題(hypotheses)跟假設(propositions)的差別</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-802b-b8de-cafc0c99918b"><strong>歸納式的探索性階段特質</strong>   </a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-808a-829d-d6a5110f804d"><strong>驗證性的階段特質</strong>  </a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-8002-bea1-e9b49db70b10">定性(Qualitative)及定量(Quantitative)研究之比較</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-807d-895d-f191aee9e95e">Key Characteristics of Case Studies</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-802a-8738-e42e853b1715">個案研究目標</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-8004-b154-ecf449b83bf3">個案Core Concept</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-80c0-86bc-df5525b0338d">Survey的研究流程</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-80ef-a1fb-e97d76244c62">Research Frameworks</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-807c-a441-e007486e56c8">Case的研究流程</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-80cc-bf7c-d1a51aabdfc8"><strong>研究設計的問題</strong>   </a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-8009-9523-fea3ccd2f51f">Saturation-資訊飽和</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-8047-8a70-cb80e527b5a0"><strong>個案研究方法的錯誤</strong>   </a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-8033-8a53-c2b44f63ec16">Triangulation—三角驗證</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#124dcbde-013a-80fe-b633-f891b035b4f8">Within methods Triangulation</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#125dcbde-013a-80ab-b8f1-c337d9c283b9"><strong>訪談</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#125dcbde-013a-804d-a317-d42b8f8853e6">信度(Reliability)與效度(Validity)</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#125dcbde-013a-80a9-a674-e4a323480ce4">紮根理論(Grounded Theory)</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#125dcbde-013a-8064-9bc6-fdc689231996">歸納法--拼圖</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#125dcbde-013a-80d9-8712-d0ca0af15118">編碼   (coding)</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#125dcbde-013a-8048-898e-e853a3e96c6c">活動 vs. 事件</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#125dcbde-013a-8068-a7cd-f15dda655314">主軸譯碼(axial coding)</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#125dcbde-013a-80aa-9488-dd094e48f6ff">選擇性譯碼　(Selective coding)</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#125dcbde-013a-8005-9ccb-f090090972b5">APA</a></div></nav><hr id="124dcbde-013a-80a1-86c9-d2bd177fd66f"/><h3 id="124dcbde-013a-808d-8dc1-c193780bd76c" class=""><strong>Re-considering Philosophy  of Research</strong></h3><ul id="124dcbde-013a-80c8-bd4a-c9fe600f69b0" class="bulleted-list"><li style="list-style-type:disc">為往聖繼絕學、為萬世開太平</li></ul><ul id="124dcbde-013a-8038-8d52-caf2567d6667" class="bulleted-list"><li style="list-style-type:disc">研究本質是解決問題</li></ul><ul id="124dcbde-013a-805e-83aa-ef7dbbe5a2e3" class="bulleted-list"><li style="list-style-type:disc">為研究而研究</li></ul><ul id="124dcbde-013a-8097-be66-da681889ff16" class="bulleted-list"><li style="list-style-type:disc">玩弄工具</li></ul><ul id="124dcbde-013a-80d7-bfb0-da9fb4f052d3" class="bulleted-list"><li style="list-style-type:disc">忙發表衝業績</li></ul><ul id="124dcbde-013a-80fd-8e24-dbb0e74c46c1" class="bulleted-list"><li style="list-style-type:disc">做研究是發現的喜悅</li></ul><ul id="124dcbde-013a-80c2-8fc1-ee9d4ce6189e" class="bulleted-list"><li style="list-style-type:disc">在天上，不食人間煙火，下凡間</li></ul><ul id="124dcbde-013a-80ad-b652-fdef753fecb5" class="bulleted-list"><li style="list-style-type:disc">感覺 感動</li></ul><hr id="124dcbde-013a-8047-b486-ca0cea6975fb"/><h3 id="124dcbde-013a-80c6-bb09-f126e81a77e3" class=""><strong>the scientific method(科學方法) requires that we formulate hypotheses that are:</strong></h3><ol type="1" id="124dcbde-013a-8045-bdb5-d1eb2ad08ad1" class="numbered-list" start="1"><li><strong>empirically testable(實證): </strong>有具體資料能收集回來，能驗證，會有對或錯的結果，一定要有辦法收集資料。</li></ol><ol type="1" id="124dcbde-013a-80e7-b4bd-d82734f0a534" class="numbered-list" start="2"><li><strong>replicable(重複): </strong>做幾次研究實驗(不同時間)都會得到一樣的結果，結果是一致的(信度)。</li></ol><ol type="1" id="124dcbde-013a-8020-a9ba-e121b8a50936" class="numbered-list" start="3"><li><strong>objective(客觀): </strong>別人跟你做一樣的事情，依你的方式做，會得到一樣的結果。</li></ol><ol type="1" id="124dcbde-013a-8060-8713-d0f0c62d49e7" class="numbered-list" start="4"><li><strong>transparent(透明): </strong>後續做的論文都是公開的，意味著誰看你論文你不知道。要把程序步驟清楚交代。特殊-&gt;保密協定(頂多不公開2、5年)，之後也要公開</li></ol><ol type="1" id="124dcbde-013a-80fb-94d7-cb33a8c69433" class="numbered-list" start="5"><li><strong>falsifiable(可反證): </strong>可能有，可能沒有，不能˙期待結果跟你的預期一樣，得到相反的結果。</li></ol><ol type="1" id="124dcbde-013a-80e2-8405-ec13c117ac7c" class="numbered-list" start="6"><li><strong>logically consistent(邏輯一致): </strong>實際結果跟你寫的結論結果一樣</li></ol><hr id="124dcbde-013a-807f-af5e-d91dbe2cba2d"/><h3 id="124dcbde-013a-80af-891f-d1edc9feb632" class=""><strong>可研究問題與不可研究問題的差別(因為要有假設)</strong></h3><ul id="124dcbde-013a-8097-b88d-ed42870bf479" class="bulleted-list"><li style="list-style-type:disc">範圍: 在哪裡收集</li></ul><ul id="124dcbde-013a-8067-8131-fa418b2a2125" class="bulleted-list"><li style="list-style-type:disc">測量: 資料的收集</li></ul><ul id="124dcbde-013a-809c-9f89-f35605095e27" class="bulleted-list"><li style="list-style-type:disc">比較: 實際的比較</li></ul><hr id="124dcbde-013a-809f-a1bc-cded2077c93b"/><h3 id="124dcbde-013a-8003-a438-f6c3a277f49c" class=""><strong>甚麼是假設(hypothesis)</strong></h3><ul id="124dcbde-013a-8094-aa7c-dd67a9961819" class="bulleted-list"><li style="list-style-type:disc">A <mark class="highlight-red">hypothesis</mark> is a statement that<mark class="highlight-red"> describes a pattern or general relation between  properties</mark>. A hypothesis can also explain the pattern that it describes.</li></ul><ul id="124dcbde-013a-801f-b643-c1a881fa059f" class="bulleted-list"><li style="list-style-type:disc">描述多個變數之間的關係，也稱為pattern(模式)或relationship</li></ul><ul id="124dcbde-013a-8002-821f-de0fb7a78f5a" class="bulleted-list"><li style="list-style-type:disc">假設就是把變數連起來，而且要有多個變數(兩個以上)</li></ul><ul id="124dcbde-013a-8002-adcf-f53fcb54dc61" class="bulleted-list"><li style="list-style-type:disc">形成研究模式，Resarah model(多個假設)</li></ul><ul id="124dcbde-013a-8095-99f2-cf4a3f60833e" class="bulleted-list"><li style="list-style-type:disc">假設就是在猜</li></ul><hr id="124dcbde-013a-804a-bf1d-ce4500901d70"/><h3 id="124dcbde-013a-800e-877e-d3442703f4d5" class=""><strong>Management-Research Question Hierarchy(管理-研究問題層次結構)</strong></h3><figure id="124dcbde-013a-80f1-b7e6-f39e04b33a1e" class="image"><a href="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image.png"><img style="width:432px" src="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image.png"/></a></figure><ul id="124dcbde-013a-8049-9de5-dc6601cb0635" class="bulleted-list"><li style="list-style-type:disc">Level 1: 這個議題重不重要，重要才討論</li></ul><ul id="124dcbde-013a-8057-a57d-dc45c063d57b" class="bulleted-list"><li style="list-style-type:disc">Level 2: 書寫能力重不重要</li></ul><ul id="124dcbde-013a-806c-a3d2-df593201ffcc" class="bulleted-list"><li style="list-style-type:disc">Level 3: 研究問題</li></ul><ul id="124dcbde-013a-808e-87a3-fa64f77e82e1" class="bulleted-list"><li style="list-style-type:disc">Level 4: 調查問題</li></ul><ul id="124dcbde-013a-809b-b796-d0029f468986" class="bulleted-list"><li style="list-style-type:disc">Level 4: 衡量問題</li></ul><ul id="124dcbde-013a-80c9-a1d3-feb4ce8c34b2" class="bulleted-list"><li style="list-style-type:disc">客影響主，因影響果，IV影響DV</li></ul><hr id="124dcbde-013a-8018-af5b-c0ec11e05f2b"/><h2 id="124dcbde-013a-8055-8ed9-c35d84aafbc2" class="">自變項(IV) 客 vs. 依變項(DV)主</h2><ul id="124dcbde-013a-801a-a289-e07f151ab40f" class="bulleted-list"><li style="list-style-type:disc">IV (客)影響 DV(主)</li></ul><ul id="124dcbde-013a-806b-bf88-cb4346ac4740" class="bulleted-list"><li style="list-style-type:disc">接受accept或拒絕reject假設</li></ul><hr id="124dcbde-013a-80ae-b6f5-c76c2432a942"/><h2 id="124dcbde-013a-80df-ba60-d6b622b35578" class="">Correlation (相關)</h2><ul id="124dcbde-013a-807a-b3eb-fb366b591a19" class="bulleted-list"><li style="list-style-type:disc">相關有兩種<ul id="124dcbde-013a-802e-8668-e421a03e546f" class="bulleted-list"><li style="list-style-type:circle">the more the more</li></ul><ul id="124dcbde-013a-8042-bf99-ef7ef6332e89" class="bulleted-list"><li style="list-style-type:circle">the more the less</li></ul></li></ul><figure id="124dcbde-013a-80b4-a8ad-f018b2c208ab" class="image"><a href="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%201.png"><img style="width:432px" src="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%201.png"/></a></figure><figure id="124dcbde-013a-8038-a4ec-d43f5fcc06f0" class="image"><a href="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%202.png"><img style="width:480px" src="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%202.png"/></a></figure><hr id="124dcbde-013a-8076-a899-ea70662d5be6"/><h2 id="124dcbde-013a-80ad-8fde-d1dd25c58a67" class="">Difference (差異)</h2><ul id="124dcbde-013a-80f7-9d09-e0c2a704b295" class="bulleted-list"><li style="list-style-type:disc">差異一定會分群</li></ul><figure id="124dcbde-013a-8053-a6ce-f65fc45033a3" class="image"><a href="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%203.png"><img style="width:480px" src="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%203.png"/></a></figure><ul id="124dcbde-013a-8015-9924-e8e31678f412" class="bulleted-list"><li style="list-style-type:disc">用相關還是差異的假設比較好 看題目</li></ul><hr id="124dcbde-013a-8003-b3f0-d61836183465"/><h2 id="124dcbde-013a-808e-b95b-f4d5e6adcbc8" class="">metaphors (隱喻)</h2><ul id="124dcbde-013a-805f-b841-f58fd9e4fd55" class="bulleted-list"><li style="list-style-type:disc">是一種思考轉換的方式，透過簡單的隱喻、類比，將艱深的概念轉化為大眾所能理解的概念，加速了知識的可傳達性與資訊傳達的速度</li></ul><hr id="124dcbde-013a-8017-bf89-f9f0da15129f"/><h2 id="124dcbde-013a-80a9-b235-ff6fd9a73beb" class=""><strong>Deconstruction</strong></h2><p id="124dcbde-013a-801d-aecf-f67f48f4a3e0" class="">解構</p><hr id="124dcbde-013a-8035-9991-f8ce300044f5"/><h2 id="124dcbde-013a-808d-93a9-e340339a8a59" class="">How can we trust the claim of research when we hear conflicting findings?    </h2><ul id="124dcbde-013a-807d-a5a1-d7cb92f710fe" class="bulleted-list"><li style="list-style-type:disc">看到是建構，所以要解構重來</li></ul><ul id="124dcbde-013a-8070-aa60-c324a3d17c27" class="bulleted-list"><li style="list-style-type:disc">Construction---Deconstruction</li></ul><hr id="124dcbde-013a-80fc-be1b-fb8d6fbb540c"/><h2 id="124dcbde-013a-80cc-8eea-d8e96f06c661" class="">The Philosophical Grounding of Design Research(設計研究的哲學基礎)</h2><ul id="124dcbde-013a-8052-8c34-d168bf606773" class="bulleted-list"><li style="list-style-type:disc">Ontology (事實)<ul id="124dcbde-013a-802c-82a8-dec796ab4afd" class="bulleted-list"><li style="list-style-type:circle">Reality (real world exists but we are not seeking it)</li></ul><ul id="124dcbde-013a-8004-8488-c5507f83e90b" class="bulleted-list"><li style="list-style-type:circle">事實你可能知道，你也可能不知道</li></ul></li></ul><ul id="124dcbde-013a-802c-b647-e2ac60534d09" class="bulleted-list"><li style="list-style-type:disc">Methodology (方法論)<ul id="124dcbde-013a-8070-a2e7-ebaec82ebdba" class="bulleted-list"><li style="list-style-type:circle">Development/Design of systems, models</li></ul><ul id="124dcbde-013a-80a4-b99f-d1e5671580f5" class="bulleted-list"><li style="list-style-type:circle">Qualitative and exploratory way of thinking, but could lead to quantitative confirmations</li></ul><ul id="124dcbde-013a-8005-bc3b-f2bcf3938e7b" class="bulleted-list"><li style="list-style-type:circle">兩個 質的(<strong>explore)</strong> 量的(<strong>confirm)</strong></li></ul></li></ul><ul id="124dcbde-013a-80e7-b542-cdc66bbebfe8" class="bulleted-list"><li style="list-style-type:disc">Epistemology (知識)<ul id="124dcbde-013a-80d1-9739-c8c0e0de076e" class="bulleted-list"><li style="list-style-type:circle">We can intervene in the world to improve it</li></ul></li></ul><ul id="124dcbde-013a-8043-8f21-c26fbfab013e" class="bulleted-list"><li style="list-style-type:disc">Ontology → Methodology → Epistemology</li></ul><hr id="124dcbde-013a-8089-984e-fccc1387a2a3"/><h2 id="124dcbde-013a-8088-9bbe-d99e15a47749" class="">資管研究是發明還是發現</h2><ul id="124dcbde-013a-8086-bc68-f4f5bbd8cd2c" class="bulleted-list"><li style="list-style-type:disc">發明 → 無中生有</li></ul><ul id="124dcbde-013a-803a-83c9-d34822d267bf" class="bulleted-list"><li style="list-style-type:disc">發現 → 本來不知道 之後知道</li></ul><hr id="124dcbde-013a-80e5-8f7c-fa0111686a4f"/><h2 id="124dcbde-013a-8081-8209-cb71a5a85e55" class="">事實是人建構出來的</h2><ul id="124dcbde-013a-80ed-845f-d9cb72f284e8" class="bulleted-list"><li style="list-style-type:disc">我思，故我在</li></ul><ul id="124dcbde-013a-80bc-b5a3-d1b3b0299a51" class="bulleted-list"><li style="list-style-type:disc">I think , therefore I am.</li></ul><ul id="124dcbde-013a-8044-ad6f-f4d513293306" class="bulleted-list"><li style="list-style-type:disc">事實(ontology) = being → become</li></ul><ul id="124dcbde-013a-80e4-b9ac-e7a17944f558" class="bulleted-list"><li style="list-style-type:disc">如何看待事實，事實就會變成 我所想像的。</li></ul><ul id="124dcbde-013a-80b7-ae3a-f5cbf76c4524" class="bulleted-list"><li style="list-style-type:disc">主要是人</li></ul><hr id="124dcbde-013a-80e7-abbe-d4b3a76dcd51"/><h2 id="124dcbde-013a-806c-8661-ef42dc17fd41" class="">認識論的比較表</h2><ul id="124dcbde-013a-8045-9aa6-ece9b65ac1dc" class="bulleted-list"><li style="list-style-type:disc">實證論 (positivist philosophy)<ul id="124dcbde-013a-80d1-850c-e4d4b46d3249" class="bulleted-list"><li style="list-style-type:circle">客觀</li></ul><ul id="124dcbde-013a-804c-8332-fd6f00bae3a0" class="bulleted-list"><li style="list-style-type:circle">一對一的模式</li></ul><ul id="124dcbde-013a-800e-ab5a-f3c43a96bf57" class="bulleted-list"><li style="list-style-type:circle">放諸四海恉準的原則</li></ul><ul id="124dcbde-013a-808e-9e9a-f37c62683cb6" class="bulleted-list"><li style="list-style-type:circle">解釋、預測及控制有關現象</li></ul><ul id="124dcbde-013a-8048-a3d2-f3b9dca52c40" class="bulleted-list"><li style="list-style-type:circle">理論驗證</li></ul><ul id="124dcbde-013a-80b8-8d7b-c9ff8209a199" class="bulleted-list"><li style="list-style-type:circle">假設檢定</li></ul><ul id="124dcbde-013a-801f-972d-f59beaa31544" class="bulleted-list"><li style="list-style-type:circle">廣</li></ul><ul id="124dcbde-013a-8017-b845-f0dbb91edee7" class="bulleted-list"><li style="list-style-type:circle">嚴謹、有標準</li></ul><ul id="124dcbde-013a-8003-b3c8-e8cb30c74e05" class="bulleted-list"><li style="list-style-type:circle">忽略文化、社會、政治、人性</li></ul></li></ul><ul id="124dcbde-013a-80b8-aa02-cd5ff69fee9e" class="bulleted-list"><li style="list-style-type:disc">詮釋說明論 (interpretive philosophy)<ul id="124dcbde-013a-803a-9643-d1bc78792261" class="bulleted-list"><li style="list-style-type:circle">主觀</li></ul><ul id="124dcbde-013a-80c6-b713-edb0c9ded4d9" class="bulleted-list"><li style="list-style-type:circle">人事物之交互</li></ul><ul id="124dcbde-013a-80ff-b215-c44be7299ba2" class="bulleted-list"><li style="list-style-type:circle">親身到真實世界</li></ul><ul id="124dcbde-013a-80cf-bec1-c35241cb6a5b" class="bulleted-list"><li style="list-style-type:circle">觀察結果加以描述、解釋、分析</li></ul><ul id="124dcbde-013a-8000-ae3e-eadf6b038d8c" class="bulleted-list"><li style="list-style-type:circle">了解現象的深層結構與動態問題(對話)</li></ul><ul id="124dcbde-013a-806c-a437-ee3a761b3e79" class="bulleted-list"><li style="list-style-type:circle">個案觀察為主</li></ul><ul id="124dcbde-013a-8045-bfc7-d6c8298c88b1" class="bulleted-list"><li style="list-style-type:circle">各方面的角度加以連結來發掘真相</li></ul><ul id="124dcbde-013a-807a-8546-e5a13ac83a9b" class="bulleted-list"><li style="list-style-type:circle">沒有考慮時間、歷史</li></ul><ul id="124dcbde-013a-8017-92a1-cae732ccb644" class="bulleted-list"><li style="list-style-type:circle">深</li></ul></li></ul><ul id="124dcbde-013a-80cb-b869-c656730e4f47" class="bulleted-list"><li style="list-style-type:disc">批判論 (critical philosophy)</li></ul><hr id="124dcbde-013a-80e9-8519-c4f12b183f72"/><h2 id="124dcbde-013a-803c-9d34-daf208a8ab6e" class="">Paradigm(ideology思想)</h2><ul id="124dcbde-013a-8090-b2ad-eb46512a92c0" class="bulleted-list"><li style="list-style-type:disc">Belief: personal understanding</li></ul><ul id="124dcbde-013a-8004-b248-d00497db5bad" class="bulleted-list"><li style="list-style-type:disc">Value: personal preference</li></ul><ul id="124dcbde-013a-803e-838b-f4d48bef4323" class="bulleted-list"><li style="list-style-type:disc">Zealots (who carries ideology too far)</li></ul><ul id="124dcbde-013a-80a3-9086-c46556e3028b" class="bulleted-list"><li style="list-style-type:disc">Paradigm shift</li></ul><hr id="124dcbde-013a-80ff-8f25-f362c9e231c8"/><h2 id="124dcbde-013a-80d3-952c-e45a175a96da" class="">如何充實資管領域的知識?</h2><figure id="124dcbde-013a-809a-8a45-c02f351bd094" class="image"><a href="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%204.png"><img style="width:432px" src="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%204.png"/></a></figure><figure id="124dcbde-013a-80fa-9ede-c353e9bf4444" class="image"><a href="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%205.png"><img style="width:528px" src="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%205.png"/></a></figure><ul id="124dcbde-013a-8072-ab7f-df66df4fad9e" class="bulleted-list"><li style="list-style-type:disc">MIS Quarterly, 1993 <ul id="124dcbde-013a-8024-853a-c83f5f4ff6b3" class="bulleted-list"><li style="list-style-type:circle">1987—1992</li></ul><ul id="124dcbde-013a-8051-ae47-cc1822fbef50" class="bulleted-list"><li style="list-style-type:circle">MIS Quarterly, JMIS, Information &amp; Management, Management Science, &amp; Communication of ACM.(1300)</li></ul></li></ul><ul id="124dcbde-013a-80fe-8721-c927571ad5f8" class="bulleted-list"><li style="list-style-type:disc">Information System Research, 1993<ul id="124dcbde-013a-8014-ba66-d07760116325" class="bulleted-list"><li style="list-style-type:circle">1987—1992</li></ul><ul id="124dcbde-013a-80b8-98fb-fa9ab563a641" class="bulleted-list"><li style="list-style-type:circle">ISR submissions (397)</li></ul></li></ul><figure id="124dcbde-013a-8025-b4db-d078c9375882" class="image"><a href="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%206.png"><img style="width:528px" src="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%206.png"/></a></figure><ul id="124dcbde-013a-8064-8d69-f048a46a40b0" class="bulleted-list"><li style="list-style-type:disc">Information Systems Research (AIS)<ul id="124dcbde-013a-80e9-8eb1-eb4514af16ad" class="bulleted-list"><li style="list-style-type:circle">很多期刊研討會論文</li></ul></li></ul><ul id="124dcbde-013a-803c-aff3-e6461f10c4ee" class="bulleted-list"><li style="list-style-type:disc">CAIS (Communication of the Association for Information Systems), 2004<ul id="124dcbde-013a-80ea-ba05-ce6663ee0086" class="bulleted-list"><li style="list-style-type:circle">1991--2000</li></ul><ul id="124dcbde-013a-8073-a5ab-ebf0a8f67789" class="bulleted-list"><li style="list-style-type:circle">ISR, MISQ, JMIS, MS, Decision Science(993)</li></ul><ul id="124dcbde-013a-8000-96f0-c225c0713095" class="bulleted-list"><li style="list-style-type:circle">203 theories</li></ul></li></ul><ul id="124dcbde-013a-8042-a698-c3aa77434b60" class="bulleted-list"><li style="list-style-type:disc">資管幾乎沒有自己的理論，都是用別人的</li></ul><ul id="124dcbde-013a-809a-8400-ff46960cf0a1" class="bulleted-list"><li style="list-style-type:disc">IS Key Issues (3~5年) <ul id="124dcbde-013a-80d5-8a5f-e5a5182efb1b" class="bulleted-list"><li style="list-style-type:circle">Problems</li></ul><ul id="124dcbde-013a-8068-b989-c3194be68d65" class="bulleted-list"><li style="list-style-type:circle">Challenges</li></ul><ul id="124dcbde-013a-8060-b765-cf920219ec85" class="bulleted-list"><li style="list-style-type:circle">Opportunities</li></ul></li></ul><ul id="124dcbde-013a-80bc-bc05-f1590de8be88" class="bulleted-list"><li style="list-style-type:disc">影響資管研究的力量<ul id="124dcbde-013a-80d7-b0aa-cc6362d87069" class="bulleted-list"><li style="list-style-type:circle">資訊科技的發展</li></ul><ul id="124dcbde-013a-80d4-87b8-f2cf595ffe35" class="bulleted-list"><li style="list-style-type:circle">實務應用的演進</li></ul><ul id="124dcbde-013a-80cf-94ee-ffed5e874cd4" class="bulleted-list"><li style="list-style-type:circle">理論建立的需求</li></ul></li></ul><ul id="124dcbde-013a-80b7-a3df-f35d9645e3a4" class="bulleted-list"><li style="list-style-type:disc">未來驅使研究方向<ul id="124dcbde-013a-8013-8e71-fb61ab68ef0e" class="bulleted-list"><li style="list-style-type:circle">科技的變化與應用</li></ul><ul id="124dcbde-013a-80b5-b0a2-c82a26795b21" class="bulleted-list"><li style="list-style-type:circle">管理面的探討</li></ul><ul id="124dcbde-013a-8082-8b35-c0d25edc3853" class="bulleted-list"><li style="list-style-type:circle">理論（本土,深耕）的深化發展</li></ul></li></ul><ul id="124dcbde-013a-8021-829b-fecbc6984fe0" class="bulleted-list"><li style="list-style-type:disc">Where does your problems come from?<ul id="124dcbde-013a-8054-93ba-e789eac9f7e0" class="bulleted-list"><li style="list-style-type:circle">Researcher-oriented Study</li></ul><ul id="124dcbde-013a-809e-8b61-d65abf32a072" class="bulleted-list"><li style="list-style-type:circle">User-oriented Study</li></ul><ul id="124dcbde-013a-80c4-8b6d-d614245fa75b" class="bulleted-list"><li style="list-style-type:circle">如果你的研究問題來源是paper，表示你根本不認識這個問題</li></ul><ul id="124dcbde-013a-801f-91ed-fbedd714325d" class="bulleted-list"><li style="list-style-type:circle">問題由自己發覺</li></ul></li></ul><figure id="124dcbde-013a-80d8-8b8b-c530e960f153" class="image"><a href="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%207.png"><img style="width:576px" src="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%207.png"/></a></figure><ul id="124dcbde-013a-808e-8da5-deac1f8d8d87" class="bulleted-list"><li style="list-style-type:disc">中間變數，結合另一個IV 影響DV</li></ul><ul id="124dcbde-013a-80f5-8df1-fd486c5b117f" class="bulleted-list"><li style="list-style-type:disc">混雜變數就是IV，會影響DV，只是沒有要測它，不進假設，不能控制</li></ul><ul id="124dcbde-013a-80ba-ba55-e3fdb740e712" class="bulleted-list"><li style="list-style-type:disc">控制變數就是IV，會影響DV，只是沒有要測它，不進假設，能控制</li></ul><ul id="124dcbde-013a-8092-8626-c79a17ed9f48" class="bulleted-list"><li style="list-style-type:disc">背景變數，基本資料(性別、學歷)，很少會拿來當假設</li></ul><figure id="124dcbde-013a-8060-bfce-c5512f3a0e8b" class="image"><a href="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%208.png"><img style="width:480px" src="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%208.png"/></a></figure><ul id="124dcbde-013a-8000-acb6-e81c79a1f261" class="bulleted-list"><li style="list-style-type:disc"> 操作性定義 operational definition   <ul id="124dcbde-013a-8012-bfe6-f7d80cc52a40" class="bulleted-list"><li style="list-style-type:circle">研究者提出研究假設後，須對研究變項或名詞提出一種可以測量、量化、具體、可重複試驗的基本說明與解釋，亦即將抽象的概念具體化</li></ul></li></ul><hr id="124dcbde-013a-801a-b191-e750f1cd4537"/><h2 id="124dcbde-013a-80c2-a7f2-d13a0dd18e7b" class="">研究方法</h2><figure id="124dcbde-013a-8070-9ccd-ccb6f8d93f80" class="image" style="text-align:left"><a href="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%209.png"><img style="width:240px" src="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%209.png"/></a></figure><ul id="124dcbde-013a-8049-912b-f01990ae2f76" class="bulleted-list"><li style="list-style-type:disc">個案根本不知道變數，變數在哪不知道</li></ul><ul id="124dcbde-013a-8097-81b6-d00a76ff42c5" class="bulleted-list"><li style="list-style-type:disc">實驗設計針對兩三個變數，沒有人在做20 30 個</li></ul><ul id="124dcbde-013a-80c4-94bc-e9e8979ceb9c" class="bulleted-list"><li style="list-style-type:disc">調查才是大</li></ul><hr id="124dcbde-013a-803d-8660-c0255255d9e5"/><h2 id="124dcbde-013a-8039-8781-d46a52409db9" class=""> <strong>一個理論的形成與成熟可以分為兩大階段</strong></h2><figure id="124dcbde-013a-80a6-8380-cf8785b69c34" class="image" style="text-align:left"><a href="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%2010.png"><img style="width:432px" src="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%2010.png"/></a></figure><hr id="124dcbde-013a-8052-99b2-d50a6b7c10f3"/><h2 id="124dcbde-013a-80a1-8d3d-eb03f2c90926" class="">命題(hypotheses)跟假設(propositions)的差別</h2><ul id="124dcbde-013a-800f-bb6c-e47528d79576" class="bulleted-list"><li style="list-style-type:disc">命題與假設的概念非常類似，甚至是相同的概念，只是適用性不同</li></ul><ul id="124dcbde-013a-8030-9bce-e1ff32bf6c1e" class="bulleted-list"><li style="list-style-type:disc"><strong>命題</strong>並不涉及實證，而<strong>假設</strong>則必須進行實證</li></ul><ul id="124dcbde-013a-800e-b442-de7172f82656" class="bulleted-list"><li style="list-style-type:disc">命題（Proposition）：構念或概念間的關係推測</li></ul><ul id="124dcbde-013a-80c4-a25d-c7520e6b3ed5" class="bulleted-list"><li style="list-style-type:disc">假設（Hypothesis）：變數與變數間的關係推測。</li></ul><ul id="124dcbde-013a-8005-8725-f1f1798067ec" class="bulleted-list"><li style="list-style-type:disc">一位鞋店經理觀察到一個現象，發現某雙鞋子被拿起來試穿的次數越多，則該雙鞋子成交的機率愈大，所以她先大致提出某雙鞋子的「『試穿次數』越多，則『成交機率』越高」這樣的「命題」</li></ul><ul id="124dcbde-013a-80e7-8142-f48d020b9bcb" class="bulleted-list"><li style="list-style-type:disc">當我們想要驗證這個「命題」時，必須先將「試穿次數」與「成交機率」再變成具體可衡量的變數。因此進而發展出類似「試穿次數」（包含：消費者要求試穿或店員主動推薦試穿兩類），與「成交機率」之間有正向關係這樣的「假設」。此時，就會呈現自變數（試穿次數）與應變數（成交機率）的關係</li></ul><hr id="124dcbde-013a-809f-b290-cf25e0241aa8"/><h2 id="124dcbde-013a-802b-b8de-cafc0c99918b" class=""><strong>歸納式的探索性階段特質</strong>   </h2><ul id="124dcbde-013a-80ae-aeaf-ce08f4738bfe" class="bulleted-list"><li style="list-style-type:disc">研究者所欲探究的是個黑箱(black box)</li></ul><ul id="124dcbde-013a-8074-bb62-d77c945511b7" class="bulleted-list"><li style="list-style-type:disc">對現象不了解</li></ul><ul id="124dcbde-013a-8015-8f9a-cecf120f5f1c" class="bulleted-list"><li style="list-style-type:disc">不確定有哪些重要的變數</li></ul><ul id="124dcbde-013a-809c-a120-dedab48d9994" class="bulleted-list"><li style="list-style-type:disc">不了解變數間的關係</li></ul><ul id="124dcbde-013a-8080-8df0-ff5f76414965" class="bulleted-list"><li style="list-style-type:disc">沒有假設</li></ul><ul id="124dcbde-013a-801f-bc13-fe305fd60bfb" class="bulleted-list"><li style="list-style-type:disc">目的在了解現況、發掘相關的變數及變數間的關係</li></ul><ul id="124dcbde-013a-806d-87a1-e7d0e49adc80" class="bulleted-list"><li style="list-style-type:disc">Explore un-know</li></ul><ul id="124dcbde-013a-8029-b812-dabe695f88e8" class="bulleted-list"><li style="list-style-type:disc">導出來是 研究命題</li></ul><ul id="124dcbde-013a-80d8-bbdb-c882be31d7ec" class="bulleted-list"><li style="list-style-type:disc">主要方法為個案研究(case study)</li></ul><ul id="124dcbde-013a-8068-8fea-df9631a0ccbf" class="bulleted-list"><li style="list-style-type:disc">Bottom up</li></ul><hr id="124dcbde-013a-80f4-9bef-e00e6f62afcf"/><h2 id="124dcbde-013a-808a-829d-d6a5110f804d" class=""><strong>驗證性的階段特質</strong>  </h2><ul id="124dcbde-013a-8009-a801-de6365f5afaf" class="bulleted-list"><li style="list-style-type:disc">有model(多條線連起來)</li></ul><ul id="124dcbde-013a-8096-be5d-e697f107cb38" class="bulleted-list"><li style="list-style-type:disc">存在有理論基礎</li></ul><ul id="124dcbde-013a-80d9-a9f1-d31206478552" class="bulleted-list"><li style="list-style-type:disc">清楚了解相關的變數</li></ul><ul id="124dcbde-013a-8016-874d-fa31cd03fdf4" class="bulleted-list"><li style="list-style-type:disc">清楚要驗證的變數間的關係</li></ul><ul id="124dcbde-013a-80ae-975b-f2344c861b3a" class="bulleted-list"><li style="list-style-type:disc">欲追求概化</li></ul><ul id="124dcbde-013a-8017-8d63-d155812ca99a" class="bulleted-list"><li style="list-style-type:disc">Top down</li></ul><hr id="124dcbde-013a-80bf-8198-fca3fb29985d"/><h2 id="124dcbde-013a-8002-bea1-e9b49db70b10" class="">定性(Qualitative)及定量(Quantitative)研究之比較</h2><ul id="124dcbde-013a-8018-b705-eaf0ed040efa" class="bulleted-list"><li style="list-style-type:disc">定性研究   <ul id="124dcbde-013a-80c3-b843-fc192edd699b" class="bulleted-list"><li style="list-style-type:circle">主觀</li></ul><ul id="124dcbde-013a-8030-b874-d2527fecbf42" class="bulleted-list"><li style="list-style-type:circle">特殊關係</li></ul><ul id="124dcbde-013a-801e-bdf9-cccf41cb40ea" class="bulleted-list"><li style="list-style-type:circle">需身歷其中，才能感同身受</li></ul><ul id="124dcbde-013a-80d8-9415-f56e02f0b07f" class="bulleted-list"><li style="list-style-type:circle">描述性，在講有沒有，不是在講發生幾次</li></ul><ul id="124dcbde-013a-801d-9262-d90a63f97e84" class="bulleted-list"><li style="list-style-type:circle">某一事物是否存在</li></ul><ul id="124dcbde-013a-800c-8970-f34be68a1945" class="bulleted-list"><li style="list-style-type:circle">個案研究法、深度晤談、團體晤談、參與觀察、投射技術…等</li></ul></li></ul><ul id="124dcbde-013a-805b-9647-dfbe46f6a3c9" class="bulleted-list"><li style="list-style-type:disc"> 定量研究  <ul id="124dcbde-013a-80c0-9710-dba15f46e7f6" class="bulleted-list"><li style="list-style-type:circle">客觀</li></ul><ul id="124dcbde-013a-802f-8b16-fb0b04f7d94c" class="bulleted-list"><li style="list-style-type:circle">普遍性關係或定律</li></ul><ul id="124dcbde-013a-8089-a7b5-e572af874cb5" class="bulleted-list"><li style="list-style-type:circle">局外人</li></ul><ul id="124dcbde-013a-80b4-b726-ccab3d2dba5f" class="bulleted-list"><li style="list-style-type:circle">統計方法，看個數，發生幾次</li></ul><ul id="124dcbde-013a-80e9-9a4a-cf6d485c3b6d" class="bulleted-list"><li style="list-style-type:circle">某一事物存在的數量 </li></ul><ul id="124dcbde-013a-8023-bedc-ff6c0bdc166f" class="bulleted-list"><li style="list-style-type:circle">調查法、實驗法、彙總(meta)法…等.</li></ul></li></ul><ul id="124dcbde-013a-8010-a19d-f51350aa27a9" class="bulleted-list"><li style="list-style-type:disc">主客觀沒有對錯，互相批評表示功力不夠</li></ul><ul id="124dcbde-013a-8065-9f9c-e5bf471c2f83" class="bulleted-list"><li style="list-style-type:disc">可以互相結合</li></ul><hr id="124dcbde-013a-8070-ae1d-d706f4f35a1a"/><h2 id="124dcbde-013a-807d-895d-f191aee9e95e" class="">Key Characteristics of Case Studies</h2><ul id="124dcbde-013a-8041-bb3e-d9a5f0f6952d" class="bulleted-list"><li style="list-style-type:disc">Phenomenon is examined in a natural setting.</li></ul><ul id="124dcbde-013a-80ec-b4cf-c9eefa59e642" class="bulleted-list"><li style="list-style-type:disc">Data are collected by multiple means.</li></ul><ul id="124dcbde-013a-80c3-a760-ec899cf22f3b" class="bulleted-list"><li style="list-style-type:disc">One or few entities(person, group, or organization) are examined.</li></ul><ul id="124dcbde-013a-8006-970e-ea8cccfe48a7" class="bulleted-list"><li style="list-style-type:disc">The complexity of the unit is studied intensively.</li></ul><ul id="124dcbde-013a-8077-a96f-d250e14f05dc" class="bulleted-list"><li style="list-style-type:disc">Case studies are more suitable for  the exploration, classification and hypothesis development stages of the knowledge building process ; the investigator should have a receptive attitude towards exploration.</li></ul><ul id="124dcbde-013a-80e9-998f-dc7c5058d465" class="bulleted-list"><li style="list-style-type:disc">No experimental controls or manipulation are involved.</li></ul><ul id="124dcbde-013a-8000-8232-fc91a95ede67" class="bulleted-list"><li style="list-style-type:disc">The investigator may not specify the set of independent and dependent variables in advance.</li></ul><ul id="124dcbde-013a-80fd-87f1-c296bad8002c" class="bulleted-list"><li style="list-style-type:disc">The results derived depend heavily on the integrative powers of the investigator</li></ul><ul id="124dcbde-013a-80e1-9a18-c93637f199cd" class="bulleted-list"><li style="list-style-type:disc">Changes in site selection and data collection methods could take place as the investigator develops new hypotheses.</li></ul><ul id="124dcbde-013a-807e-801d-dc63c5d82742" class="bulleted-list"><li style="list-style-type:disc">Case research is useful in the study of “why” and “how” questions because these deal with operational links to be traced over time rather than with frequency or incidence.</li></ul><figure id="124dcbde-013a-80ce-a913-ddc1be625d66" class="image" style="text-align:left"><a href="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%2011.png"><img style="width:480px" src="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%2011.png"/></a></figure><figure id="124dcbde-013a-802d-b3f4-cb457a407f81" class="image" style="text-align:left"><a href="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%2012.png"><img style="width:480px" src="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%2012.png"/></a></figure><ul id="124dcbde-013a-800b-ae20-c6fc2eaa3ca8" class="bulleted-list"><li style="list-style-type:disc">哲:個案是主觀的</li></ul><ul id="124dcbde-013a-8088-a056-d9e11df51998" class="bulleted-list"><li style="list-style-type:disc">context: 個案在做脈絡</li></ul><ul id="124dcbde-013a-8044-83ec-f3af473f1897" class="bulleted-list"><li style="list-style-type:disc">content: 個案都是文本(文字、圖片、照相)</li></ul><hr id="124dcbde-013a-8030-af6c-dae75c462aef"/><h2 id="124dcbde-013a-802a-8738-e42e853b1715" class="">個案研究目標</h2><ul id="124dcbde-013a-806b-b7ee-f75f46abc07f" class="bulleted-list"><li style="list-style-type:disc">Level 1：讓原來沒看見的被看見</li></ul><ul id="124dcbde-013a-809c-af27-c94c765fbbda" class="bulleted-list"><li style="list-style-type:disc">Level 2：讓原來看得見的被重新認識</li></ul><ul id="124dcbde-013a-8097-8b94-c7b71ee45098" class="bulleted-list"><li style="list-style-type:disc">Level 3：讓原來不能被看見的被看見</li></ul><hr id="124dcbde-013a-80fb-9f93-e3ce2118f6bc"/><h2 id="124dcbde-013a-8004-b154-ecf449b83bf3" class="">個案Core Concept</h2><ul id="124dcbde-013a-8023-8e6e-dd113cc0e3b0" class="bulleted-list"><li style="list-style-type:disc">不在解決問題，在重新『認識』問題</li></ul><ul id="124dcbde-013a-80ed-9be4-df39319bfd45" class="bulleted-list"><li style="list-style-type:disc">不在證明(要有大量資料，才能驗證)，只能說明(講有沒有)</li></ul><ul id="124dcbde-013a-80e8-a896-c48fcde6bec9" class="bulleted-list"><li style="list-style-type:disc">用真情, 與人, 在生活中, 對話</li></ul><hr id="124dcbde-013a-801a-aea7-c94233f4f00c"/><h2 id="124dcbde-013a-80c0-86bc-df5525b0338d" class="">Survey的研究流程</h2><figure id="124dcbde-013a-80f0-ad7b-c52b55fe6d8c" class="image" style="text-align:left"><a href="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%2013.png"><img style="width:480px" src="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%2013.png"/></a></figure><hr id="124dcbde-013a-80f8-9306-e8a256d9f657"/><h2 id="124dcbde-013a-80ef-a1fb-e97d76244c62" class="">Research Frameworks</h2><ul id="124dcbde-013a-80fb-bf28-d3f07d4f5ebd" class="bulleted-list"><li style="list-style-type:disc">Common conceptual framework</li></ul><ul id="124dcbde-013a-8027-b799-c30403f56ad2" class="bulleted-list"><li style="list-style-type:disc">Initial theoretical variable set</li></ul><hr id="124dcbde-013a-8007-b483-c0656004482e"/><h2 id="124dcbde-013a-807c-a441-e007486e56c8" class="">Case的研究流程</h2><figure id="124dcbde-013a-8020-a262-ce52c2f1be1b" class="image" style="text-align:left"><a href="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%2014.png"><img style="width:576px" src="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%2014.png"/></a></figure><hr id="124dcbde-013a-8039-80a0-f8a86fb8333e"/><h2 id="124dcbde-013a-80cc-bf7c-d1a51aabdfc8" class=""><strong>研究設計的問題</strong>   </h2><ul id="124dcbde-013a-80c8-b9d5-ea417da8bafd" class="bulleted-list"><li style="list-style-type:disc">不是你知道甚麼用甚麼，是看適合用甚麼</li></ul><ul id="124dcbde-013a-800b-b1c3-e424b252b271" class="bulleted-list"><li style="list-style-type:disc">單個案 多個案是幾個?  講數據是錯的 做幾個是錯的，做幾個是以資訊飽和為基準</li></ul><hr id="124dcbde-013a-804c-b2aa-c3d30ab3ab01"/><h2 id="124dcbde-013a-8009-9523-fea3ccd2f51f" class="">Saturation-資訊飽和</h2><figure id="124dcbde-013a-80b4-9f14-c461f682d966" class="image" style="text-align:left"><a href="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%2015.png"><img style="width:576px" src="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%2015.png"/></a></figure><hr id="124dcbde-013a-80e5-a8a4-cc4d5b09e602"/><h2 id="124dcbde-013a-8047-8a70-cb80e527b5a0" class=""><strong>個案研究方法的錯誤</strong>   </h2><ul id="124dcbde-013a-800c-869c-ec70b31ab7bc" class="bulleted-list"><li style="list-style-type:disc">研究目的(過程非結果，脈絡非特定變數)</li></ul><ul id="124dcbde-013a-809e-ba41-cbf402e5decd" class="bulleted-list"><li style="list-style-type:disc">研究對象(非便利性考量)</li></ul><ul id="124dcbde-013a-80b6-aaef-c5e887fd9e29" class="bulleted-list"><li style="list-style-type:disc">單一個案(獨特性，關鍵性，啟示性)或多重個案(一般性)</li></ul><ul id="124dcbde-013a-80b7-8b80-c7dfd03ebd4e" class="bulleted-list"><li style="list-style-type:disc">分析單位(人，系統，組織……)</li></ul><ul id="124dcbde-013a-80b1-aa86-e9d580f2a496" class="bulleted-list"><li style="list-style-type:disc">資料蒐集方法</li></ul><ul id="124dcbde-013a-80a8-93b2-d5c8198970d6" class="bulleted-list"><li style="list-style-type:disc">追述性(合理化行為)(橫斷面 vs. 縱斷面)</li></ul><ul id="124dcbde-013a-80b5-bdef-fb5c771c0b92" class="bulleted-list"><li style="list-style-type:disc">受訪者偏誤(Informant個人風格)</li></ul><ul id="124dcbde-013a-80b5-8243-ecf4015f5413" class="bulleted-list"><li style="list-style-type:disc">研究者之偏誤(故意忽視)</li></ul><hr id="124dcbde-013a-80e7-ae45-d3d6d3bada5e"/><h2 id="124dcbde-013a-8033-8a53-c2b44f63ec16" class="">Triangulation—三角驗證</h2><ul id="124dcbde-013a-8028-9ff5-ea0e0fc91354" class="bulleted-list"><li style="list-style-type:disc">研究者由兩種不同角度測量相同物體的距離</li></ul><ul id="124dcbde-013a-8026-9e35-c3a105d9ae58" class="bulleted-list"><li style="list-style-type:disc">資料收集方法、資料來源、研究對象、理論觀點</li></ul><hr id="124dcbde-013a-80df-9663-dc372a8ee89f"/><h2 id="124dcbde-013a-80fe-b633-f891b035b4f8" class="">Within methods Triangulation</h2><ul id="124dcbde-013a-804e-bbc9-e62ea128cd0a" class="bulleted-list"><li style="list-style-type:disc">Methods Triangulation<figure id="124dcbde-013a-80c7-93b0-f764d262b2c0" class="image"><a href="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%2016.png"><img style="width:432px" src="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%2016.png"/></a></figure></li></ul><ul id="124dcbde-013a-80f6-aef8-f4eef2fdd85f" class="bulleted-list"><li style="list-style-type:disc">Data Triangulation</li></ul><figure id="124dcbde-013a-8097-af79-ee61704156d5" class="image" style="text-align:left"><a href="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%2017.png"><img style="width:480px" src="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%2017.png"/></a></figure><ul id="124dcbde-013a-80d5-87af-cbd42bbbd4f8" class="bulleted-list"><li style="list-style-type:disc">Analyst Triangulation</li></ul><figure id="124dcbde-013a-80e6-b1c7-f04f1f5c4b2b" class="image" style="text-align:left"><a href="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%2018.png"><img style="width:480px" src="%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E6%9C%9F%E4%B8%AD%E6%95%B4%E7%90%86%20124dcbde013a809dad8bc8f61e1180dd/image%2018.png"/></a></figure><hr id="125dcbde-013a-8098-8340-f5caa2c6e769"/><h2 id="125dcbde-013a-80ab-b8f1-c337d9c283b9" class=""><strong>訪談</strong></h2><ul id="125dcbde-013a-8041-96c3-ea781589aa6c" class="bulleted-list"><li style="list-style-type:disc">目標取向</li></ul><ul id="125dcbde-013a-80bc-9bf8-c273a9c53870" class="bulleted-list"><li style="list-style-type:disc">Rich information</li></ul><ul id="125dcbde-013a-8093-bdf5-de505f3e7113" class="bulleted-list"><li style="list-style-type:disc">close、open</li></ul><ul id="125dcbde-013a-80ee-858c-f19301b09b68" class="bulleted-list"><li style="list-style-type:disc">深度(deep)   follow up</li></ul><ul id="125dcbde-013a-80e1-b55a-e454b532b501" class="bulleted-list"><li style="list-style-type:disc">訪談是甚麼角色，你就是甚麼角色</li></ul><ul id="125dcbde-013a-801f-b436-d16bfd3e02ab" class="bulleted-list"><li style="list-style-type:disc">對上(羨慕)  對中(比較)  對下(歧視)</li></ul><ul id="125dcbde-013a-80c1-83b2-c351893c539a" class="bulleted-list"><li style="list-style-type:disc">個案是母體的一份子</li></ul><hr id="125dcbde-013a-8066-b07a-e6ec5c6a4461"/><h2 id="125dcbde-013a-804d-a317-d42b8f8853e6" class="">信度(Reliability)與效度(Validity)</h2><ul id="125dcbde-013a-805b-a3d5-d239f80198f3" class="bulleted-list"><li style="list-style-type:disc">信度講求一致性，效度講求正確性</li></ul><ul id="125dcbde-013a-803e-9ebe-e28717be0a47" class="bulleted-list"><li style="list-style-type:disc">在你的Study內，除了有信度，還要有效度，經濟性(sampling)</li></ul><hr id="125dcbde-013a-8001-86af-f55d806bc74b"/><h2 id="125dcbde-013a-80a9-a674-e4a323480ce4" class="">紮根理論(Grounded Theory)</h2><ul id="125dcbde-013a-8092-b08a-fd305f05ebd5" class="bulleted-list"><li style="list-style-type:disc">歸納的方式</li></ul><ul id="125dcbde-013a-806f-9699-d9e265ea0f39" class="bulleted-list"><li style="list-style-type:disc">對現象加以分析整理所得的中型理論架構(a middle-range theoretical framework)</li></ul><ul id="125dcbde-013a-80a1-a37d-eaa2a95f6ce3" class="bulleted-list"><li style="list-style-type:disc">理論是深植於來自社會世界的資料</li></ul><ul id="125dcbde-013a-807a-9cf0-d5beaa0f99c6" class="bulleted-list"><li style="list-style-type:disc">Theory-Building</li></ul><hr id="125dcbde-013a-8013-9e3b-c0c48ae54f8b"/><h2 id="125dcbde-013a-8064-9bc6-fdc689231996" class="">歸納法--拼圖</h2><ul id="125dcbde-013a-80e8-96aa-ebb715c7725a" class="bulleted-list"><li style="list-style-type:disc">Bottom Up</li></ul><ul id="125dcbde-013a-806a-b59b-d52fd11b9175" class="bulleted-list"><li style="list-style-type:disc">在未知的理論下，蒐集資料來找出理論（利用散落在各處的事實，拼湊出理論）。</li></ul><ul id="125dcbde-013a-80ed-bb3a-fe45a1d359e4" class="bulleted-list"><li style="list-style-type:disc">資料(data)→資訊(information)→知識(knowledge)；</li></ul><ul id="125dcbde-013a-803f-b00f-dfc25a53abf8" class="bulleted-list"><li style="list-style-type:disc">研究的先期，探索性研究</li></ul><hr id="125dcbde-013a-809f-b771-c2b028fc1184"/><h2 id="125dcbde-013a-80d9-8712-d0ca0af15118" class="">編碼   (coding)</h2><ul id="125dcbde-013a-8077-9e28-f449a0003744" class="bulleted-list"><li style="list-style-type:disc">Open coding<ul id="125dcbde-013a-8047-8c17-ced87977967b" class="bulleted-list"><li style="list-style-type:circle">人、事、地、物、認知、感情、活動、事件細分成piece</li></ul><ul id="125dcbde-013a-802e-a06a-de3721ed7606" class="bulleted-list"><li style="list-style-type:circle">主詞  +形容詞</li></ul></li></ul><ul id="125dcbde-013a-80e0-8d2c-f5c4556572d7" class="bulleted-list"><li style="list-style-type:disc">Axial coding</li></ul><ul id="125dcbde-013a-80ae-9736-d598b3408eb1" class="bulleted-list"><li style="list-style-type:disc">Selective coding</li></ul><ul id="125dcbde-013a-803b-b9ad-fceb6af199e6" class="bulleted-list"><li style="list-style-type:disc">Open(key word) →  Axial → Selective coding</li></ul><hr id="125dcbde-013a-804c-9cb7-f68860de6db9"/><h2 id="125dcbde-013a-8048-898e-e853a3e96c6c" class="">活動 vs. 事件</h2><ul id="125dcbde-013a-80ce-b6ea-f9a81e10a041" class="bulleted-list"><li style="list-style-type:disc">活動: 經常發生的行為</li></ul><ul id="125dcbde-013a-80f4-a470-da1857ff9d22" class="bulleted-list"><li style="list-style-type:disc">事件: 並不常發生或只發生過一次</li></ul><hr id="125dcbde-013a-8015-8ee9-cc8a415e00c0"/><h2 id="125dcbde-013a-8068-a7cd-f15dda655314" class="">主軸譯碼(axial coding)</h2><ul id="125dcbde-013a-8032-8fab-cedbff62648f" class="bulleted-list"><li style="list-style-type:disc">性質相似open coding聚再一起，可以只有一個</li></ul><ul id="125dcbde-013a-80f5-9ff3-fdc2e026a31b" class="bulleted-list"><li style="list-style-type:disc">一個因素可以指包含一個變數</li></ul><hr id="125dcbde-013a-80c2-8e6b-ccb7e2975299"/><h2 id="125dcbde-013a-80aa-9488-dd094e48f6ff" class="">選擇性譯碼　(Selective coding)</h2><ul id="125dcbde-013a-80ab-aa57-d0f87f5b957d" class="bulleted-list"><li style="list-style-type:disc">選擇核心範疇，把它有系統地與其他範疇相連結，驗證其間的關係，並把概念化尚未發展全備的範疇補充整齊的過程</li></ul><ul id="125dcbde-013a-80cd-b001-f10fbbffb3ee" class="bulleted-list"><li style="list-style-type:disc">橫軸放一次，縱軸放一次</li></ul><hr id="125dcbde-013a-80ec-b2fa-ddcf90a87671"/><h2 id="125dcbde-013a-8005-9ccb-f090090972b5" class="">APA</h2><ul id="125dcbde-013a-8005-a31c-cbc7078f7401" class="bulleted-list"><li style="list-style-type:disc">論文一定會ㄉ</li></ul><ul id="125dcbde-013a-80da-bc1e-ceaba6042c5d" class="bulleted-list"><li style="list-style-type:disc">引用，吸收之後用自己的話講，意思相近，還要標記是從哪裡來的</li></ul><ul id="125dcbde-013a-806a-bc86-f0421d9b1cc7" class="bulleted-list"><li style="list-style-type:disc">代筆 ， 會有刑法問題</li></ul><ul id="125dcbde-013a-8088-adb6-c9157d4142d7" class="bulleted-list"><li style="list-style-type:disc">別為了幾萬塊把你一輩子毀掉</li></ul><ul id="125dcbde-013a-80a9-9ae6-d8229af93446" class="bulleted-list"><li style="list-style-type:disc">抄襲、不當引用</li></ul><ul id="125dcbde-013a-805c-915a-ce19e5599a4f" class="bulleted-list"><li style="list-style-type:disc">看到數字、年代、人名就一定不是自己的</li></ul><ul id="125dcbde-013a-80eb-bd27-edf6577b3297" class="bulleted-list"><li style="list-style-type:disc">文字走在圖表的前面， 字跟圖一定要連結</li></ul><ul id="125dcbde-013a-807a-b7a2-e9296569b40a" class="bulleted-list"><li style="list-style-type:disc">圖跟表不能被切割</li></ul><ul id="125dcbde-013a-80bf-9b7e-c19ec8aaf66a" class="bulleted-list"><li style="list-style-type:disc">避免用第一人稱</li></ul></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
