@@ -1,0 +1,687 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Management</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="128dcbde-013a-80fb-9303-e2b5e69ed20f" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/nasa_wrights_first_flight.jpg" style="object-position:center 40%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">📁</span></div><h1 class="page-title"><strong>Management</strong></h1><p class="page-description"></p></header><div class="page-body"><nav id="128dcbde-013a-8085-9a05-fa41dd39402f" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#128dcbde-013a-80c0-93ff-d6c1f6880833">第一章-認識與生活融合的企業</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#129dcbde-013a-80e9-a9b9-c91370fa5f12">第二章-典範改變中的管理學</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12bdcbde-013a-8083-bba8-e22c8ef335f7">第三章-西方遇見東方：管理理論的演進與融合</a></div></nav><hr id="128dcbde-013a-8049-a184-f0a20757e5bd"/><h2 id="128dcbde-013a-80c0-93ff-d6c1f6880833" class="">第一章-認識與生活融合的企業</h2><ul id="128dcbde-013a-8049-a04b-e552fa7c2bb8" class="bulleted-list"><li style="list-style-type:disc">企業是什麼<ul id="128dcbde-013a-8079-840e-ee204923ad36" class="bulleted-list"><li style="list-style-type:circle">企業是由<strong>個人或一群人</strong>組成的組織<ul id="128dcbde-013a-8091-ac3f-d13bc0658cee" class="bulleted-list"><li style="list-style-type:square">企業一定是由「人」所組成的</li></ul><ul id="128dcbde-013a-80fc-8df3-d23b82ad65a0" class="bulleted-list"><li style="list-style-type:square">創業者、生產人員、銷售人員、財務人員…</li></ul><ul id="128dcbde-013a-8014-9b84-fcdbae2a25ad" class="bulleted-list"><li style="list-style-type:square">企業規模及產業型態的不同而有很大的差距<ul id="128dcbde-013a-80d2-9114-d5ed019a717f" class="bulleted-list"><li style="list-style-type:disc">鴻海科技集團的員工總數超過130萬人</li></ul><ul id="128dcbde-013a-8000-b7f9-da3da9ba0bd5" class="bulleted-list"><li style="list-style-type:disc">國內員工人數在五人以下的企業有100多萬家</li></ul></li></ul></li></ul><ul id="128dcbde-013a-80f0-b963-c55f994e6843" class="bulleted-list"><li style="list-style-type:circle"><strong>生產要素</strong>的取得與運用<ul id="128dcbde-013a-80d6-b02c-d1afc3365fa9" class="bulleted-list"><li style="list-style-type:square">企業必須取得與運用生產要素，才能轉化為產品與服務</li></ul><ul id="128dcbde-013a-8070-ab62-ebf5d6b38d87" class="bulleted-list"><li style="list-style-type:square">經濟學家稱這些投入(inputs) 為生產要素(factors of production)，並將生產要素分為四大類：<ul id="128dcbde-013a-8083-8f4f-d80021279c24" class="bulleted-list"><li style="list-style-type:disc">自然資源<ul id="128dcbde-013a-8064-9a85-c685b855349e" class="bulleted-list"><li style="list-style-type:circle">泛指任何以自然型態存在，可當作生產投入的資源</li></ul></li></ul><ul id="128dcbde-013a-80a4-9d14-f8354a5f4e89" class="bulleted-list"><li style="list-style-type:disc">人力資源<ul id="128dcbde-013a-8072-9642-e333790dfb73" class="bulleted-list"><li style="list-style-type:circle">包含所有勞心或勞力的工作人口</li></ul></li></ul><ul id="128dcbde-013a-80c0-993f-f787100996c2" class="bulleted-list"><li style="list-style-type:disc">資本設備<ul id="128dcbde-013a-806d-8501-d4ee36df61e7" class="bulleted-list"><li style="list-style-type:circle">指的是「人造的」生產工具</li></ul></li></ul><ul id="128dcbde-013a-801d-9b9b-ce6d8fc5d3a7" class="bulleted-list"><li style="list-style-type:disc">企業家精神(創業精神)<ul id="128dcbde-013a-805b-8617-d779799fb116" class="bulleted-list"><li style="list-style-type:circle">願意承擔風險去創立並營運一家企業的意願</li></ul></li></ul></li></ul></li></ul><ul id="128dcbde-013a-8006-950f-fd06cb15755c" class="bulleted-list"><li style="list-style-type:circle">滿足消費者<strong>需求</strong>的<strong>產品與服務</strong><ul id="128dcbde-013a-80db-a495-daa3e5240fd0" class="bulleted-list"><li style="list-style-type:square">有形產品<ul id="128dcbde-013a-80d2-b52f-dbac0d899fd2" class="bulleted-list"><li style="list-style-type:disc">手機、摩托車、鑽石等</li></ul></li></ul><ul id="128dcbde-013a-8011-8c7c-db3e5e87642a" class="bulleted-list"><li style="list-style-type:square">無形服務(服務業)<ul id="128dcbde-013a-8092-b548-ec1512dce050" class="bulleted-list"><li style="list-style-type:disc">醫療保險、運輸倉儲通信、水電燃氣、零售批發、金融、休閒娛樂、修繕或者資訊。</li></ul></li></ul></li></ul><ul id="128dcbde-013a-80ec-ba43-d4ce68bdf7e7" class="bulleted-list"><li style="list-style-type:circle">以追求<strong>利潤</strong>為目的<ul id="128dcbde-013a-808f-b88a-faf318529dce" class="bulleted-list"><li style="list-style-type:square">賺取利潤為最終目標，又被稱為營利事業</li></ul><ul id="128dcbde-013a-8004-955a-f95f1a201dc5" class="bulleted-list"><li style="list-style-type:square">利潤(profit) 是指企業的收入與支出之間的差距<ul id="128dcbde-013a-801d-8205-f29fbeb44933" class="bulleted-list"><li style="list-style-type:disc">支應營運所需</li></ul><ul id="128dcbde-013a-8063-a94d-efbdadc54c62" class="bulleted-list"><li style="list-style-type:disc">持續產品與服務的開發與改良</li></ul><ul id="128dcbde-013a-808d-9509-e537098b4424" class="bulleted-list"><li style="list-style-type:disc">對投資者的責任</li></ul></li></ul></li></ul></li></ul><ul id="128dcbde-013a-80bc-ae62-fe99c855a718" class="bulleted-list"><li style="list-style-type:disc">企業功能與管理功能<ul id="129dcbde-013a-802a-ad79-e3dd355cfd92" class="bulleted-list"><li style="list-style-type:circle">企業功能<ul id="129dcbde-013a-801d-be42-ceda711eb00f" class="bulleted-list"><li style="list-style-type:square">企業為達成目標所執行的一些機能性的業務工作，稱之為企業功能(business functions)，包括：<ol type="1" id="129dcbde-013a-80d9-a1f6-f1dfbb3022e4" class="numbered-list" start="1"><li>生<mark class="highlight-red">產</mark>功能<ul id="129dcbde-013a-8068-bae5-f67249372173" class="bulleted-list"><li style="list-style-type:disc">透過生產流程製造產品或提供服務。</li></ul></li></ol><ol type="1" id="129dcbde-013a-80fb-843f-e08528f57075" class="numbered-list" start="2"><li>行<mark class="highlight-red">銷</mark>功能<ul id="129dcbde-013a-808d-9ee3-fe749c3eb345" class="bulleted-list"><li style="list-style-type:disc">與顧客之間進行價值的接收、創造、溝通與傳達的功能。</li></ul><ul id="129dcbde-013a-80d3-8d4d-ee4880870de4" class="bulleted-list"><li style="list-style-type:disc">顧客關係的管理，增進企業與顧客之間的利益。</li></ul></li></ol><ol type="1" id="129dcbde-013a-8013-b454-e0ff83f32755" class="numbered-list" start="3"><li><mark class="highlight-red">人</mark>力資源<ul id="129dcbde-013a-8009-99a3-eb7a7314337a" class="bulleted-list"><li style="list-style-type:disc">招募、聘用、訓練、評鑑員工。</li></ul></li></ol><ol type="1" id="129dcbde-013a-807d-8c06-eed462ee7517" class="numbered-list" start="4"><li>研究與<mark class="highlight-red">發</mark>展功能<ul id="129dcbde-013a-80e7-967e-f544e4660762" class="bulleted-list"><li style="list-style-type:disc">新產品或新功能的研發與設計。</li></ul></li></ol><ol type="1" id="129dcbde-013a-809b-a0cd-d18d35206cc9" class="numbered-list" start="5"><li><mark class="highlight-red">財</mark>務功能<ul id="129dcbde-013a-80cd-935f-f38d0f46660f" class="bulleted-list"><li style="list-style-type:disc">對資金進行管理。</li></ul></li></ol><ol type="1" id="129dcbde-013a-8011-8895-c71d852cc437" class="numbered-list" start="6"><li><mark class="highlight-red">資</mark>訊功能<ul id="129dcbde-013a-8007-ae5b-ce2d25a26a0c" class="bulleted-list"><li style="list-style-type:disc">處理訊息的功能。</li></ul></li></ol></li></ul></li></ul><ul id="129dcbde-013a-80c1-b4ea-dd85638404ae" class="bulleted-list"><li style="list-style-type:circle">管理功能<ul id="129dcbde-013a-808a-b843-c37f7a5f4e51" class="bulleted-list"><li style="list-style-type:square">企業的管理功能(management function) 包括<ul id="129dcbde-013a-808f-aaba-fcac36db32c6" class="bulleted-list"><li style="list-style-type:disc">規劃<ul id="129dcbde-013a-804c-8fd0-f4df445a9b30" class="bulleted-list"><li style="list-style-type:circle">替未來的組織績效定出目標，並研擬任務分配及資源使用方式以達成目標的過程。</li></ul></li></ul><ul id="129dcbde-013a-8012-a6a8-ed7bec160f68" class="bulleted-list"><li style="list-style-type:disc">組織<ul id="129dcbde-013a-8048-9def-dde5eae02a26" class="bulleted-list"><li style="list-style-type:circle">包括任務的指派、任務的部門化、資源的分派等等。</li></ul></li></ul><ul id="129dcbde-013a-80f4-8ddb-d3398202ab60" class="bulleted-list"><li style="list-style-type:disc">領導<ul id="129dcbde-013a-8078-a996-de209d150ebe" class="bulleted-list"><li style="list-style-type:circle">是指管理者運用影響力來激勵員工達成組織的目標。</li></ul></li></ul><ul id="129dcbde-013a-8094-944e-ea617977df92" class="bulleted-list"><li style="list-style-type:disc">控制<ul id="129dcbde-013a-80ff-8341-c7cba2487684" class="bulleted-list"><li style="list-style-type:circle">是管理程序的第四個功能，包含對員工或事業單位的績效衡量，以確定組織計畫或目標的實現，並視狀況決定是否採取調整行為。</li></ul></li></ul></li></ul></li></ul><ul id="129dcbde-013a-8010-9b70-fe1c3595a335" class="bulleted-list"><li style="list-style-type:circle">企業管理矩陣<ul id="129dcbde-013a-808f-9198-d5bfcb64d8dd" class="bulleted-list"><li style="list-style-type:square">將企業功能與管理功能組成交叉式矩陣。</li></ul><ul id="129dcbde-013a-80f8-ac44-fe029e8eb723" class="bulleted-list"><li style="list-style-type:square">矩陣中每一格都代表一項現代企業的管理者必須具備的管理知識。<figure id="129dcbde-013a-808d-9b42-fafa72e5b6de" class="image"><a href="%25E6%2588%25AA%25E5%259C%2596_2024-10-24_%25E4%25B8%258A%25E5%258D%25889.50.30.png"><img style="width:528px" src="%25E6%2588%25AA%25E5%259C%2596_2024-10-24_%25E4%25B8%258A%25E5%258D%25889.50.30.png"/></a></figure></li></ul></li></ul></li></ul><ul id="128dcbde-013a-80eb-8ebe-c0f7ddc0dcf7" class="bulleted-list"><li style="list-style-type:disc">現代企業的重要性<ul id="129dcbde-013a-80c9-a6ec-ea69e31be742" class="bulleted-list"><li style="list-style-type:circle">企業提供個人工作、學習與實現創意的場域</li></ul><ul id="129dcbde-013a-8002-ab2e-c38a48316b8e" class="bulleted-list"><li style="list-style-type:circle">企業對社會的服務疆界不斷擴大</li></ul><ul id="129dcbde-013a-801d-8221-f779908a948c" class="bulleted-list"><li style="list-style-type:circle">企業有助於提升人類物質文明</li></ul></li></ul><hr id="129dcbde-013a-8068-85fc-ddd82cc45151"/><h2 id="129dcbde-013a-80e9-a9b9-c91370fa5f12" class="">第二章-典範改變中的管理學</h2><ul id="129dcbde-013a-80dc-85eb-c8b95d897ca9" class="bulleted-list"><li style="list-style-type:disc">管理是什麼?<ul id="129dcbde-013a-8094-ad82-f19e2065e52c" class="bulleted-list"><li style="list-style-type:circle">運用管理功能與資源，進行目標設定與達成的過程。</li></ul><ul id="129dcbde-013a-805b-b830-f77670862ed0" class="bulleted-list"><li style="list-style-type:circle">管理者：從事管理工作的人</li></ul></li></ul><ul id="129dcbde-013a-80be-8b2e-df47e1e0f7bb" class="bulleted-list"><li style="list-style-type:disc">管理的定義<ul id="129dcbde-013a-80f1-a5ca-cc1344a23224" class="bulleted-list"><li style="list-style-type:circle">兼具「<mark class="highlight-red">效果(effectiveness)</mark>」和「<mark class="highlight-red">效率(efficiency)</mark>」的方式達成組織目標</li></ul><ul id="129dcbde-013a-8069-9a2a-d374381216e9" class="bulleted-list"><li style="list-style-type:circle">管理人員利用「概念化、人際和技術能力」等不同的技能來執行這些功能。</li></ul></li></ul><ul id="129dcbde-013a-8078-81ce-d540599313ac" class="bulleted-list"><li style="list-style-type:disc">管理程序<figure id="129dcbde-013a-8080-8f58-e9a24af63bfd" class="image"><a href="%25E6%2588%25AA%25E5%259C%2596_2024-10-24_%25E4%25B8%258A%25E5%258D%25889.59.47.png"><img style="width:576px" src="%25E6%2588%25AA%25E5%259C%2596_2024-10-24_%25E4%25B8%258A%25E5%258D%25889.59.47.png"/></a></figure></li></ul><ul id="129dcbde-013a-8021-b083-c93f8f77aa2a" class="bulleted-list"><li style="list-style-type:disc">規劃<ul id="129dcbde-013a-808b-ba13-c818829d8e04" class="bulleted-list"><li style="list-style-type:circle">為設定組織目標，並建立達成該目標的計畫體系。</li></ul><ul id="129dcbde-013a-8088-ae3c-d95775a2ae6e" class="bulleted-list"><li style="list-style-type:circle">規劃是指完成計畫的過程，包括界定組織的目標與達成目標的方法。<ul id="129dcbde-013a-804b-a3e1-ca398116bdb5" class="bulleted-list"><li style="list-style-type:square">目標(goal)</li></ul><ul id="129dcbde-013a-80b7-976a-d2b8339ea293" class="bulleted-list"><li style="list-style-type:square">組織目標體系</li></ul></li></ul></li></ul><ul id="129dcbde-013a-8069-b782-d73f4ecb60be" class="bulleted-list"><li style="list-style-type:disc">組織<ul id="129dcbde-013a-804d-a621-d867d33ee838" class="bulleted-list"><li style="list-style-type:circle">任務的指派、任務的部門化、資源的分派<ul id="129dcbde-013a-80e1-88ba-c880040f2b93" class="bulleted-list"><li style="list-style-type:square">專業分工(division of labor)</li></ul><ul id="129dcbde-013a-8057-854a-f3210f58a816" class="bulleted-list"><li style="list-style-type:square">協調(coordination)</li></ul></li></ul></li></ul><ul id="129dcbde-013a-80f1-ae94-de1136009e03" class="bulleted-list"><li style="list-style-type:disc">領導<ul id="129dcbde-013a-80a2-b6b6-fc3c143e231a" class="bulleted-list"><li style="list-style-type:circle">是一種影響他人的程序，使人能致力於組織目標的實現。</li></ul><ul id="129dcbde-013a-8070-b409-db06864fa62d" class="bulleted-list"><li style="list-style-type:circle">權力的五種來源<ul id="129dcbde-013a-806f-91cf-e63f84ace322" class="bulleted-list"><li style="list-style-type:square">法定權<ul id="12bdcbde-013a-8001-997e-e5c2279419d3" class="bulleted-list"><li style="list-style-type:disc">擔任組織某職務</li></ul></li></ul><ul id="129dcbde-013a-80bd-9b19-f1f5c2284525" class="bulleted-list"><li style="list-style-type:square">專家權<ul id="12bdcbde-013a-8074-9f3d-fe3069472695" class="bulleted-list"><li style="list-style-type:disc">專業知識技能</li></ul></li></ul><ul id="129dcbde-013a-8049-84fe-e08155e330db" class="bulleted-list"><li style="list-style-type:square">參照權<ul id="12bdcbde-013a-8005-b5d9-dec39ca71f2d" class="bulleted-list"><li style="list-style-type:disc">認同、忠誠、魅力</li></ul></li></ul><ul id="129dcbde-013a-807b-baf0-ea5f31ab7ad4" class="bulleted-list"><li style="list-style-type:square">獎賞權</li></ul><ul id="129dcbde-013a-80ab-b0c0-f278f0442377" class="bulleted-list"><li style="list-style-type:square">威嚇權</li></ul></li></ul></li></ul><ul id="129dcbde-013a-802f-a8ce-d1bf722b79d6" class="bulleted-list"><li style="list-style-type:disc">控制<ul id="129dcbde-013a-8064-8837-fbdcaf5f7343" class="bulleted-list"><li style="list-style-type:circle">包含對員工或事業單位的績效衡量，以確定組織計畫或目標的實現，並視狀況決定是否採取調整行為。<ul id="129dcbde-013a-8068-ad88-f758a56199a3" class="bulleted-list"><li style="list-style-type:square">標準化作業流程(SOP)</li></ul><ul id="129dcbde-013a-80c4-a9ba-d770685567a2" class="bulleted-list"><li style="list-style-type:square">自我衡量、自我控制</li></ul></li></ul></li></ul><ul id="129dcbde-013a-8056-9167-cb6e774b8bee" class="bulleted-list"><li style="list-style-type:disc">效果 vs. 效率<ul id="129dcbde-013a-8090-8662-f4b44f98d79d" class="bulleted-list"><li style="list-style-type:circle">組織應該同時追求效果和效率。 </li></ul><ul id="129dcbde-013a-8083-876f-f7d9698aef7f" class="bulleted-list"><li style="list-style-type:circle">若兩者無法兼顧時，應以效果為重，否則一味追求效率卻達不到預計效果，只會造成資源的浪費。</li></ul><ul id="129dcbde-013a-80a8-a7de-dc88960d45eb" class="bulleted-list"><li style="list-style-type:circle">效果(效能)(Effectiveness)<ul id="129dcbde-013a-8082-9f60-ced5936e798b" class="bulleted-list"><li style="list-style-type:square">組織達成特定目標的程度</li></ul><ul id="129dcbde-013a-802c-85f5-d595e5e20173" class="bulleted-list"><li style="list-style-type:square">做對的事</li></ul></li></ul><ul id="129dcbde-013a-805f-98e4-da400dc5970f" class="bulleted-list"><li style="list-style-type:circle">效率(Efficiency)<ul id="129dcbde-013a-80c6-b67a-cf29157269da" class="bulleted-list"><li style="list-style-type:square">組織資源的使用率，要達成特定的目標</li></ul><ul id="129dcbde-013a-80c0-b97c-f3e7403c78f4" class="bulleted-list"><li style="list-style-type:square">把事情做對</li></ul></li></ul></li></ul><ul id="129dcbde-013a-8055-9bf7-e2b2a8cc23f8" class="bulleted-list"><li style="list-style-type:disc">管理者的類型<ul id="129dcbde-013a-80b1-835c-f6499e3f87f6" class="bulleted-list"><li style="list-style-type:circle">垂直差異<ul id="129dcbde-013a-80ac-a51f-c8e4f93cab65" class="bulleted-list"><li style="list-style-type:square">管理者因為在組織內的位階不同，而有不同的職責與職權。</li></ul><ul id="129dcbde-013a-8034-8351-da8ccaf58eaa" class="bulleted-list"><li style="list-style-type:square">高階管理者<ul id="129dcbde-013a-800e-b739-d1fcdd14d08e" class="bulleted-list"><li style="list-style-type:disc">位於組織的最上層，為組織的整體營運負責。</li></ul><ul id="129dcbde-013a-80a4-945c-e0ccbcf20729" class="bulleted-list"><li style="list-style-type:disc">工作內容是設定組織目標，制訂出達成目標的策略方法，監督並詮釋外部環境的變化，並制定會影響整個公司的決策。</li></ul></li></ul><ul id="129dcbde-013a-8080-9ae7-f8bdddfee080" class="bulleted-list"><li style="list-style-type:square">中階管理者<ul id="129dcbde-013a-80fa-b419-df272601c436" class="bulleted-list"><li style="list-style-type:disc">是承上啟下並負責特定的事業部或主要的功能部門。</li></ul><ul id="129dcbde-013a-80fd-ae2a-deb8787035e3" class="bulleted-list"><li style="list-style-type:disc">重視和組織內其他單位建立良好的關係、鼓勵團隊合作、解決內部紛爭。</li></ul><ul id="129dcbde-013a-8071-b2da-f82e7655196d" class="bulleted-list"><li style="list-style-type:disc">必要的技術協助、激勵部屬，以確保生產過程的順利和效率。</li></ul><ul id="129dcbde-013a-8067-bb85-e8dade7b5429" class="bulleted-list"><li style="list-style-type:disc">組織扁平化的挑戰</li></ul></li></ul><ul id="129dcbde-013a-8012-99d2-cfd9ac2563cc" class="bulleted-list"><li style="list-style-type:square">中階主管減少的趨勢<ul id="129dcbde-013a-80be-849e-f0c29b91d480" class="bulleted-list"><li style="list-style-type:disc">資訊科技的進步<ul id="129dcbde-013a-80ba-8098-ea3621ec7fb4" class="bulleted-list"><li style="list-style-type:circle">O2O、大數據、雲端、智能化</li></ul></li></ul><ul id="129dcbde-013a-801d-ad5f-fb22d88ca9ab" class="bulleted-list"><li style="list-style-type:disc">工作性質的轉變<ul id="129dcbde-013a-8021-99bb-d4fc9a8caf54" class="bulleted-list"><li style="list-style-type:circle">監督 vs. 水平溝通</li></ul></li></ul><ul id="129dcbde-013a-8016-bb83-c8671ffdeaa9" class="bulleted-list"><li style="list-style-type:disc">扁平化<strong>(flatting)</strong></li></ul></li></ul><ul id="129dcbde-013a-80f0-bd58-ff89c57c658e" class="bulleted-list"><li style="list-style-type:square">基層管理者<ul id="129dcbde-013a-80b8-9086-c11b89220944" class="bulleted-list"><li style="list-style-type:disc">直接負責產品和服務的製造的管理者，通常是組織中第一階或第二階主管。</li></ul><ul id="129dcbde-013a-809d-a0a6-e086dce8cc50" class="bulleted-list"><li style="list-style-type:disc">非常需要技術能力</li></ul><ul id="129dcbde-013a-80d2-9f55-d9cc342a7927" class="bulleted-list"><li style="list-style-type:disc">運用既定的流程達成有效生產的目標。</li></ul></li></ul><figure id="129dcbde-013a-8026-aa2e-ee1ed213118d" class="image"><a href="%25E6%2588%25AA%25E5%259C%2596_2024-10-24_%25E4%25B8%25AD%25E5%258D%258812.43.12.png"><img style="width:480px" src="%25E6%2588%25AA%25E5%259C%2596_2024-10-24_%25E4%25B8%25AD%25E5%258D%258812.43.12.png"/></a></figure></li></ul><ul id="129dcbde-013a-8081-8958-de39293cfb6f" class="bulleted-list"><li style="list-style-type:circle">水平差異<ul id="129dcbde-013a-803f-80dd-c25ef46f33cf" class="bulleted-list"><li style="list-style-type:square">組織裡的平行單位間，因為部門目標不同而造成的差異。<ul id="129dcbde-013a-8011-b268-e570df86ecf5" class="bulleted-list"><li style="list-style-type:disc">部門工作目標的不同</li></ul><ul id="129dcbde-013a-80d1-a349-fc143f35079c" class="bulleted-list"><li style="list-style-type:disc">部門運作方式的不同</li></ul><ul id="129dcbde-013a-808a-b22a-e31aa136d890" class="bulleted-list"><li style="list-style-type:disc">部門人員特質的不同</li></ul><ul id="129dcbde-013a-80be-875c-f1b04d8e301e" class="bulleted-list"><li style="list-style-type:disc">部門主管特質的不同</li></ul></li></ul></li></ul><ul id="129dcbde-013a-80e0-a71e-e2fe6cbbe0fc" class="bulleted-list"><li style="list-style-type:circle">專案經理<ul id="129dcbde-013a-80b0-a687-dd2c9c2baf06" class="bulleted-list"><li style="list-style-type:square">導來自不同部門的員工共同完成某項專案，以降低不同部門之間的衝突與提高專案執行的效率。</li></ul></li></ul></li></ul><ul id="129dcbde-013a-80f6-8020-f65047b56dea" class="bulleted-list"><li style="list-style-type:disc">管理技能(Management Skills) <figure id="129dcbde-013a-805d-9f31-f8d9c8298e52" class="image"><a href="%25E6%2588%25AA%25E5%259C%2596_2024-10-24_%25E4%25B8%25AD%25E5%258D%258812.50.47.png"><img style="width:528px" src="%25E6%2588%25AA%25E5%259C%2596_2024-10-24_%25E4%25B8%25AD%25E5%258D%258812.50.47.png"/></a></figure></li></ul><ul id="129dcbde-013a-8052-9ae9-c7a7340b494c" class="bulleted-list"><li style="list-style-type:disc">概念化能力<ul id="12bdcbde-013a-80cd-945b-ee550a85d379" class="bulleted-list"><li style="list-style-type:circle">管理者理解組織整體與其內外環境之間關係的洞察能力。</li></ul><ul id="12bdcbde-013a-804c-a284-c2978588f388" class="bulleted-list"><li style="list-style-type:circle">概念化能力包括<ul id="12bdcbde-013a-8021-ab7e-c89c5e90bd65" class="bulleted-list"><li style="list-style-type:square">策略性思考的能力</li></ul><ul id="12bdcbde-013a-8023-be1b-d58029d8b39a" class="bulleted-list"><li style="list-style-type:square">管理者思考、規劃和表達的能力。</li></ul></li></ul><ul id="12bdcbde-013a-8096-ac74-e0ad59f652db" class="bulleted-list"><li style="list-style-type:circle">高階主管的概念化能力<ul id="12bdcbde-013a-8031-ad59-e11c5454c62c" class="bulleted-list"><li style="list-style-type:square">購併、多角化方向、企業文化塑造、策略創新等</li></ul></li></ul><ul id="12bdcbde-013a-80cb-a9c0-d57f170de3a1" class="bulleted-list"><li style="list-style-type:circle">彼得原理</li></ul></li></ul><ul id="129dcbde-013a-8031-b199-c2cd8397654c" class="bulleted-list"><li style="list-style-type:disc">人際關係能力<ul id="12bdcbde-013a-8074-bd0c-ddb466e4069a" class="bulleted-list"><li style="list-style-type:circle">管理者和他人相處、合作，並且成為一個有效率工作團隊的能力。</li></ul><ul id="12bdcbde-013a-8047-85d8-c47196dfc237" class="bulleted-list"><li style="list-style-type:circle">通常都與人際之間的接觸有關，包括激勵、協調、領導、溝通和解決紛爭的能力。</li></ul><ul id="12bdcbde-013a-8030-880b-d156820ae036" class="bulleted-list"><li style="list-style-type:circle">員工自主性與技術能力的複雜度增加，使管理者的人際關係能力越來越重要。</li></ul><ul id="12bdcbde-013a-8067-b01b-f50cca246696" class="bulleted-list"><li style="list-style-type:circle">帶人要帶心</li></ul></li></ul><ul id="129dcbde-013a-8027-b68d-e2127c13bf04" class="bulleted-list"><li style="list-style-type:disc">技術能力<ul id="12bdcbde-013a-80b7-858b-e514e2543a84" class="bulleted-list"><li style="list-style-type:circle">了解並且精通完成特定任務所需的能力。</li></ul><ul id="12bdcbde-013a-80b0-8c5e-c3e973805fd6" class="bulleted-list"><li style="list-style-type:circle">基層管理者特別需具備技術能力。</li></ul><ul id="12bdcbde-013a-8014-b51c-cd361a5b115c" class="bulleted-list"><li style="list-style-type:circle">特定的知識、分析能力，以及熟悉使用特定的工具和科技來解決問題的程度。</li></ul><ul id="12bdcbde-013a-8087-9a00-cc91bfbce5d8" class="bulleted-list"><li style="list-style-type:circle">知識經濟時代的專業型組織</li></ul></li></ul><ul id="12bdcbde-013a-8038-92a8-f8cc4368dc88" class="bulleted-list"><li style="list-style-type:disc">管理者的活動(Management Activities)<ul id="12bdcbde-013a-8071-af58-c46b4b9bbb6d" class="bulleted-list"><li style="list-style-type:circle">高階主管對於工作中積極而具體的部分幹勁十足</li></ul><ul id="12bdcbde-013a-8029-81bd-ead1c3223d5f" class="bulleted-list"><li style="list-style-type:circle">高階主管偏愛口頭式的溝通</li></ul><ul id="12bdcbde-013a-80cd-b4e6-d04056c543bb" class="bulleted-list"><li style="list-style-type:circle">高階主管在工作上的最大危險就是不能深入</li></ul><ul id="12bdcbde-013a-80be-97f2-ef04a07b28bc" class="bulleted-list"><li style="list-style-type:circle">管理工作沒有科學法則</li></ul></li></ul><figure id="12bdcbde-013a-8080-b3f2-da0a219d18d2" class="image" style="text-align:left"><a href="image.png"><img style="width:624px" src="image.png"/></a></figure><ul id="12bdcbde-013a-80da-8ad2-c773f7876fa1" class="bulleted-list"><li style="list-style-type:disc">管理者角色(Managerial Roles)<ul id="12bdcbde-013a-802f-9f54-e527286404c5" class="bulleted-list"><li style="list-style-type:circle">人際角色(interpersonal roles)<ul id="12bdcbde-013a-80ba-978d-ef1bd79c43c0" class="bulleted-list"><li style="list-style-type:square">和組織內其他成員維持關係的活動，這和我們之前所談到的人際關係管理能力有很深的關聯。</li></ul><ul id="12bdcbde-013a-802e-b366-f5b18fec117f" class="bulleted-list"><li style="list-style-type:square">頭臉人物(figurehead)<ul id="12bdcbde-013a-805b-a6dd-f4d69548a33e" class="bulleted-list"><li style="list-style-type:disc">執行儀式或象徵性的工作。</li></ul></li></ul><ul id="12bdcbde-013a-80a5-a566-d60467546f30" class="bulleted-list"><li style="list-style-type:square">領導者(leader)<ul id="12bdcbde-013a-8016-8cc6-fe2a764ef99f" class="bulleted-list"><li style="list-style-type:disc">強調和員工部屬之間的關係營造，包括溝通、訓練、激勵、以及影響員工等行為。</li></ul></li></ul><ul id="12bdcbde-013a-8003-b4a4-cf22f2c32495" class="bulleted-list"><li style="list-style-type:square">連絡人(liaison)<ul id="12bdcbde-013a-80b1-8bd9-e4d9a2327817" class="bulleted-list"><li style="list-style-type:disc">在發展組織內部或外部的資訊來源，包括由內部或外部獲得資訊以協助決策。</li></ul></li></ul></li></ul><ul id="12bdcbde-013a-803b-8993-d3c0d5a919bd" class="bulleted-list"><li style="list-style-type:circle">資訊角色(informational roles)<ul id="12bdcbde-013a-80ad-a36d-c32d6d745e4c" class="bulleted-list"><li style="list-style-type:square">指保持和發展資訊網路的工作</li></ul><ul id="12bdcbde-013a-80c7-89d4-cfcc282a31b7" class="bulleted-list"><li style="list-style-type:square">監聽者(monitor) <ul id="12bdcbde-013a-80e8-8d7a-ee594e46b4f0" class="bulleted-list"><li style="list-style-type:disc">不斷掃描組織的環境、搜尋有關的情報；還會與下屬或熟人聯繫，主動取得一些資訊，這些都透過自己過去建立的人際網絡取得。</li></ul></li></ul><ul id="12bdcbde-013a-80a0-ae0b-e91e400080f3" class="bulleted-list"><li style="list-style-type:square">傳播者(disseminator)<ul id="12bdcbde-013a-807e-b677-df5367708611" class="bulleted-list"><li style="list-style-type:disc">與部屬分享資訊，或者將自己掌握的資訊與重要幹部分享。</li></ul></li></ul><ul id="12bdcbde-013a-8038-b387-ca9c56ad58a8" class="bulleted-list"><li style="list-style-type:square">發言人(spokesman)<ul id="12bdcbde-013a-80d6-9a33-de139ea391f5" class="bulleted-list"><li style="list-style-type:disc">代表組織對外發言，向外界傳遞某些資訊。</li></ul></li></ul></li></ul><ul id="12bdcbde-013a-806d-a491-e05887484d44" class="bulleted-list"><li style="list-style-type:circle">決策角色(decisional roles)<ul id="12bdcbde-013a-806e-a1bc-df23d9cb1315" class="bulleted-list"><li style="list-style-type:square">管理者必須做決定及實際執行的事件。</li></ul><ul id="12bdcbde-013a-8018-8a25-cee58eaaa8a0" class="bulleted-list"><li style="list-style-type:square">這類角色通常需要概念化和人際關係管理技能。</li></ul><ul id="12bdcbde-013a-80a3-94a7-f59cc5cd07b3" class="bulleted-list"><li style="list-style-type:square">興業家(entrepreneur)<ul id="12bdcbde-013a-805e-9614-d61cf836f025" class="bulleted-list"><li style="list-style-type:disc">扮演創新和尋求改變的角色，推動方案改善自己的部門。</li></ul></li></ul><ul id="12bdcbde-013a-8067-bcd4-c74dc84fe169" class="bulleted-list"><li style="list-style-type:square">危機處理者(disturbance handler)<ul id="12bdcbde-013a-801f-8ed5-c27c475daac7" class="bulleted-list"><li style="list-style-type:disc">是指管理者，非自願的對各種問題或危機做出反應。例如排解組織內的突發狀況或部門間的紛爭及衝突。</li></ul><ul id="12bdcbde-013a-803a-a366-fbab03a45cbb" class="bulleted-list"><li style="list-style-type:disc">嚴長壽處理颱風危機的故事</li></ul></li></ul><ul id="12bdcbde-013a-808a-a2e8-dffb489b0842" class="bulleted-list"><li style="list-style-type:square">資源分配者(resources allocator)<ul id="12bdcbde-013a-80fa-b109-c1b3589f99af" class="bulleted-list"><li style="list-style-type:disc">對人力、物力、時間及金錢等資源進行調配</li></ul><ul id="12bdcbde-013a-8046-b24a-f5a63732ed24" class="bulleted-list"><li style="list-style-type:disc">確認與引導部屬的方向，使之能與組織預定的目標相符</li></ul></li></ul><ul id="12bdcbde-013a-8030-a707-deee27fa4230" class="bulleted-list"><li style="list-style-type:square">談判者(negotiator) <ul id="12bdcbde-013a-806c-aa09-fd67578f1b6c" class="bulleted-list"><li style="list-style-type:disc">談判的對象包括部屬、其他單位的同仁或者外部組織</li></ul><ul id="12bdcbde-013a-80a9-b46f-c19be2ed76de" class="bulleted-list"><li style="list-style-type:disc">目的在於爭取自己部門或單位的利益</li></ul></li></ul></li></ul></li></ul><ul id="12bdcbde-013a-808f-887d-de23a9b3eacc" class="bulleted-list"><li style="list-style-type:disc">變動環境下的管理議題<ul id="12bdcbde-013a-80fe-8f5b-e5f961aa251a" class="bulleted-list"><li style="list-style-type:circle">多元文化的尊重與認同<ul id="12bdcbde-013a-80f1-ac53-e276eb0cf830" class="bulleted-list"><li style="list-style-type:square">內部人員多元性</li></ul><ul id="12bdcbde-013a-805f-a84a-fa0622e2ba90" class="bulleted-list"><li style="list-style-type:square">顧客多元性</li></ul></li></ul><ul id="12bdcbde-013a-80df-b291-e66867e33533" class="bulleted-list"><li style="list-style-type:circle">創新與創業精神的開展<ul id="12bdcbde-013a-80e5-981f-da95bb52f081" class="bulleted-list"><li style="list-style-type:square">掌握巨變時代的先機</li></ul><ul id="12bdcbde-013a-8004-a222-e7ec5b00b1cc" class="bulleted-list"><li style="list-style-type:square">大數據、雲端運算</li></ul><ul id="12bdcbde-013a-80de-8294-d93d3a00b33e" class="bulleted-list"><li style="list-style-type:square">持續監控外在的狀況</li></ul></li></ul><ul id="12bdcbde-013a-8050-8ee3-d284703f193d" class="bulleted-list"><li style="list-style-type:circle">後現代管理的典範發展<ul id="12bdcbde-013a-80be-9ad7-d4aa5df61f68" class="bulleted-list"><li style="list-style-type:square"> 更加分權、傾聽多元聲音</li></ul><ul id="12bdcbde-013a-800c-b1d1-c3290b9cefd4" class="bulleted-list"><li style="list-style-type:square">尊重與包容差異</li></ul></li></ul></li></ul><hr id="12bdcbde-013a-80ad-bc85-f0dc20bb1149"/><h2 id="12bdcbde-013a-8083-bba8-e22c8ef335f7" class="">第三章-西方遇見東方：管理理論的演進與融合</h2><ul id="12bdcbde-013a-8043-84f8-d01f8559a8b6" class="bulleted-list"><li style="list-style-type:disc">科學管理學派：把人訓練成機器<ul id="12bdcbde-013a-80c8-94b5-fd253386aeeb" class="bulleted-list"><li style="list-style-type:circle">泰勒</li></ul><ul id="12bdcbde-013a-80db-9b94-ed84f0f15a88" class="bulleted-list"><li style="list-style-type:circle">科學管理起源於泰勒對所管轄員工的觀察</li></ul><ul id="12bdcbde-013a-8035-82db-e5ad235659a9" class="bulleted-list"><li style="list-style-type:circle">1911年，泰勒在“科學管理原理”(Principles of Scientific Management)一書，提出了四項「科學化管理」的原則<ol type="1" id="12ddcbde-013a-80c8-a5b1-e1193af67692" class="numbered-list" start="1"><li>針對工人工作的每一要素，均應發展一套<mark class="highlight-red">科學的工作方法</mark>，以代替原有的經驗法則。</li></ol><ol type="1" id="12ddcbde-013a-80a7-85f7-e73276c9fdb2" class="numbered-list" start="2"><li>應以科學方法進行工人的遴選，然後加以<mark class="highlight-red">訓練</mark><br/>，以代替過去由工人自己選擇工作及自我訓練的方法。<br/></li></ol><ol type="1" id="12ddcbde-013a-805e-976f-ee80f860f6cf" class="numbered-list" start="3"><li>應<mark class="highlight-red">誠心與工人合作</mark>，使工作的實施確能符合科學的原理。</li></ol><ol type="1" id="12ddcbde-013a-8065-8a28-f8bf109365c0" class="numbered-list" start="4"><li>對於任何工作，管理階層與工人均應有相等的<br/><br/><mark class="highlight-red">分工和相對的責任</mark>。適合管理階層的部分，應由管理階層承擔。</li></ol></li></ul><ul id="12ddcbde-013a-806a-9a15-f3dc567c27ad" class="bulleted-list"><li style="list-style-type:circle">吉爾布萊斯夫婦提出動作研究(motion study)</li></ul><ul id="12ddcbde-013a-80b9-baa7-cab2c1f11f94" class="bulleted-list"><li style="list-style-type:circle">甘特於1917年提出「甘特圖」</li></ul><ul id="12ddcbde-013a-80ca-b1aa-d6efca7d8e22" class="bulleted-list"><li style="list-style-type:circle">科學管理對現代管理學的貢獻<ol type="1" id="12ddcbde-013a-802a-a85e-eb0eb71061fb" class="numbered-list" start="1"><li>管理者與員工各司其職</li></ol><ol type="1" id="12ddcbde-013a-808b-ba9a-cd22a08979a8" class="numbered-list" start="2"><li>工人和管理人員雙方必須密切的合作</li></ol><ol type="1" id="12ddcbde-013a-802b-b9f7-d3a66eaeef7b" class="numbered-list" start="3"><li>強調以實驗或觀察的科學精神，找出最佳工作方法</li></ol></li></ul></li></ul><ul id="12ddcbde-013a-8074-8ff9-d25939ff0623" class="bulleted-list"><li style="list-style-type:disc">行政管理學派：設計嚴謹的組織架構<ul id="12ddcbde-013a-809f-a031-fcc38dbffa6a" class="bulleted-list"><li style="list-style-type:circle">18世紀發展</li></ul><ul id="12ddcbde-013a-8014-81bf-e1524cde5b76" class="bulleted-list"><li style="list-style-type:circle">從組織結構的設計著手，研究如何透過正式的行政管理系統，來增進組織的效率與效能。</li></ul><ul id="12ddcbde-013a-8034-9b38-dd6981b8ad12" class="bulleted-list"><li style="list-style-type:circle">費堯(Fayol, 1841-1925)<ul id="12ddcbde-013a-807e-9213-e1da79514ef8" class="bulleted-list"><li style="list-style-type:square">被尊稱為“現代管理理論之父”</li></ul><ul id="12ddcbde-013a-8012-8d5b-ee0d4c742577" class="bulleted-list"><li style="list-style-type:square">費堯根據本身的實務經驗，歸納了5種管理功能及14種管理原則。</li></ul><ul id="12ddcbde-013a-80e1-921b-fcb8ddc8c579" class="bulleted-list"><li style="list-style-type:square">提供了一套執行管理程序的思想架構</li></ul><ul id="12ddcbde-013a-80a5-9f04-e8433cb88030" class="bulleted-list"><li style="list-style-type:square">強調將管理實務理論化，成為可以傳授的教材，以提昇管理的績效</li></ul></li></ul><ul id="12ddcbde-013a-80d2-8d99-f798701e126a" class="bulleted-list"><li style="list-style-type:circle">韋伯(Weber, 1864-1920)<ul id="12ddcbde-013a-8098-9eb6-f601161ddcc6" class="bulleted-list"><li style="list-style-type:square">提出官僚制度(Bureaucracy)<ul id="12ddcbde-013a-80cf-a31a-fb1cf03b862e" class="bulleted-list"><li style="list-style-type:disc">清楚的專業分工</li></ul><ul id="12ddcbde-013a-80a3-9c29-e8d55906218f" class="bulleted-list"><li style="list-style-type:disc">清楚的權力體系</li></ul><ul id="12ddcbde-013a-807f-ac71-dc1667eef49a" class="bulleted-list"><li style="list-style-type:disc">正式的規則和程序</li></ul><ul id="12ddcbde-013a-8058-bddc-c7d2716d54a9" class="bulleted-list"><li style="list-style-type:disc">用人唯才</li></ul><ul id="12ddcbde-013a-8028-9b2a-c815652ff752" class="bulleted-list"><li style="list-style-type:disc">不講人情</li></ul></li></ul><ul id="12ddcbde-013a-8066-8362-e072bd35bc14" class="bulleted-list"><li style="list-style-type:square">以法定的正式職權系統為基礎</li></ul></li></ul></li></ul><ul id="12ddcbde-013a-8047-ade7-ca062557247c" class="bulleted-list"><li style="list-style-type:disc">人群關係學派：員工的情緒與人性面<ul id="12ddcbde-013a-806c-96ad-c941ef9baa90" class="bulleted-list"><li style="list-style-type:circle">工作人員內在心理因素對工作效率的影響</li></ul><ul id="12ddcbde-013a-8001-9ba8-d9ad410a5e6f" class="bulleted-list"><li style="list-style-type:circle">根據霍桑實驗，發現人際的互動與現場氣氛是影響工作績效的重要因素，進而研究如何激勵員工以提升員工工作績效。</li></ul><ul id="12ddcbde-013a-803f-88c5-d5421ae5b42f" class="bulleted-list"><li style="list-style-type:circle">霍桑實驗<ul id="12ddcbde-013a-8032-828a-e784b6e7465c" class="bulleted-list"><li style="list-style-type:square">造成生產力提升的因素有二，一是「團體氣氛」；其次是工作人員感覺受到重視。</li></ul><ul id="12ddcbde-013a-80bf-bf50-d614793ec0fe" class="bulleted-list"><li style="list-style-type:square">霍桑實驗的發現引發了激勵、領導或群體關係中人性行為的相關分析。</li></ul><ul id="12ddcbde-013a-80a7-b3f5-d48dd7c13d13" class="bulleted-list"><li style="list-style-type:square">許多激勵理論及領導理論，如馬斯洛的需求層級理論、赫茲柏格的雙因子理論，可以說都是在霍桑實驗的精神下，試圖尋找影響人員工作的人性因素。</li></ul></li></ul><ul id="12ddcbde-013a-8066-a00d-e31428573c5b" class="bulleted-list"><li style="list-style-type:circle">人群關係學派的主要貢獻在於對工作者與工作之間的互動關係，提出與古典管理學派不同的看法</li></ul><ul id="12ddcbde-013a-80d1-9129-c07cc02698aa" class="bulleted-list"><li style="list-style-type:circle">讓管理者正視人性因素對績效的影響，正是人群關係學派的最大貢獻</li></ul></li></ul><ul id="12ddcbde-013a-800a-9e2b-e0e0d05a9960" class="bulleted-list"><li style="list-style-type:disc">管理科學學派：以計量與系統方法解決問題<ul id="12ddcbde-013a-804b-8796-e102198c014c" class="bulleted-list"><li style="list-style-type:circle">起源於二次世界大戰期間<ul id="12ddcbde-013a-809f-8f3e-e1239d964459" class="bulleted-list"><li style="list-style-type:square">作業研究團隊</li></ul></li></ul><ul id="12ddcbde-013a-80a0-a89f-ef76aef25723" class="bulleted-list"><li style="list-style-type:circle">依據工具取向的不同，將管理科學分為兩大領域：<ul id="12ddcbde-013a-80ff-b68e-e8885b44287f" class="bulleted-list"><li style="list-style-type:square">強調數量化的計量管理學派</li></ul><ul id="12ddcbde-013a-8098-b4db-f6be8ee4ec4e" class="bulleted-list"><li style="list-style-type:square">將組織視為系統的系統理論</li></ul></li></ul><ul id="12ddcbde-013a-803c-b300-d26edf28f9ab" class="bulleted-list"><li style="list-style-type:circle">計量管理學派<ul id="12ddcbde-013a-8002-8cce-d3fb9f71d3a2" class="bulleted-list"><li style="list-style-type:square">首先被應用在作業或生產管理的領域</li></ul><ul id="12ddcbde-013a-80a6-af5f-e9b0c095f27d" class="bulleted-list"><li style="list-style-type:square">計量學派認為管理問題可以經由將問題模式化後，運用數學工具求出解答</li></ul><ul id="12ddcbde-013a-804c-a18d-dd7725ee549b" class="bulleted-list"><li style="list-style-type:square">特性<ol type="1" id="12ddcbde-013a-8066-87cc-d17aa9b7c6fa" class="numbered-list" start="1"><li>將科學分析的方法用之於管理的問題</li></ol><ol type="1" id="12ddcbde-013a-805e-a1ad-c509bd18e99e" class="numbered-list" start="2"><li>以增進經理人的決策能力為目的</li></ol><ol type="1" id="12ddcbde-013a-80ce-92b7-db55ebddf22a" class="numbered-list" start="3"><li>特別重視有關經濟效益的規範</li></ol><ol type="1" id="12ddcbde-013a-80d5-b361-fdf0f62c92bb" class="numbered-list" start="4"><li>倚賴數學模式解決問題</li></ol><ol type="1" id="12ddcbde-013a-8016-bd30-e4bd1714ab2c" class="numbered-list" start="5"><li>使用電腦與科技</li></ol></li></ul><ul id="12ddcbde-013a-8002-b85d-d68b9833f5be" class="bulleted-list"><li style="list-style-type:square">將組織與產業界的問題以量化的變數來表示</li></ul><ul id="12ddcbde-013a-80e3-9485-f9d564d17768" class="bulleted-list"><li style="list-style-type:square">提昇績效的可衡量性與可控制程度，同時建構代表真實的世界的抽象模型，透過檢驗模型來幫助管理者制定決策</li></ul></li></ul><ul id="12ddcbde-013a-80ec-b45d-eee38045b776" class="bulleted-list"><li style="list-style-type:circle">系統理論<ul id="12ddcbde-013a-80e8-8560-e4d3567f36ba" class="bulleted-list"><li style="list-style-type:square">系統是指一組彼此關連的組成元件，以整體的方式運作</li></ul><ul id="12ddcbde-013a-80c3-b81d-c8550ba11a3f" class="bulleted-list"><li style="list-style-type:square">系統與外部環境有關</li></ul><ul id="12ddcbde-013a-8012-a21b-e2a98332e930" class="bulleted-list"><li style="list-style-type:square">回饋(feedback)機制使系統成為完整的循環</li></ul><figure id="12ddcbde-013a-8039-9d4a-e158775b2357" class="image"><a href="image%201.png"><img style="width:432px" src="image%201.png"/></a></figure><ul id="12ddcbde-013a-804c-b26e-d8489bf80c92" class="bulleted-list"><li style="list-style-type:square">邱契門(C. West Churchman)認為所有系統都有四種特徵<ol type="1" id="12ddcbde-013a-808d-80c2-e668f82761ff" class="numbered-list" start="1"><li>系統均存在於其所處的環境當中</li></ol><ol type="1" id="12ddcbde-013a-8075-b057-d040d4c643c9" class="numbered-list" start="2"><li>所有系統同時也是某些元素、成份、子系統所組成</li></ol><ol type="1" id="12ddcbde-013a-808e-818f-cd3e576f81ad" class="numbered-list" start="3"><li>系統內部的各子系統之間彼此關聯(interrelatedness)</li></ol><ol type="1" id="12ddcbde-013a-80e1-be98-ea406bf5ec54" class="numbered-list" start="4"><li>所有系統都有其主要功能或目標</li></ol></li></ul><ul id="12ddcbde-013a-80f2-9b11-ce7c920355cb" class="bulleted-list"><li style="list-style-type:square">將系統觀點運用在企業時，可以將公司視為由若干要素所構成。</li></ul><ul id="12ddcbde-013a-80b3-900f-e853d82b302e" class="bulleted-list"><li style="list-style-type:square">管理者要注意的是各子系統間的協調和管理，才可使企業得以完整運作。</li></ul></li></ul></li></ul><ul id="12ddcbde-013a-8067-8e44-c128e2441f98" class="bulleted-list"><li style="list-style-type:disc">權變理論：理論要因情境而用<ul id="12ddcbde-013a-80ea-b5d2-ccc2de6c729c" class="bulleted-list"><li style="list-style-type:circle">權變理論認為管理活動應隨管理者所面臨的環境狀況而調整</li></ul><ul id="12ddcbde-013a-8068-b93a-f1822098de90" class="bulleted-list"><li style="list-style-type:circle">「沒有放諸四海皆準的管理方法」、「沒有單一最佳的組織結構」<ul id="12ddcbde-013a-80c4-ba68-de19c28d63e7" class="bulleted-list"><li style="list-style-type:square">企業組織方式應視其所要完成的工作而決定管理模式為機械式(mechanistic)組織或有機式(organic)組織</li></ul><ul id="12ddcbde-013a-807c-b606-cd4d118d298c" class="bulleted-list"><li style="list-style-type:square">有機式組織：環境快速變動、任務創新的組織</li></ul><ul id="12ddcbde-013a-801e-8f86-fb2df2c30923" class="bulleted-list"><li style="list-style-type:square">有機式管理：彈性、多能工、賦予較多的決策</li></ul></li></ul><ul id="12ddcbde-013a-8040-813e-ffe079777c22" class="bulleted-list"><li style="list-style-type:circle">錢德勒<ul id="12ddcbde-013a-80fd-898b-f762155bef8b" class="bulleted-list"><li style="list-style-type:square">提出「結構追隨策略」的觀點<ul id="12ddcbde-013a-8064-8a3e-c41841d77e04" class="bulleted-list"><li style="list-style-type:disc">環境-策略-組織結構</li></ul></li></ul></li></ul><ul id="12ddcbde-013a-80f2-afcd-dba06fd49ac1" class="bulleted-list"><li style="list-style-type:circle">費德勒<ul id="12ddcbde-013a-80dd-928c-da57fae66680" class="bulleted-list"><li style="list-style-type:square">認為有效的領導風格應視情境變數而定<ul id="12ddcbde-013a-8088-a89b-d03f6dff5d53" class="bulleted-list"><li style="list-style-type:disc">領導的情境理論</li></ul></li></ul></li></ul></li></ul><ul id="12ddcbde-013a-80b0-8559-e1bc6e37ec69" class="bulleted-list"><li style="list-style-type:disc">華人管理理論的崛起<ul id="12ddcbde-013a-8076-baca-f3c20160ba90" class="bulleted-list"><li style="list-style-type:circle">文化對思想的影響</li></ul><ul id="12ddcbde-013a-8063-a752-f52aaaa86096" class="bulleted-list"><li style="list-style-type:circle">華人文化下的管理實務<ul id="12ddcbde-013a-808b-bf83-f3ab0c171cea" class="bulleted-list"><li style="list-style-type:square">雇用制度</li></ul><ul id="12ddcbde-013a-8064-8dac-eb27da6ab107" class="bulleted-list"><li style="list-style-type:square">強調和諧的組織文化</li></ul></li></ul><ul id="12ddcbde-013a-805b-871e-f131a395d6df" class="bulleted-list"><li style="list-style-type:circle">無為說<ul id="12ddcbde-013a-80f2-af1f-e12a022a5588" class="bulleted-list"><li style="list-style-type:square">「無為說」始自老子、莊子兩位大思想家</li></ul><ul id="12ddcbde-013a-80a8-ad14-c9dbb71d69dc" class="bulleted-list"><li style="list-style-type:square">道家承認一個無為而無不為的天道，道是自然流動變遷的</li></ul><ul id="12ddcbde-013a-8010-8319-e7af0b0ad75a" class="bulleted-list"><li style="list-style-type:square">「無為」並不是不做事，只是「不為物先」，只是「因時為業」時機若成熟、便要因時而動</li></ul><ul id="12ddcbde-013a-8016-86c1-c49df23bf746" class="bulleted-list"><li style="list-style-type:square">無為說的意義<ul id="12ddcbde-013a-80bf-aac5-e65b74381dd2" class="bulleted-list"><li style="list-style-type:disc">領導者不做太多主張，讓生民生養，厚蓄實力</li></ul><ul id="12ddcbde-013a-801a-af42-fc978bbaf5d3" class="bulleted-list"><li style="list-style-type:disc">企業總部可採行利潤中心事業部組織模式，營運總部只負責策略領導、建立企業認同、資源分配等主要活動</li></ul><ul id="12ddcbde-013a-80a1-85f3-c6cdf69c1031" class="bulleted-list"><li style="list-style-type:disc">不計較、尋找適合發揮的場所</li></ul><ul id="12ddcbde-013a-809b-9a4d-e138e480ed56" class="bulleted-list"><li style="list-style-type:disc">化解職場的紛爭</li></ul><ul id="12ddcbde-013a-80ec-b93f-f03a98acf5a3" class="bulleted-list"><li style="list-style-type:disc">專制時代，高官為求自保，有時採無為說以避免上位者嫉妒</li></ul></li></ul></li></ul><ul id="12ddcbde-013a-80cf-a0ad-deedbc6355cd" class="bulleted-list"><li style="list-style-type:circle">有為說<ul id="12ddcbde-013a-803e-9b42-cf96875a6021" class="bulleted-list"><li style="list-style-type:square">有為說意指組織或其領導者應有積極的作為，方能有效改善組織績效</li></ul><ul id="12ddcbde-013a-8031-b95a-ce7c31e3c22b" class="bulleted-list"><li style="list-style-type:square">典型的有為說，有儒家和法家兩種不同的派別</li></ul><ul id="12ddcbde-013a-805a-85eb-e77c6b47476e" class="bulleted-list"><li style="list-style-type:square">儒家<ul id="12ddcbde-013a-803d-9713-f9bfb299c3a8" class="bulleted-list"><li style="list-style-type:disc">重視的是禮樂典章的建立與應用</li></ul><ul id="12ddcbde-013a-80e0-b58b-d3996c8fbc17" class="bulleted-list"><li style="list-style-type:disc">培養人民善心、善用名器並鼓勵人民向善</li></ul></li></ul><ul id="12ddcbde-013a-80b9-b364-def013fc220f" class="bulleted-list"><li style="list-style-type:square">法家<ul id="12ddcbde-013a-80fa-80be-e745724bd8a8" class="bulleted-list"><li style="list-style-type:disc">重視刑罰威嚇</li></ul><ul id="12ddcbde-013a-8006-91f9-cbd68953b70b" class="bulleted-list"><li style="list-style-type:disc">講求效率</li></ul><ul id="12ddcbde-013a-80ac-9ce5-f5928121288b" class="bulleted-list"><li style="list-style-type:disc">有效的領導：善用「法、術、勢」</li></ul></li></ul></li></ul></li></ul><ul id="12ddcbde-013a-80a1-bac3-c1960c653519" class="bulleted-list"><li style="list-style-type:disc">台灣中小企業：生活即企業經營模式<ul id="12ddcbde-013a-80ff-b8d0-ca2704ea83a1" class="bulleted-list"><li style="list-style-type:circle">外包角度：<ul id="12ddcbde-013a-809e-a84d-fbaf4c1f00d2" class="bulleted-list"><li style="list-style-type:square">台灣的生產性中小企業的連接是一種「彈性化協力企業組合結構」</li></ul></li></ul><ul id="12ddcbde-013a-804a-970a-d9b37225a257" class="bulleted-list"><li style="list-style-type:circle">內部管理：<ul id="12ddcbde-013a-809b-8bce-d666e95f65f2" class="bulleted-list"><li style="list-style-type:square">中小企業規模有限，屬於管理階層的人數相當少</li></ul></li></ul><ul id="12ddcbde-013a-80ac-baa0-e022ea889ae0" class="bulleted-list"><li style="list-style-type:circle">生產模式：<ul id="12ddcbde-013a-8019-a692-c505b020d7d9" class="bulleted-list"><li style="list-style-type:square">此種生產模式發生於低技術、低資本、高勞動力的部門</li></ul></li></ul><ul id="12ddcbde-013a-8031-92a1-f27666ecc724" class="bulleted-list"><li style="list-style-type:circle">在技術上：講求的是一種不太需要理論邏輯規劃及科學實驗驗證的技術形態</li></ul><ul id="12ddcbde-013a-8026-b3b4-f90f0e05d015" class="bulleted-list"><li style="list-style-type:circle">在管理上：則傾向於以「頭家眼色為技術依歸」、以「頭家臉色為工作依歸」的特質</li></ul><ul id="12ddcbde-013a-8052-baa6-fd9c59c8b0b1" class="bulleted-list"><li style="list-style-type:circle">隨著生產規模擴大，再由能貫徹企業主意志及命令的「班底」接替企業主的角色<ul id="12ddcbde-013a-80fb-89b7-c22af08d4f6b" class="bulleted-list"><li style="list-style-type:square">「帶頭做」才有效率</li></ul></li></ul></li></ul><ul id="12ddcbde-013a-8042-a608-e007e6954498" class="bulleted-list"><li style="list-style-type:disc">台灣的管理資本主義<ul id="12ddcbde-013a-8094-80b5-de9e02ce6776" class="bulleted-list"><li style="list-style-type:circle">國家資本主義在大型產業的發展過程中扮演非常重要的角色</li></ul><ul id="12ddcbde-013a-8090-a1f6-c33e81f7547c" class="bulleted-list"><li style="list-style-type:circle">現代企業則試圖將零碎知識系統化</li></ul><ul id="12ddcbde-013a-8083-a1da-f257301c1140" class="bulleted-list"><li style="list-style-type:circle">家族企業的發展，某種程度來說是不到管理資本的累積<ul id="12ddcbde-013a-8075-9566-dbb7671d39bd" class="bulleted-list"><li style="list-style-type:square">家族成員專業化</li></ul></li></ul></li></ul><ul id="12ddcbde-013a-8081-90f3-f0959628e53d" class="bulleted-list"><li style="list-style-type:disc">「關係」及其在組織內的運作<ul id="12ddcbde-013a-80b9-a15b-d61674f5327f" class="bulleted-list"><li style="list-style-type:circle">1980年代以後，東西方學者均發現「關係(guanxi)」在華人的商業世界中扮演非常重要的角色</li></ul></li></ul><hr id="12ddcbde-013a-80a5-938b-fbf30d871484"/><p id="12ddcbde-013a-8061-bcd7-e9f71a8279fb" class="">
+</p><p id="12ddcbde-013a-80c8-8e5a-db854f3c108b" class="">
+</p><p id="12ddcbde-013a-80a4-8a7a-e3483e3191d7" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
