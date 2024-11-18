@@ -1,0 +1,685 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>研究方法期中整理(2)</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="141dcbde-013a-8076-9a79-ef7200a1a716" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/nasa_tim_peake_spacewalk.jpg" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">📁</span></div><h1 class="page-title">研究方法期中整理(2)</h1><p class="page-description"></p></header><div class="page-body"><hr id="141dcbde-013a-80b6-9f5c-d8644267a593"/><ul id="141dcbde-013a-8018-a508-ea44d45be2d0" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>電話訪談不是一種研究方法，是一種資料收集的工具</strong></mark><ul id="141dcbde-013a-80c5-871f-d111ec2a6fac" class="bulleted-list"><li style="list-style-type:circle">問卷調查才是研究方法</li></ul></li></ul><ul id="141dcbde-013a-809e-89f8-d324565f5718" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>各研究方法的精髓</strong></mark><ul id="141dcbde-013a-80f5-a7dc-dffda3afa365" class="bulleted-list"><li style="list-style-type:circle">case的精神─找變數(explore)<ul id="141dcbde-013a-80c1-8309-ecff2fb46f10" class="bulleted-list"><li style="list-style-type:square">對象不超過10個</li></ul></li></ul><ul id="141dcbde-013a-80a7-bbae-c299293510d5" class="bulleted-list"><li style="list-style-type:circle">experiment的精神─操弄(分群)<strong>Manipulate</strong>＆控制(干擾變數)<strong>Control</strong><ul id="141dcbde-013a-80c7-b937-e21af4c3275b" class="bulleted-list"><li style="list-style-type:square">少數的變數來做實驗(1、2個)</li></ul><ul id="141dcbde-013a-8047-a7c4-f01e623531b2" class="bulleted-list"><li style="list-style-type:square">對象通常幾十個</li></ul></li></ul><ul id="141dcbde-013a-80be-8c1c-dd2aa4857301" class="bulleted-list"><li style="list-style-type:circle">survey的精神─推論</li></ul></li></ul><ul id="141dcbde-013a-80c5-8708-d065803fa8cf" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>Control of Variance(總變異量的控制)</strong></mark><ul id="141dcbde-013a-808f-8c7a-ca5282ae5a64" class="bulleted-list"><li style="list-style-type:circle">針對DV</li></ul><ul id="141dcbde-013a-801b-a1be-ed41dc6aa326" class="bulleted-list"><li style="list-style-type:circle">因 → DV</li></ul></li></ul><ul id="141dcbde-013a-80fb-a296-f5b4167534d8" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>實驗設計主要是在找什麼原因造成DV的數據不一樣</strong></mark></li></ul><ul id="141dcbde-013a-80ff-b65c-efc4d75f6cf1" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>實驗結果(狀態改變)的變異來源（三個都是因)</strong></mark><ul id="141dcbde-013a-8050-885e-f3d7c9f0c909" class="bulleted-list"><li style="list-style-type:circle"><strong>Treatment Variable—實驗變異(因子)</strong><ul id="141dcbde-013a-8069-af6d-eba58a513076" class="bulleted-list"><li style="list-style-type:square">主要希望的原因</li></ul><ul id="141dcbde-013a-80f2-ab54-cd40ba73c3e8" class="bulleted-list"><li style="list-style-type:square">因-當IV-<mark class="highlight-red">進假設</mark></li></ul><ul id="142dcbde-013a-800f-a570-d63305ef00b7" class="bulleted-list"><li style="list-style-type:square"><mark class="highlight-red">操弄Manipulate</mark></li></ul></li></ul><ul id="141dcbde-013a-8060-ba46-c0b85c05363d" class="bulleted-list"><li style="list-style-type:circle"><strong>Extraneous Variable—干擾變異(因子)</strong><ul id="141dcbde-013a-80b8-8526-d8adee810eff" class="bulleted-list"><li style="list-style-type:square">因-當IV-<mark class="highlight-red">不進假設</mark></li></ul><ul id="142dcbde-013a-8060-acab-ced076154022" class="bulleted-list"><li style="list-style-type:square"><mark class="highlight-red">控制</mark><mark class="highlight-red"><strong>Control</strong></mark></li></ul></li></ul><ul id="141dcbde-013a-805a-a6bd-d20894b74977" class="bulleted-list"><li style="list-style-type:circle"><strong>Error Variable—誤差變異</strong><ul id="141dcbde-013a-807d-bbf7-f91fb4b48f66" class="bulleted-list"><li style="list-style-type:square">0.05的誤差可接受</li></ul></li></ul></li></ul><ul id="141dcbde-013a-807c-a8a0-cfd749e26467" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>實驗設計的策略</strong></mark><ul id="141dcbde-013a-8005-bce2-e735794cf1cb" class="bulleted-list"><li style="list-style-type:circle">使實驗變項的變異量最大 → 操弄</li></ul><ul id="141dcbde-013a-80ac-8ac5-f384197ff1f8" class="bulleted-list"><li style="list-style-type:circle">控制干擾變項、或予以排除，或予以析離 → 控制</li></ul><ul id="141dcbde-013a-80ab-9966-c79eb8e5889a" class="bulleted-list"><li style="list-style-type:circle">誤差變異量最小</li></ul></li></ul><ul id="141dcbde-013a-804f-af3a-c7f6adc76058" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>差異有一個特性 → 比較 → 分群 → 背後的邏輯 →一組當實驗組 → 一組當控制組</strong></mark></li></ul><ul id="141dcbde-013a-8049-a2bc-cfde011fb8e3" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>實驗設計都用</strong></mark><mark class="highlight-red"><mark class="highlight-yellow_background"><strong>差異的</strong></mark></mark><mark class="highlight-yellow_background"><strong>假設比較多</strong></mark></li></ul><ul id="141dcbde-013a-806f-a1de-e6d03a4566c2" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>實驗因子有的可以定義分群(玩game時間) → arbitrary，有的自己會分群(性別) → natural</strong></mark></li></ul><ul id="141dcbde-013a-8053-bbe9-cb4fde5eb5bf" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>IV只要有分群，它的假設一定是差異</strong></mark></li></ul><ul id="141dcbde-013a-80a1-97f8-f937eb5c0ac3" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>實驗設計先做操弄，再做控制</strong></mark></li></ul><ul id="141dcbde-013a-80b8-a7ce-d372e0d2dab0" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>隨機化(randomization)</strong></mark><ul id="141dcbde-013a-8021-8d7d-e8b2d720ecbc" class="bulleted-list"><li style="list-style-type:circle">無法避免干擾，就讓<strong>大家都一樣受到干擾，</strong>干擾所產生的<strong>變異就一樣</strong></li></ul><ul id="141dcbde-013a-80ef-8a4d-f0c7f7c502c5" class="bulleted-list"><li style="list-style-type:circle">不是干擾不見</li></ul></li></ul><ul id="141dcbde-013a-80e7-bea7-da8057f2f3ac" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>控制有兩個困難點</strong></mark><ul id="141dcbde-013a-8011-b9f9-e5ae168a9c97" class="bulleted-list"><li style="list-style-type:circle">不確定是否能控制住干擾變數</li></ul><ul id="141dcbde-013a-8079-97dd-f8a8b92a0a34" class="bulleted-list"><li style="list-style-type:circle">不知道有哪些變項會干擾</li></ul></li></ul><ul id="141dcbde-013a-80a2-ae64-cf1f457d22bd" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>效度總共有14種，我們碰到幾種？</strong></mark></li></ul><ul id="141dcbde-013a-80ee-a319-d5b6ce5f780d" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>實驗研究的效度</strong></mark><ul id="141dcbde-013a-801b-8d01-f9f08b7a49be" class="bulleted-list"><li style="list-style-type:circle"><strong>Internal Validity(內部效度)</strong><ul id="141dcbde-013a-8093-ae30-d4924bfb4ba8" class="bulleted-list"><li style="list-style-type:square">你有多少把握DV的變異，是從我要研究的IV來的</li></ul><ul id="141dcbde-013a-80a1-b1de-ea6afebd0a41" class="bulleted-list"><li style="list-style-type:square">可能從干擾來</li></ul><ul id="141dcbde-013a-807f-b08e-ddc3b11e16ea" class="bulleted-list"><li style="list-style-type:square">表示控制多少干擾</li></ul><ul id="141dcbde-013a-80a4-b22f-da76f8b8f357" class="bulleted-list"><li style="list-style-type:square">沒有進入假設的變數，你有控制好嗎</li></ul><ul id="141dcbde-013a-80ca-85cb-f5648dd0fdab" class="bulleted-list"><li style="list-style-type:square">控制好內部效度高，控制不好內部效度低</li></ul></li></ul><ul id="141dcbde-013a-80e1-a09e-e5dc56f60529" class="bulleted-list"><li style="list-style-type:circle"><strong>External Validity(外部效度)</strong><ul id="141dcbde-013a-8098-8b6f-d3ebaf10a0eb" class="bulleted-list"><li style="list-style-type:square">能把我的實驗結果可以推論到外面的環境</li></ul></li></ul><ul id="141dcbde-013a-8007-890a-c1c858c7708b" class="bulleted-list"><li style="list-style-type:circle"><strong>Lab experiment</strong><ul id="141dcbde-013a-80e1-a44d-cb6f40f4486d" class="bulleted-list"><li style="list-style-type:square">在實驗室做實驗</li></ul><ul id="141dcbde-013a-80f4-b2b1-ecb448ab1515" class="bulleted-list"><li style="list-style-type:square">Internal Validity &gt;&gt;&gt; External Validity</li></ul></li></ul><ul id="141dcbde-013a-8057-9834-ccec75bfe9a3" class="bulleted-list"><li style="list-style-type:circle"><strong>Field experiment</strong><ul id="141dcbde-013a-80b2-adb0-d1aa6d844a29" class="bulleted-list"><li style="list-style-type:square">在被研究者的場域做實驗，護理人員就在醫院，學生在學校</li></ul><ul id="141dcbde-013a-80ab-95e1-f18b2f99a22e" class="bulleted-list"><li style="list-style-type:square">Internal Validity <strong>&lt;&lt;&lt;</strong> External Validity</li></ul></li></ul><ul id="141dcbde-013a-800d-8333-dfd73f8976e9" class="bulleted-list"><li style="list-style-type:circle"><strong>內部效度與外部效度會平衡</strong><ul id="141dcbde-013a-8052-81d0-eab07903de58" class="bulleted-list"><li style="list-style-type:square"><strong>內部效度</strong> 高 → <strong>外部效度</strong> 低</li></ul><ul id="141dcbde-013a-8079-9fd3-d517272e4241" class="bulleted-list"><li style="list-style-type:square"><strong>內部效度</strong> 低 → <strong>外部效度</strong> 高</li></ul></li></ul></li></ul><ul id="141dcbde-013a-80e4-8854-f54672388904" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>實驗設計中的歷史效應(history)</strong></mark><ul id="141dcbde-013a-80d8-b3e9-d920acd8d186" class="bulleted-list"><li style="list-style-type:circle">做實驗的這段時間，有沒有特殊的事件，影響到DV，可是不在我的假設內</li></ul></li></ul><ul id="141dcbde-013a-8052-b379-c5c81d09a6f3" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>實驗設計中的成熟效應(maturation)</strong></mark><ul id="141dcbde-013a-8049-9017-ebfd91c2d641" class="bulleted-list"><li style="list-style-type:circle">經驗增加，工作速度變快</li></ul><ul id="141dcbde-013a-80de-9425-df56569b99b0" class="bulleted-list"><li style="list-style-type:circle">熟練造成，不是因為某些因素造成</li></ul></li></ul><ul id="141dcbde-013a-800b-83b5-e5b3d7ccfc8f" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>選樣偏差可能影響效度(selection)</strong></mark><ul id="141dcbde-013a-8085-afe4-fd905d406ad0" class="bulleted-list"><li style="list-style-type:circle">志願者會往你想要的方向走測驗(testing)</li></ul></li></ul><ul id="141dcbde-013a-8000-a308-fd191c4a2ac9" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>測驗(testing)</strong></mark><ul id="141dcbde-013a-8056-9934-efe6d46e848e" class="bulleted-list"><li style="list-style-type:circle">test-retest：同一份量表讓同一個人作2次再求其相關 (Coefficient of stability)</li></ul><ul id="141dcbde-013a-805e-a55e-fb6c40024026" class="bulleted-list"><li style="list-style-type:circle">牽扯到human memory的問題</li></ul><ul id="141dcbde-013a-804b-beb5-c886d9eb196c" class="bulleted-list"><li style="list-style-type:circle">時間點(2個禮拜)</li></ul></li></ul><ul id="141dcbde-013a-806f-8d87-e44832793b5e" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>反作法效應</strong></mark><ul id="141dcbde-013a-80e7-8c33-d9e7730a727c" class="bulleted-list"><li style="list-style-type:circle">舉例分班，被分到升學班跟被分到放牛班，會造成本來是中等產生兩個結果</li></ul><ul id="141dcbde-013a-80b8-9cac-c2f6c8a67a1e" class="bulleted-list"><li style="list-style-type:circle">強亨利效應(the John Henry effect)<ul id="141dcbde-013a-80c2-b55c-e8ae67aa08f3" class="bulleted-list"><li style="list-style-type:square">成績變得更好</li></ul></li></ul><ul id="141dcbde-013a-806e-a3f0-c91bc898b049" class="bulleted-list"><li style="list-style-type:circle">控制組憤慨性的意志消沈(resentful demoralization)<ul id="141dcbde-013a-80ac-8df2-ebd345d3fe33" class="bulleted-list"><li style="list-style-type:square">成績變得更爛</li></ul></li></ul><ul id="141dcbde-013a-80be-9085-f7c691962b71" class="bulleted-list"><li style="list-style-type:circle">Hawthorne Effect(霍桑效應)<ul id="141dcbde-013a-8073-b14c-c95e7800dbb8" class="bulleted-list"><li style="list-style-type:square">工廠研究燈光照明會不會影響到生產效率</li></ul><ul id="141dcbde-013a-808a-a3f3-eae5a06c89f1" class="bulleted-list"><li style="list-style-type:square">實驗組變好 → 光線好 → 效率好 → 原因不是因為光線好 → 是因為他知道自己被做實驗</li></ul></li></ul></li></ul><ul id="141dcbde-013a-800b-abd5-d326eba0d9d6" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>population validity(母體效度)</strong></mark><ul id="141dcbde-013a-802b-a5ad-ffb97d9fa361" class="bulleted-list"><li style="list-style-type:circle">model</li></ul><ul id="141dcbde-013a-80bb-ba3a-fcd47e969afa" class="bulleted-list"><li style="list-style-type:circle">模式</li></ul><ul id="141dcbde-013a-8015-a4c8-f30092c918ea" class="bulleted-list"><li style="list-style-type:circle">沒什麼了不起</li></ul><ul id="141dcbde-013a-80c1-9888-cac42f495490" class="bulleted-list"><li style="list-style-type:circle">只能推回去原本的母體</li></ul></li></ul><ul id="141dcbde-013a-80ed-a239-dfc7f1659c29" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>ecological validity(生態效度)</strong></mark><ul id="141dcbde-013a-8059-9eaf-cf7021b9cef7" class="bulleted-list"><li style="list-style-type:circle">理論</li></ul><ul id="141dcbde-013a-805d-b475-f38694bbdb87" class="bulleted-list"><li style="list-style-type:circle">很難</li></ul><ul id="141dcbde-013a-8004-9b09-e7b101411212" class="bulleted-list"><li style="list-style-type:circle">可以推到其他的母體</li></ul></li></ul><ul id="141dcbde-013a-8068-8385-c4bff54e1fb8" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>population validity(母體效度)與ecological validity(生態效度)都是外部效度</strong></mark></li></ul><ul id="141dcbde-013a-80b5-a660-db565aeeb8c6" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>內部效度重要 → 實驗室，外部效度重要 → 場域 ，兩個都重要 →實驗室再去場域</strong></mark><ul id="141dcbde-013a-8022-9424-c5118b6ec996" class="bulleted-list"><li style="list-style-type:circle">牽扯成本問題</li></ul><ul id="141dcbde-013a-800f-b3dd-f06702d9478c" class="bulleted-list"><li style="list-style-type:circle">成本牽扯到實驗設計(簡單、複雜)</li></ul></li></ul><ul id="142dcbde-013a-80ff-9386-c4fc04cf37b1" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>研究架構</strong></mark><ul id="142dcbde-013a-809e-851c-c1c84c0ae6f1" class="bulleted-list"><li style="list-style-type:circle">就是把變數連起來</li></ul><ul id="142dcbde-013a-80fb-9b70-c9dc938cc845" class="bulleted-list"><li style="list-style-type:circle">DV 我知道，IV我挑誰，把圖畫出來</li></ul><figure id="142dcbde-013a-809a-bfb3-e0a9c40a941a" class="image"><a href="image.png"><img style="width:384px" src="image.png"/></a></figure></li></ul><ul id="142dcbde-013a-80be-95c2-e9f73d8f7b6b" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>單因子變異數分析 (one way analysis of variance)   </strong></mark><ul id="142dcbde-013a-80ca-9eff-ec54d5f3f08c" class="bulleted-list"><li style="list-style-type:circle">挑一個IV，把一個IV分群(操弄)</li></ul><ul id="142dcbde-013a-80d8-bc58-f66041f442bc" class="bulleted-list"><li style="list-style-type:circle">實驗組 對照組</li></ul></li></ul><ul id="142dcbde-013a-805d-94b8-e3d56b468851" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>做實驗設計幾乎不會用到相關</strong></mark><ul id="142dcbde-013a-8043-8620-e9b6f96ac12a" class="bulleted-list"><li style="list-style-type:circle">因為有做操弄，幫IV分群</li></ul><ul id="142dcbde-013a-808a-bdfa-c9ac3df0147c" class="bulleted-list"><li style="list-style-type:circle">比較 → 分群 → 看出差異</li></ul></li></ul><ul id="142dcbde-013a-803c-9ee5-dceb0ea55830" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>多因子實驗設計(factorial design)</strong></mark><ul id="142dcbde-013a-80c1-b556-ded4e7897f2c" class="bulleted-list"><li style="list-style-type:circle"><strong>個體特性與實驗處理交互效應設計(ATI)--Aptitude-Treatment Intuition</strong><ul id="142dcbde-013a-805e-85cf-e03e98ecbbcb" class="bulleted-list"><li style="list-style-type:square">能操弄 arbitrary → 分群</li></ul><ul id="142dcbde-013a-8074-b212-c440ac9d63ef" class="bulleted-list"><li style="list-style-type:square">不能操弄 natural →已分</li></ul><ul id="142dcbde-013a-80f3-a485-e5ea8b0e35d2" class="bulleted-list"><li style="list-style-type:square"><mark class="highlight-yellow_background"><strong>Two-Way ANOVA</strong></mark><ul id="2538d710-7a5f-4dec-9d19-5e744481c064" class="bulleted-list"><li style="list-style-type:disc">每個操弄都分成兩群</li></ul><ul id="113533b9-363e-4178-ba62-a6fc76d07c6e" class="bulleted-list"><li style="list-style-type:disc">2*2 ANOVA Test</li></ul><ul id="a2e16994-d157-4244-8f3b-6e5f5f5131e6" class="bulleted-list"><li style="list-style-type:disc">3*3 ANOVA Test </li></ul><ul id="5342f2c5-3030-4ccd-8a1c-0a673f637722" class="bulleted-list"><li style="list-style-type:disc">如果某個分成2群，某個分成3群，就是2*3的Two-Way</li></ul></li></ul><ul id="142dcbde-013a-803b-9845-cbf479dd45ad" class="bulleted-list"><li style="list-style-type:square"><mark class="highlight-yellow_background"><strong>Hypothesis statement</strong></mark><ul id="a6b5e38d-2c94-4509-8476-f90e1d6d12fe" class="bulleted-list"><li style="list-style-type:disc">測試順序，先測有沒有交互順序(Interaction Effect)</li></ul><ul id="b2bf2dd5-b5bf-4b1d-938c-0fb1537c5e35" class="bulleted-list"><li style="list-style-type:disc">如果有Interaction，表示兩個交互作用會貢獻到<strong>main effect</strong>，就沒辦法下結論，產生干擾</li></ul><ul id="fc35518e-7a68-49ba-883e-60b9d972eb5f" class="bulleted-list"><li style="list-style-type:disc">If have any interaction effect,then, you can not make conclusion for main effect.<ul id="a39269f7-f947-4ac4-8aa6-b8580ebb15f1" class="bulleted-list"><li style="list-style-type:circle">不測了</li></ul></li></ul><ul id="30f49dc9-5eeb-488c-b9e5-3d74cf13f474" class="bulleted-list"><li style="list-style-type:disc">two-way 又3個假設、Three-way 有7個假設<figure id="142dcbde-013a-8046-8106-c833a8d3fcaf" class="image"><a href="image%201.png"><img style="width:288px" src="image%201.png"/></a></figure></li></ul></li></ul></li></ul><ul id="142dcbde-013a-800c-b777-c6f73407aee4" class="bulleted-list"><li style="list-style-type:circle"><strong>獨立處理多因子實驗設計—independent factorial design</strong><ul id="142dcbde-013a-808c-994d-ea0a2da338d8" class="bulleted-list"><li style="list-style-type:square">IV跟IV之間沒有交互作用</li></ul><ul id="142dcbde-013a-80c7-928b-cd4862900008" class="bulleted-list"><li style="list-style-type:square">如果是2*3 ANOVA Test </li></ul><ul id="142dcbde-013a-8088-8f4e-e7f692c50130" class="bulleted-list"><li style="list-style-type:square">總共有24個人，可以被分配這6個底下，444444<figure id="142dcbde-013a-800d-9dba-ca6af7415820" class="image"><a href="image%202.png"><img style="width:336px" src="image%202.png"/></a></figure></li></ul></li></ul><ul id="142dcbde-013a-808d-a03f-f10b69de60e6" class="bulleted-list"><li style="list-style-type:circle"><strong>重複量數多因子設計—repeated-measure design</strong><ul id="142dcbde-013a-80ac-95b7-d0cf918a7af0" class="bulleted-list"><li style="list-style-type:square">如果我的實驗對象只有四個人</li></ul><ul id="142dcbde-013a-8077-a707-ca06b492f726" class="bulleted-list"><li style="list-style-type:square">表示不夠分配到6個情境底下</li></ul><ul id="142dcbde-013a-808c-be77-cbde676deaf7" class="bulleted-list"><li style="list-style-type:square">實驗對象不足以分配到情境底下</li></ul><ul id="142dcbde-013a-80e8-98d7-e697d3456d88" class="bulleted-list"><li style="list-style-type:square">四個人在每個情境底下都走一次</li></ul><ul id="142dcbde-013a-80fa-812d-dc85b77b36a3" class="bulleted-list"><li style="list-style-type:square">每個情境隔多久就有記憶(Memory)的問題，成人兩個禮拜，小孩一個禮拜</li></ul><ul id="142dcbde-013a-80e7-bf47-e33a0f7663ac" class="bulleted-list"><li style="list-style-type:square">每一個分配到情況的數量，一定要要比DV的個數多一個(minimum sample size)<figure id="142dcbde-013a-8007-8acf-c6a0c58f73c0" class="image"><a href="image%203.png"><img style="width:336px" src="image%203.png"/></a></figure></li></ul><ul id="142dcbde-013a-8012-bca9-d000d3f40053" class="bulleted-list"><li style="list-style-type:square"> within vs. between subjects design<ul id="142dcbde-013a-80a2-a45b-eb9b96b707e8" class="bulleted-list"><li style="list-style-type:disc">within subjects design<ul id="142dcbde-013a-800d-9233-c78b232c67b2" class="bulleted-list"><li style="list-style-type:circle">每一個實驗對象走不同的實驗情境</li></ul></li></ul><ul id="142dcbde-013a-8076-8dcb-c65e1838a182" class="bulleted-list"><li style="list-style-type:disc">between subjects design<ul id="142dcbde-013a-8007-9ea3-cb381f325f72" class="bulleted-list"><li style="list-style-type:circle">不同的實驗對象走不同的實驗情境</li></ul></li></ul></li></ul></li></ul></li></ul><ul id="142dcbde-013a-80d9-82ff-db495eddc870" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>Experiment Symbol</strong></mark><ul id="142dcbde-013a-8028-bbc2-fe6041b71599" class="bulleted-list"><li style="list-style-type:circle">X－表示實驗處理<ul id="142dcbde-013a-80ea-b35e-d425cb5a1dcd" class="bulleted-list"><li style="list-style-type:square">IV ,  操弄</li></ul></li></ul><ul id="142dcbde-013a-8075-9820-d55712cab8c6" class="bulleted-list"><li style="list-style-type:circle">O－表示測驗或觀察<ul id="142dcbde-013a-80f0-8aa3-c46733368321" class="bulleted-list"><li style="list-style-type:square">DV</li></ul></li></ul><ul id="142dcbde-013a-8004-bf4b-cb559c768b50" class="bulleted-list"><li style="list-style-type:circle">R－表示隨機分派</li></ul><ul id="142dcbde-013a-8056-a32a-d4c7ddd62ab4" class="bulleted-list"><li style="list-style-type:circle">M－表示配對分組<ul id="142dcbde-013a-8084-86ed-d288ef52c55a" class="bulleted-list"><li style="list-style-type:square">match</li></ul></li></ul><ul id="142dcbde-013a-80ca-99f1-c4cb8c24a8ef" class="bulleted-list"><li style="list-style-type:circle">兩組中間用虛線區隔表示非等組<figure id="142dcbde-013a-80c2-a5e3-c2d0f648079b" class="image"><a href="image%204.png"><img style="width:432px" src="image%204.png"/></a></figure></li></ul></li></ul><ul id="142dcbde-013a-802e-aeb9-ffc9d70261fe" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>實驗研究的類型與設計</strong></mark><ul id="142dcbde-013a-8006-8260-e6f6ad060163" class="bulleted-list"><li style="list-style-type:circle">前實驗設計類型(Pre-experiment)<ul id="142dcbde-013a-8018-bd4a-da34d555d0f1" class="bulleted-list"><li style="list-style-type:square">沒有隨機分配實驗對象</li></ul><ul id="142dcbde-013a-800f-8c47-fed9bac5a528" class="bulleted-list"><li style="list-style-type:square">單組後測設計(one-shot case study)<ul id="142dcbde-013a-8013-b931-d84aa148e590" class="bulleted-list"><li style="list-style-type:disc">沒有做實驗，就吃完維骨力測靈活度</li></ul></li></ul><ul id="142dcbde-013a-80c6-bfb3-db2efee1ca59" class="bulleted-list"><li style="list-style-type:square">單組前、後測設計(one-group pretest-posttest design)<ul id="142dcbde-013a-8085-8049-dd0d2965a9c1" class="bulleted-list"><li style="list-style-type:disc">先測靈活度吃完維骨力在測一次靈活度</li></ul></li></ul></li></ul><ul id="142dcbde-013a-8089-815f-ed120278c0a4" class="bulleted-list"><li style="list-style-type:circle">真實驗設計(True experiment)<ul id="142dcbde-013a-8094-a7f4-f5cc1ccf2061" class="bulleted-list"><li style="list-style-type:square">有隨機分配實驗對象</li></ul><ul id="142dcbde-013a-8084-9d9f-cd4f860c1980" class="bulleted-list"><li style="list-style-type:square">僅為後測控制組設計(Posttest-Only Control Group Design)<figure id="142dcbde-013a-8017-9c30-e31b7b40e3fb" class="image"><a href="image%205.png"><img style="width:288px" src="image%205.png"/></a></figure><figure id="142dcbde-013a-80ce-9ae3-d5a3b49e7611" class="image"><a href="image%206.png"><img style="width:336px" src="image%206.png"/></a></figure></li></ul><ul id="142dcbde-013a-80a9-932d-c32a6d2f0960" class="bulleted-list"><li style="list-style-type:square">前測－後測控制組設計 (Pretest-Posttest Control Group Design)<figure id="142dcbde-013a-80e6-bc69-f4415919307a" class="image"><a href="image%207.png"><img style="width:288px" src="image%207.png"/></a></figure><figure id="142dcbde-013a-8080-85cc-f91c8d98683f" class="image"><a href="image%208.png"><img style="width:336px" src="image%208.png"/></a></figure><ul id="142dcbde-013a-80bc-9707-f2754931dd80" class="bulleted-list"><li style="list-style-type:disc">Two-way ANOVA vs ANCOVA<ul id="142dcbde-013a-806b-a444-e0a53784806d" class="bulleted-list"><li style="list-style-type:circle">Non-Metric (分群)</li></ul><ul id="142dcbde-013a-80a6-9901-f3ac42647c5f" class="bulleted-list"><li style="list-style-type:circle">Metric (不分群)</li></ul><figure id="142dcbde-013a-803d-803f-d4f986ac6ced" class="image"><a href="image%209.png"><img style="width:384px" src="image%209.png"/></a></figure></li></ul></li></ul><ul id="142dcbde-013a-8084-bb55-fecd397407e3" class="bulleted-list"><li style="list-style-type:square">索羅門四組設計  (Solomon four-group design)<figure id="142dcbde-013a-80db-b30f-ee235b0eeea8" class="image"><a href="image%2010.png"><img style="width:384px" src="image%2010.png"/></a></figure><ul id="142dcbde-013a-8019-9f97-f2b213fbb873" class="bulleted-list"><li style="list-style-type:disc">可以有6種比較，1跟4不能比，找不出原因，2跟3也不行，真正可以比的只有4種</li></ul></li></ul></li></ul><ul id="142dcbde-013a-80f6-a141-fe9a960eccc6" class="bulleted-list"><li style="list-style-type:circle">準實驗設計(Quasi experiment)<ul id="142dcbde-013a-809c-a1c7-cfbcc5deb898" class="bulleted-list"><li style="list-style-type:square">場域(實驗)限制沒有辦法做隨機分配的動作</li></ul><ul id="142dcbde-013a-80d7-89bb-f6ad9a17a30e" class="bulleted-list"><li style="list-style-type:square">改另外一個方法，一個班級˙沒辦法隨機，就找個兩個班級去做實驗</li></ul><ul id="142dcbde-013a-807a-b630-e2d50f21009e" class="bulleted-list"><li style="list-style-type:square">時間序列設計 (Quasi-experiment)   <ul id="142dcbde-013a-80b8-8755-fb2ddea38373" class="bulleted-list"><li style="list-style-type:disc">拉著時間一直測</li></ul><ul id="142dcbde-013a-8056-a21c-d5137d051285" class="bulleted-list"><li style="list-style-type:disc">有點repeated-measure<figure id="142dcbde-013a-80bd-84ea-eed62df9afce" class="image"><a href="image%2011.png"><img style="width:384px" src="image%2011.png"/></a></figure></li></ul></li></ul></li></ul><ul id="142dcbde-013a-80d1-a28c-ca08475237b5" class="bulleted-list"><li style="list-style-type:circle">Rotation Experiment(對抗平衡設計)<figure id="142dcbde-013a-807f-8289-d30ab0dfc98b" class="image"><a href="image%2012.png"><img style="width:384px" src="image%2012.png"/></a></figure><ul id="142dcbde-013a-8080-b21f-cbc9805e7302" class="bulleted-list"><li style="list-style-type:square">特性:可以分配平均，分群的人數、時間點、操弄的分群一定要一模一樣</li></ul></li></ul></li></ul><figure id="142dcbde-013a-80c9-9ac0-c19548be677b" class="image"><a href="image%2013.png"><img style="width:432px" src="image%2013.png"/></a></figure><p id="141dcbde-013a-8048-8922-ec14f1a15b21" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
