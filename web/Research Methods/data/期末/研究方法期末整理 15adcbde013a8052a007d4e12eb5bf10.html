@@ -1,0 +1,687 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>研究方法期末整理</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="15adcbde-013a-8052-a007-d4e12eb5bf10" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/rijksmuseum_jansz_1641.jpg" style="object-position:center 80%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">📁</span></div><h1 class="page-title">研究方法期末整理</h1><p class="page-description"></p></header><div class="page-body"><hr id="15adcbde-013a-800c-a16c-d390128eff56"/><ul id="15adcbde-013a-804c-ae83-da653b27223e" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>問卷</strong></mark><ul id="15adcbde-013a-80d2-a327-fe9a5482cce5" class="bulleted-list"><li style="list-style-type:circle">每一個問題都是一個變數</li></ul><ul id="15adcbde-013a-801b-b674-edf017684a5e" class="bulleted-list"><li style="list-style-type:circle">評比(1－5呎度)隔頁一樣要留著</li></ul><ul id="15adcbde-013a-8082-8460-e0b078b57a09" class="bulleted-list"><li style="list-style-type:circle">回答的方向要一致，如果上面都是左邊問題右邊回答，下面也要一樣</li></ul><ul id="15adcbde-013a-8085-a1f8-f1e478ce0168" class="bulleted-list"><li style="list-style-type:circle">不能一直重複出現 → 多餘</li></ul><ul id="15adcbde-013a-80f9-af27-ca548524fa14" class="bulleted-list"><li style="list-style-type:circle">問題和回答的距離不能那麼遠</li></ul><ul id="15adcbde-013a-8043-bc11-ef73527e11e7" class="bulleted-list"><li style="list-style-type:circle">不能沒有回答的地方</li></ul><ul id="15adcbde-013a-804b-9cff-e7a10cf5bbfe" class="bulleted-list"><li style="list-style-type:circle">衡量分數與標準要講清楚</li></ul><ul id="15ddcbde-013a-803c-99ca-ef44ed399007" class="bulleted-list"><li style="list-style-type:circle">要有題號</li></ul><ul id="15ddcbde-013a-80e8-a35e-f685c6b00b16" class="bulleted-list"><li style="list-style-type:circle">不能太多行(盡量省一點)，成本會很高</li></ul><ul id="15ddcbde-013a-8037-99d5-c8e034563d9e" class="bulleted-list"><li style="list-style-type:circle">回答方式要簡單一點</li></ul><ul id="15ddcbde-013a-80e2-b06d-d0fee944f0f5" class="bulleted-list"><li style="list-style-type:circle">不要期待回覆者寫任何文字</li></ul><ul id="15ddcbde-013a-8019-a6b1-e7ac8115c1e9" class="bulleted-list"><li style="list-style-type:circle">用最省力的方式回答問題</li></ul><ul id="15ddcbde-013a-80d0-8635-e19277e8ba44" class="bulleted-list"><li style="list-style-type:circle">rank有排序，有分rate跟rank的設計，rank不會重複</li></ul><ul id="15ddcbde-013a-80b5-b63c-f783d3199d40" class="bulleted-list"><li style="list-style-type:circle">有分底到高(1-7分)ascent, 高到底(7-1分)descent</li></ul><ul id="15ddcbde-013a-80bf-9e07-e7fbf9f070b3" class="bulleted-list"><li style="list-style-type:circle">問題區與回答區的比例 3:1 4:1</li></ul><ul id="15ddcbde-013a-80f8-b249-d92e3bcdfd62" class="bulleted-list"><li style="list-style-type:circle">5尺度還是7尺度，全部的問卷尺度要一致</li></ul></li></ul><ul id="15ddcbde-013a-8015-b00c-c6804d3fffd3" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>survey的精髓</strong></mark><ul id="15ddcbde-013a-800b-855e-cbbbb64c1212" class="bulleted-list"><li style="list-style-type:circle">範圍非常大，大到幾百萬、幾十萬</li></ul><ul id="15ddcbde-013a-80e6-b2c3-dfc6d090be0e" class="bulleted-list"><li style="list-style-type:circle">研究的變數幾十個</li></ul><ul id="15ddcbde-013a-804a-8ed4-fabd1c0de71d" class="bulleted-list"><li style="list-style-type:circle">用推論</li></ul><ul id="15ddcbde-013a-807c-8850-edba591b2a46" class="bulleted-list"><li style="list-style-type:circle">如果2萬個人跟2百個人結果一樣，為甚麼要做2萬個人</li></ul><ul id="15ddcbde-013a-80b6-8042-d21ad5d92a21" class="bulleted-list"><li style="list-style-type:circle">民調</li></ul></li></ul><ul id="15ddcbde-013a-8087-bb11-e43f5af1a2d2" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>調查法是科學研究最常使用之方法</strong></mark><ul id="15ddcbde-013a-80b0-9589-f7c8a8ad07c5" class="bulleted-list"><li style="list-style-type:circle">研究不一定適合用survey，很多人用不代表對</li></ul><ul id="15ddcbde-013a-801e-a355-c4cea29113f1" class="bulleted-list"><li style="list-style-type:circle">樣本或母群體</li></ul><ul id="15ddcbde-013a-804c-8f11-c81ebd1a5f78" class="bulleted-list"><li style="list-style-type:circle">追求一般性事實</li></ul><ul id="15ddcbde-013a-807e-b43f-c225727a4bdf" class="bulleted-list"><li style="list-style-type:circle">survey沒有命題</li></ul><ul id="15ddcbde-013a-8038-9bca-e0f52c3cb9c1" class="bulleted-list"><li style="list-style-type:circle">個案底下看不到假設</li></ul></li></ul><ul id="15ddcbde-013a-8069-b37d-c33873b5cba0" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>在survey底下已經真正要做資料的收集了</strong></mark></li></ul><ul id="15ddcbde-013a-809a-96fc-c538787a866d" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>操作型定義</strong></mark><ul id="15ddcbde-013a-8055-9fe2-e15f007c6dbf" class="bulleted-list"><li style="list-style-type:circle">用數字解釋文字</li></ul></li></ul><ul id="15ddcbde-013a-80a8-8a8d-d7162fc7ea41" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>郵寄問卷 vs. 電腦網路</strong></mark><ul id="15ddcbde-013a-8008-bf0a-d347bd2f8c14" class="bulleted-list"><li style="list-style-type:circle">網路問卷完勝郵寄問卷，所以用網路問卷，對，但前提是母體都是網路使用者</li></ul><ul id="15ddcbde-013a-8053-951e-dc8906fe932d" class="bulleted-list"><li style="list-style-type:circle">如果母體不完全是網路的使用者，但全部用網路問卷，結果就跑掉了</li></ul></li></ul><ul id="15ddcbde-013a-8099-ace4-c49337a79e87" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>survey底下幾乎都是用封閉性的問題</strong></mark><ul id="15ddcbde-013a-806d-96c9-feb7b79e2596" class="bulleted-list"><li style="list-style-type:circle">個案研究─開放性</li></ul></li></ul><ul id="15ddcbde-013a-8015-a173-e7a34cbd3040" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>我收集的資訊越多越好 → 設計的問題越多越好</strong></mark><ul id="15ddcbde-013a-80b2-86fe-f9273099b142" class="bulleted-list"><li style="list-style-type:circle">設計內容越多 → 回收率越低</li></ul><ul id="15ddcbde-013a-80d3-b659-c2bca3bbfa50" class="bulleted-list"><li style="list-style-type:circle">設計內容越少 → 回收率越多</li></ul></li></ul><ul id="15ddcbde-013a-8007-9c33-cdb80cfb8527" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>個案的對象是母體的一部份</strong></mark></li></ul><ul id="15ddcbde-013a-80f4-a3eb-c4c2e9766785" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>量表(norms)與問卷(questionnaire)</strong></mark><ul id="15ddcbde-013a-805b-83fc-d993c40657ac" class="bulleted-list"><li style="list-style-type:circle">量表(標準化產物)─經過嚴謹設計及信度、效度測試並在某個群體下具有代表性。(ex：魏氏量表─智力   巴氏量表)<ul id="15ddcbde-013a-8078-a710-f23663746607" class="bulleted-list"><li style="list-style-type:square">經過第三方公正單位(學會、協會、政府單位)</li></ul><ul id="15ddcbde-013a-8038-9f76-d9629ffe7f71" class="bulleted-list"><li style="list-style-type:square">個人不可能發展量表(沒有公權力)</li></ul><ul id="15ddcbde-013a-8055-9fb6-d523e7391df6" class="bulleted-list"><li style="list-style-type:square">大量資料蒐集 → 修正內容 → 大量資料蒐集</li></ul></li></ul><ul id="15ddcbde-013a-805d-88ad-df2335046885" class="bulleted-list"><li style="list-style-type:circle">問卷(未標準化產物)─針對某研究主題而產生的問題。(未經過大眾認定) <ul id="15ddcbde-013a-80c7-9138-e6355e3522f8" class="bulleted-list"><li style="list-style-type:square">小量資料蒐集 → 修正內容 → 大量資料蒐集</li></ul></li></ul></li></ul><ul id="15edcbde-013a-8054-b0d8-d2d3228655fe" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>Scale (尺度)</strong></mark><ul id="15edcbde-013a-800c-b0c1-e2974316b201" class="bulleted-list"><li style="list-style-type:circle">任何一個變數出來，第一個動作一定要問尺度</li></ul><ul id="15edcbde-013a-8019-b8f1-f4e22de3e6ea" class="bulleted-list"><li style="list-style-type:circle">判斷尺度錯，分析方法也會錯</li></ul><ul id="15edcbde-013a-8072-b791-edc85edae6ac" class="bulleted-list"><li style="list-style-type:circle">要走能力判斷是哪種尺度</li></ul><figure id="15edcbde-013a-803b-8f7b-f8c904443bd7" class="image" style="text-align:center"><a href="image.png"><img style="width:480px" src="image.png"/></a></figure><figure id="15edcbde-013a-8022-80f4-e60593f5c34c" class="image" style="text-align:center"><a href="image%201.png"><img style="width:576px" src="image%201.png"/></a></figure><ul id="15edcbde-013a-8053-8083-f55798f3ff8e" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-yellow_background"><strong>Nominal</strong></mark><ul id="15edcbde-013a-80e1-afb5-e098f86d5208" class="bulleted-list"><li style="list-style-type:square">你不屬於這個，就是屬於這個</li></ul><ul id="15edcbde-013a-80b9-99e8-f05769dbc0fd" class="bulleted-list"><li style="list-style-type:square">一定是屬於分類底下</li></ul><ul id="15edcbde-013a-8031-9451-e420de8e77fa" class="bulleted-list"><li style="list-style-type:square">Non-Metric data</li></ul></li></ul><ul id="15edcbde-013a-80de-a982-de705ba3e39b" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-yellow_background"><strong>Ordinal</strong></mark><ul id="15edcbde-013a-8050-a21f-f124e4145c8e" class="bulleted-list"><li style="list-style-type:square">有次序</li></ul><ul id="15edcbde-013a-8073-ae21-d69a2b99bfe0" class="bulleted-list"><li style="list-style-type:square">Non-Metric data</li></ul><ul id="15edcbde-013a-809f-8048-fe05957f71ac" class="bulleted-list"><li style="list-style-type:square">講師 助理教授 副教授 教授<ul id="15edcbde-013a-807b-ba42-ee7cab74b640" class="bulleted-list"><li style="list-style-type:disc">不一定幾年就往上升，有可能3年有的8年有的20年</li></ul></li></ul><ul id="15edcbde-013a-807a-baea-f9c374d765b9" class="bulleted-list"><li style="list-style-type:square">資本額(衡量單位不一致)</li></ul><figure id="15edcbde-013a-8042-a897-c6b36bfcc567" class="image"><a href="image%202.png"><img style="width:528px" src="image%202.png"/></a></figure></li></ul><ul id="15edcbde-013a-8090-ae03-fda58d8a7f76" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-yellow_background"><strong>Interval</strong></mark><ul id="15edcbde-013a-8061-8142-c660565de1b4" class="bulleted-list"><li style="list-style-type:square">有次序，距離一樣</li></ul><ul id="15edcbde-013a-80f3-a598-fbfdec2e81ca" class="bulleted-list"><li style="list-style-type:square">Metric data</li></ul><ul id="15edcbde-013a-8010-8493-d0f8a7bebcc2" class="bulleted-list"><li style="list-style-type:square">溫度、年資(衡量單位一致)</li></ul><figure id="15edcbde-013a-80af-bac1-d6b1a3bc32ea" class="image" style="text-align:left"><a href="image%203.png"><img style="width:480px" src="image%203.png"/></a></figure></li></ul><ul id="15edcbde-013a-8098-9294-d111d59fb9f7" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-yellow_background"><strong>Ratio</strong></mark><ul id="15edcbde-013a-8063-8442-f1b2d8bc81e6" class="bulleted-list"><li style="list-style-type:square">唯一例外 open 的問題</li></ul><ul id="15edcbde-013a-803a-8c31-dd10916e3e2f" class="bulleted-list"><li style="list-style-type:square">Metric data</li></ul><ul id="15edcbde-013a-80c3-b02e-d31c5c4c9ea2" class="bulleted-list"><li style="list-style-type:square">請回答者直接填寫</li></ul></li></ul><ul id="15edcbde-013a-808e-8ec8-d094b87af08b" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-yellow_background"><strong>Ordinal vs. Interval</strong></mark><ul id="15edcbde-013a-80bc-8f43-fa59594f11df" class="bulleted-list"><li style="list-style-type:square">Measurement Unit</li></ul><ul id="15edcbde-013a-808e-a28d-c72ab4eb581f" class="bulleted-list"><li style="list-style-type:square">N-2, N-1 , N , N+1 , N+2</li></ul></li></ul></li></ul><ul id="15edcbde-013a-805c-9435-ea43d1ee0525" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>Metric data vs. Non-Metric data</strong></mark><ul id="15edcbde-013a-80ef-8338-d55c4af71202" class="bulleted-list"><li style="list-style-type:circle">Metric data<ul id="15edcbde-013a-80fb-a668-e604d40a4a17" class="bulleted-list"><li style="list-style-type:square">屬量的資料</li></ul><ul id="15edcbde-013a-8001-a0a8-ef28bf51fd90" class="bulleted-list"><li style="list-style-type:square">常態分配</li></ul><ul id="15edcbde-013a-809c-a1fa-d55132f0e19f" class="bulleted-list"><li style="list-style-type:square">Nominal、Ordinal</li></ul><ul id="15edcbde-013a-80be-97d5-ebd4a5423b7e" class="bulleted-list"><li style="list-style-type:square">個數、百分比</li></ul><ul id="15edcbde-013a-8039-abce-eb9ca0d1bf10" class="bulleted-list"><li style="list-style-type:square">個人基本資料(描述性)</li></ul><ul id="15edcbde-013a-8036-a441-cdeca1986b96" class="bulleted-list"><li style="list-style-type:square">分群用 → 比較 → 差異</li></ul></li></ul><ul id="15edcbde-013a-803d-b086-fd6c6dc4a07f" class="bulleted-list"><li style="list-style-type:circle">Non-Metric data<ul id="15edcbde-013a-804c-878e-cb58fa16c4e7" class="bulleted-list"><li style="list-style-type:square">屬性的資料</li></ul><ul id="15edcbde-013a-80a9-87fb-edc11ee2c93b" class="bulleted-list"><li style="list-style-type:square">Interval、Ratio</li></ul><ul id="15edcbde-013a-80b9-91c5-c47518458708" class="bulleted-list"><li style="list-style-type:square">研究主要內容(較複雜性)</li></ul><ul id="15edcbde-013a-80bf-9e03-fb4103e68db5" class="bulleted-list"><li style="list-style-type:square">主要研究用</li></ul></li></ul></li></ul><ul id="15edcbde-013a-806b-ae64-eee62d3b2f1d" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>coding</strong></mark><ul id="15edcbde-013a-80b2-b046-f11cef3c8d71" class="bulleted-list"><li style="list-style-type:circle">數字(1、2、3…)在coding上具有二種意義</li></ul><ul id="15edcbde-013a-8043-b305-d2cd3b83324d" class="bulleted-list"><li style="list-style-type:circle">Symbol → Nominal、Ordinal</li></ul><ul id="15edcbde-013a-80c1-87a6-fe7e54eeb9a8" class="bulleted-list"><li style="list-style-type:circle">number → Interval、Ratio<figure id="15edcbde-013a-8003-8528-ebb35659e684" class="image" style="text-align:center"><a href="image%204.png"><img style="width:576px" src="image%204.png"/></a></figure><figure id="15edcbde-013a-80d7-8285-d366364372d1" class="image" style="text-align:center"><a href="image%205.png"><img style="width:528px" src="image%205.png"/></a></figure><figure id="15edcbde-013a-8014-8234-c2602ae36197" class="image"><a href="image%206.png"><img style="width:583.9487915039062px" src="image%206.png"/></a></figure></li></ul></li></ul><ul id="15edcbde-013a-8033-bab0-ee7936046704" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>Two-way ANOVA vs ANCOVA</strong></mark></li></ul><figure id="15edcbde-013a-8013-8aa4-e5e7f84a1baa" class="image"><a href="image%207.png"><img style="width:624px" src="image%207.png"/></a></figure><ul id="15edcbde-013a-8042-8e05-da25b3146dd2" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>Rank  vs. Rate</strong></mark><ul id="15edcbde-013a-80c5-aa19-f6dfc3dda064" class="bulleted-list"><li style="list-style-type:circle">Rank：在固定範圍下，通常希望這些<strong>值不會重複出現</strong>。</li></ul><ul id="15edcbde-013a-80a4-a475-ed2e69e28dac" class="bulleted-list"><li style="list-style-type:circle">Rate：在固定範圍下，這些<strong>值可以重複出現</strong>。</li></ul></li></ul><ul id="15edcbde-013a-8073-8b8b-ec75241223b9" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>基本資料 + 主要內容</strong></mark><ul id="15edcbde-013a-803b-b875-fd3d4eac23ad" class="bulleted-list"><li style="list-style-type:circle">問卷個人<strong>基本資料</strong>─Nominal &amp; Ordinal &amp; Ratio</li></ul><ul id="15edcbde-013a-80d2-b3cb-c18c9843063d" class="bulleted-list"><li style="list-style-type:circle">問卷研究<strong>主要內容</strong>─Interval &amp; Ratio</li></ul><ul id="15edcbde-013a-8001-8bc1-db54cc666a55" class="bulleted-list"><li style="list-style-type:circle">回覆你的內容的人，對你的研究是不熟悉的</li></ul><ul id="15edcbde-013a-80da-a137-e9b47495c123" class="bulleted-list"><li style="list-style-type:circle">熟悉的是他自己，所以要先讓他寫基本資料 → 造成熟悉感</li></ul><ul id="15edcbde-013a-8056-8cc3-cd422d3a3126" class="bulleted-list"><li style="list-style-type:circle"><strong>除非</strong>基本資料是敏感的問題(有時候年紀是敏感、收入也是)，才放後面。放在一開始會變成我為甚麼要告訴你?，後面也就不告訴你，變無效問卷</li></ul></li></ul><ul id="15fdcbde-013a-8001-a5d2-ce4d2cbb7480" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>複選題</strong></mark><figure id="15fdcbde-013a-8094-a61e-c797ff835d02" class="image"><a href="image%208.png"><img style="width:528px" src="image%208.png"/></a></figure><ul id="15fdcbde-013a-8049-a6ea-f761a9b9c9d3" class="bulleted-list"><li style="list-style-type:circle">每個選項都是一個變數(問題)</li></ul><ul id="15fdcbde-013a-8027-b58d-f632bc235d0b" class="bulleted-list"><li style="list-style-type:circle">每個選項轉換成<strong>Nominal</strong>設計<figure id="15fdcbde-013a-8020-90b9-d4925e695b37" class="image"><a href="image%209.png"><img style="width:278.9772644042969px" src="image%209.png"/></a></figure></li></ul></li></ul><ul id="15fdcbde-013a-80cc-a128-dd81eadc1f0a" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>一題多問</strong></mark><ul id="15fdcbde-013a-8044-bf12-f6076b9a8301" class="bulleted-list"><li style="list-style-type:circle">避免命名兩個以上的名稱 (factor analysis)–例如：便利性及清晰性</li></ul><ul id="15fdcbde-013a-80d9-bb1b-e2da121c4047" class="bulleted-list"><li style="list-style-type:circle">忌諱出現 and , or (和<strong>、</strong>與<strong>、</strong>或)</li></ul><ul id="15fdcbde-013a-8090-b7ea-eab6be3e2294" class="bulleted-list"><li style="list-style-type:circle">一個問題一個概念</li></ul></li></ul><ul id="15fdcbde-013a-8030-9ba7-ee8da8813292" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>研究結果</strong></mark><ul id="15fdcbde-013a-80fc-8112-e8fa93c81e90" class="bulleted-list"><li style="list-style-type:circle">高階管理人員支持(IV)<strong>影響</strong>組織的競爭力(DV) → 錯的</li></ul><ul id="15fdcbde-013a-80b4-a339-e7bd34253a5b" class="bulleted-list"><li style="list-style-type:circle">One question ---- one variable</li></ul><ul id="15fdcbde-013a-802e-800f-e7ca41661254" class="bulleted-list"><li style="list-style-type:circle">測出來的</li></ul><ul id="15fdcbde-013a-8027-a19d-e962ebbb077a" class="bulleted-list"><li style="list-style-type:circle">不是問出來</li></ul></li></ul><ul id="15fdcbde-013a-8090-8655-d32f3a0bd835" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>Proposal model  vs. Refined model</strong></mark><ul id="15fdcbde-013a-8016-baea-f4061cf8f92f" class="bulleted-list"><li style="list-style-type:circle">Proposal model → 前三章 before conduct study</li></ul><ul id="15fdcbde-013a-801f-97bc-d0aab799ed8d" class="bulleted-list"><li style="list-style-type:circle">Refined model → 第四章最後面或第五章前面 after analysis results</li></ul></li></ul><ul id="15fdcbde-013a-80ca-a34e-fcc8bf29c5ad" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>研究的歸類</strong></mark><ul id="15fdcbde-013a-80b3-9cfb-f79abe031bbc" class="bulleted-list"><li style="list-style-type:circle">Correlation<ul id="15fdcbde-013a-8029-a17b-db534394ff68" class="bulleted-list"><li style="list-style-type:square">H0：the more x , the more y . –有明確資料支援</li></ul><ul id="15fdcbde-013a-808d-ba66-f650ef869a75" class="bulleted-list"><li style="list-style-type:square">There is no significant correlation between v1 and v2 . –沒有明確資料支援</li></ul><ul id="15fdcbde-013a-80ec-8a73-d201b14ecbc0" class="bulleted-list"><li style="list-style-type:square">Matrix data</li></ul></li></ul><ul id="15fdcbde-013a-80cf-825e-ec592a2e8a55" class="bulleted-list"><li style="list-style-type:circle">Difference<ul id="15fdcbde-013a-8095-9686-f4705025fce6" class="bulleted-list"><li style="list-style-type:square">g1(Non-Matrix data) is greater(less) the g2(Non-Matrix data) on DV1(Matrix data)\</li></ul><ul id="15fdcbde-013a-80fa-9947-c3bcc77cd561" class="bulleted-list"><li style="list-style-type:square">There is no significant difference between g1 and g2 on DV1</li></ul></li></ul></li></ul><ul id="15fdcbde-013a-8076-8530-d4779d863d03" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>Scale 3, 5, 7</strong></mark><ul id="15fdcbde-013a-8075-9ec7-fe20d5540772" class="bulleted-list"><li style="list-style-type:circle">越聚集的信度越大<figure id="15fdcbde-013a-8040-9c6c-cfa6b87baf6e" class="image"><a href="image%2010.png"><img style="width:576px" src="image%2010.png"/></a></figure></li></ul><ul id="15fdcbde-013a-8040-bddc-f54677f63c43" class="bulleted-list"><li style="list-style-type:circle">信度(一致)<ul id="15fdcbde-013a-8007-ba34-dce18045a5a6" class="bulleted-list"><li style="list-style-type:square">探索性 → 0.6</li></ul><ul id="15fdcbde-013a-800e-90e6-d7fd6e5aab06" class="bulleted-list"><li style="list-style-type:square">驗證性 → 0.8</li></ul></li></ul><ul id="15fdcbde-013a-804f-a5af-f81a84608fb1" class="bulleted-list"><li style="list-style-type:circle">常態分配曲線 <figure id="15fdcbde-013a-8074-95a5-eec87a6e2461" class="image"><a href="image%2011.png"><img style="width:480px" src="image%2011.png"/></a></figure><ul id="15fdcbde-013a-80df-b113-f45fedcbe37f" class="bulleted-list"><li style="list-style-type:square">1-3 切割成3塊</li></ul><ul id="15fdcbde-013a-8093-a546-c1d1f5da4e1b" class="bulleted-list"><li style="list-style-type:square">1-5 切割成5塊</li></ul><ul id="15fdcbde-013a-80f0-9860-c306bb2d989f" class="bulleted-list"><li style="list-style-type:square">1-7 切割成7塊<ul id="15fdcbde-013a-80bf-b177-e26ffae4e348" class="bulleted-list"><li style="list-style-type:disc">衡量單位比較小(單位到單位的距離)</li></ul><ul id="15fdcbde-013a-80d5-aa2c-ccc64a4d985e" class="bulleted-list"><li style="list-style-type:disc">變動比較小 → 變異比較小 → 信度比較高</li></ul></li></ul></li></ul></li></ul><ul id="15fdcbde-013a-80d9-b5f0-d2728f96bac9" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>回覆問題可信度(7±2)</strong></mark><ul id="15fdcbde-013a-806d-8a66-c81f0bf21e43" class="bulleted-list"><li style="list-style-type:circle">回答者最多只能7<mark class="highlight-default"><mark class="highlight-default_background"><strong>±2</strong></mark></mark><mark class="highlight-default"><mark class="highlight-default_background">題</mark></mark></li></ul><ul id="15fdcbde-013a-8049-829e-f3e6af1d02a6" class="bulleted-list"><li style="list-style-type:circle">大約每五題空一行</li></ul><ul id="15fdcbde-013a-804a-8e68-d4bfb3f5b516" class="bulleted-list"><li style="list-style-type:circle">讓填卷者可以休息</li></ul></li></ul><ul id="15fdcbde-013a-801c-b43f-f5c3cdf6a4da" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>表面效度 (Face Validity) vs. 內容效度(Content Validity)</strong></mark><ul id="15fdcbde-013a-8023-a6a0-e556664d885e" class="bulleted-list"><li style="list-style-type:circle">沒有數字分析</li></ul><ul id="15fdcbde-013a-8049-b0d1-fe0115483e19" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-yellow_background"><strong>表面效度(Face Validity) 先</strong></mark><ul id="15fdcbde-013a-80af-a5bc-e1845de21cce" class="bulleted-list"><li style="list-style-type:square">清楚的交代你的變數來源</li></ul><ul id="15fdcbde-013a-80b2-bb16-ffd4f4b5c227" class="bulleted-list"><li style="list-style-type:square">變數來源大部分都是文獻來的</li></ul><ul id="15fdcbde-013a-80d8-aeb4-c378c348a982" class="bulleted-list"><li style="list-style-type:square"><strong>文獻(95%)</strong>或<strong>個人經驗(5%)</strong>有清楚交代變數的來源</li></ul><ul id="15fdcbde-013a-8054-bd67-eea646239b5b" class="bulleted-list"><li style="list-style-type:square">沒有testing<figure id="15fdcbde-013a-80d0-8235-d913d271142f" class="image"><a href="image%2012.png"><img style="width:576px" src="image%2012.png"/></a></figure><figure id="15fdcbde-013a-8000-bddb-cd16c6d2fff4" class="image"><a href="image%2013.png"><img style="width:576px" src="image%2013.png"/></a></figure></li></ul></li></ul><ul id="15fdcbde-013a-80a9-a62d-dbdca2a53170" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-yellow_background"><strong>內容效度(Content Validity) 後</strong></mark><ul id="15fdcbde-013a-807d-8c30-d55fa75969d9" class="bulleted-list"><li style="list-style-type:square">The extent to which it provides adequate coverage of the topic under study</li></ul><ul id="15fdcbde-013a-80dd-b22a-dffb71460084" class="bulleted-list"><li style="list-style-type:square">內容對嗎?</li></ul><ul id="15fdcbde-013a-8053-9fa6-d796b00b8d9a" class="bulleted-list"><li style="list-style-type:square">假設在做區塊鏈，結果再談別的東西</li></ul><ul id="15fdcbde-013a-805a-a7e4-d561a9c2a84c" class="bulleted-list"><li style="list-style-type:square">內容效度(有2種)<ul id="15fdcbde-013a-80b4-88f8-dfbd931ec6f4" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>Pretest (先) vs. Pilot Study (後)</strong></mark><ul id="15fdcbde-013a-80c3-b10c-dd4a468ffccd" class="bulleted-list"><li style="list-style-type:circle">相同:<ul id="15fdcbde-013a-8057-a824-fd174b37662f" class="bulleted-list"><li style="list-style-type:square">Content validity</li></ul></li></ul><ul id="15fdcbde-013a-8021-92e2-d2e2f7a6aad2" class="bulleted-list"><li style="list-style-type:circle">相異:<ul id="15fdcbde-013a-80b4-8eca-ef7679e40a1f" class="bulleted-list"><li style="list-style-type:square">目的</li></ul><ul id="15fdcbde-013a-80f2-af71-f94c3e8b5575" class="bulleted-list"><li style="list-style-type:square">對象</li></ul><ul id="15fdcbde-013a-80b4-8701-e588563cb73c" class="bulleted-list"><li style="list-style-type:square">人數</li></ul></li></ul><ul id="15fdcbde-013a-802b-bb4c-d1954b92506d" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-yellow_background"><strong>Pretest</strong></mark>：邀請field的3-5專家來幫忙看content，寫的內容是否包含了你要的  (same communication platform) → <strong>對不對</strong></li></ul><ul id="15fdcbde-013a-8042-9ef5-efae0e366978" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-yellow_background"><strong>Pilot study</strong></mark>：從填寫問卷的population抽取sample(10-20,1/20)看content → <strong>懂</strong><ul id="15fdcbde-013a-808d-9289-deecc625da98" class="bulleted-list"><li style="list-style-type:square">絕對不要期待母體的樣本，跟你有共同的溝通語言</li></ul><ul id="15fdcbde-013a-80b4-8546-c8e818f251e1" class="bulleted-list"><li style="list-style-type:square">如果抽樣出來的樣本不懂，表示母體也會不懂</li></ul><ul id="15fdcbde-013a-80ff-aa8e-df44af640b59" class="bulleted-list"><li style="list-style-type:square">填 → 寫下自己的意見</li></ul><ul id="15fdcbde-013a-809d-8cbe-eb0cedc0159f" class="bulleted-list"><li style="list-style-type:square">看 → 字眼的了解與否，把問題告訴研究者</li></ul></li></ul></li></ul></li></ul></li></ul></li></ul><ul id="15fdcbde-013a-80c7-a565-ecf5ca7027b9" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>Mail survey concurrent techniques</strong></mark><ul id="15fdcbde-013a-803e-9228-f0abb1825152" class="bulleted-list"><li style="list-style-type:circle">Cover Letters</li></ul><ul id="15fdcbde-013a-80e2-b85b-c95fc1056f28" class="bulleted-list"><li style="list-style-type:circle">Questionnaire Length</li></ul><ul id="15fdcbde-013a-80db-9d43-c6e172f47e61" class="bulleted-list"><li style="list-style-type:circle">Survey Sponsorship</li></ul><ul id="15fdcbde-013a-8024-be60-e9fb2eec2182" class="bulleted-list"><li style="list-style-type:circle">Return Envelopes</li></ul><ul id="15fdcbde-013a-8067-a0f3-d41ae8d3035e" class="bulleted-list"><li style="list-style-type:circle">Postage</li></ul><ul id="15fdcbde-013a-803e-b8a0-dc115db40ee5" class="bulleted-list"><li style="list-style-type:circle">Personalization</li></ul><ul id="15fdcbde-013a-80ba-9346-d37a9e1cfd0e" class="bulleted-list"><li style="list-style-type:circle">Anonymity</li></ul><ul id="15fdcbde-013a-80f1-9a31-fb5887b82e44" class="bulleted-list"><li style="list-style-type:circle">Size,Reproduction,and Color</li></ul><ul id="15fdcbde-013a-8077-89d0-cdf39a128742" class="bulleted-list"><li style="list-style-type:circle">Money Incentives</li></ul><ul id="15fdcbde-013a-800b-8620-f5adaed85830" class="bulleted-list"><li style="list-style-type:circle">Deadline Dates</li></ul></li></ul><ul id="15fdcbde-013a-80c3-ac0d-ec7b2458f511" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>Trade -- off</strong></mark><ul id="15fdcbde-013a-80dc-a9a3-fb07df654d59" class="bulleted-list"><li style="list-style-type:circle">問卷設計多寡 → 回收率高低</li></ul></li></ul><ul id="15fdcbde-013a-801c-871f-e91e6ba8517c" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>Cover Letter</strong></mark><ol type="1" id="15fdcbde-013a-80ba-82eb-e711efd8abf2" class="numbered-list" start="1"><li>Letter head (logo)</li></ol><ol type="1" id="15fdcbde-013a-80b1-a896-f3d47daf4638" class="numbered-list" start="2"><li>感謝時間</li></ol><ol type="1" id="15fdcbde-013a-8017-9918-c5f0733fb1b1" class="numbered-list" start="3"><li>身份說明</li></ol><ol type="1" id="15fdcbde-013a-80fa-bb99-dd8a09176be7" class="numbered-list" start="4"><li>探討主題、目的</li></ol><ol type="1" id="15fdcbde-013a-802e-9f93-e71ce8ea118d" class="numbered-list" start="5"><li>對他的貢獻</li></ol><ol type="1" id="15fdcbde-013a-80db-ad77-e7febc8a6b5e" class="numbered-list" start="6"><li>填答方式、時間(<strong>不超過15分鐘</strong>)</li></ol><ol type="1" id="15fdcbde-013a-80fb-8557-c79a8dedb40d" class="numbered-list" start="7"><li>保密（不具名）</li></ol><ol type="1" id="15fdcbde-013a-8053-973c-dd87c41b18c8" class="numbered-list" start="8"><li>整體研究（個別揭露）</li></ol><ol type="1" id="15fdcbde-013a-80fb-a596-d1505edc5d18" class="numbered-list" start="9"><li>Deadline、due day (<strong>網路7天。</strong>)</li></ol><ol type="1" id="15fdcbde-013a-8036-936c-fdd3362492a0" class="numbered-list" start="10"><li>Incentive (禮卷、電話卡、筆、樂透)</li></ol><ol type="1" id="15fdcbde-013a-8002-975a-f3f150477370" class="numbered-list" start="11"><li>Survey Sponsorship or Advisor</li></ol></li></ul><ul id="161dcbde-013a-8012-81e8-f3989210c1bb" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>提高回覆率</strong></mark><figure id="161dcbde-013a-80ee-9926-c3dc9d995451" class="image"><a href="image%2014.png"><img style="width:432px" src="image%2014.png"/></a></figure></li></ul><ul id="161dcbde-013a-800c-a41e-d220bf21d8f3" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>Survey method misapplied or weaknesses</strong></mark><ul id="161dcbde-013a-8005-b602-d730b917e0d3" class="bulleted-list"><li style="list-style-type:circle">Single-method designs where multiple (網路vs 實體)</li></ul><ul id="161dcbde-013a-80db-b998-f57202104f17" class="bulleted-list"><li style="list-style-type:circle"> unsystematic and often inadequate sampling procedures</li></ul><ul id="161dcbde-013a-806b-9b6d-e88758a2d3af" class="bulleted-list"><li style="list-style-type:circle">low response rates → 致命傷</li></ul><ul id="161dcbde-013a-808f-b1cd-db99eb1b7dc6" class="bulleted-list"><li style="list-style-type:circle">Over-reliance on cross-sectional surveys where longitudinal surveys are really needed →過程性vs 結果性</li></ul></li></ul><ul id="161dcbde-013a-803a-826f-f998627999fc" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>survey → 不要碰非機率性抽樣</strong></mark></li></ul><ul id="161dcbde-013a-8081-a509-d5dff64940b0" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>Sampling Methods(機率性)</strong></mark><ul id="161dcbde-013a-8044-a82b-f1f956e09f16" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-yellow_background"><strong>Simple random sampling(簡單隨機抽樣)</strong></mark><ul id="161dcbde-013a-8060-9fc1-d4864f9ea558" class="bulleted-list"><li style="list-style-type:square">選取的過程中，<strong>母群體的每一分子被抽中的機會，都是相同而且獨立</strong>(也就是不被其他分子所影響)的。<figure id="161dcbde-013a-80c1-90ba-f045b365af13" class="image"><a href="image%2015.png"><img style="width:240px" src="image%2015.png"/></a></figure></li></ul><ul id="161dcbde-013a-80f3-8c2f-de5dad8e7f76" class="bulleted-list"><li style="list-style-type:square">依亂數表</li></ul><ul id="161dcbde-013a-8083-a4fb-c0b832cf21ef" class="bulleted-list"><li style="list-style-type:square">編號抽籤<figure id="161dcbde-013a-80e5-9e41-e42a0bf4770b" class="image"><a href="image%2016.png"><img style="width:384px" src="image%2016.png"/></a></figure></li></ul></li></ul><ul id="161dcbde-013a-80ea-8ab3-c01fad9f888f" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-yellow_background"><strong>Stratify random sampling(分層隨機抽樣)</strong></mark><ul id="161dcbde-013a-8096-ac98-c8c00decfc1e" class="bulleted-list"><li style="list-style-type:square">某些次團體(或稱「層」)的<strong>抽中比率</strong>，與其在母群體中<strong>所佔的比率相等</strong>。<figure id="161dcbde-013a-80af-80ad-d156431316b2" class="image"><a href="image%2017.png"><img style="width:336px" src="image%2017.png"/></a></figure></li></ul><ul id="161dcbde-013a-80d5-aacf-c12fb81f2b9c" class="bulleted-list"><li style="list-style-type:square">分層隨機抽樣的樣本數<strong>比例差距過大</strong><ul id="161dcbde-013a-80c8-a58b-ff7552df7ca7" class="bulleted-list"><li style="list-style-type:disc">95%-5%</li></ul><ul id="161dcbde-013a-809c-8d37-c7c5d506c9e7" class="bulleted-list"><li style="list-style-type:disc">將5%的樣本剔除，只研究95%的部分</li></ul></li></ul></li></ul><ul id="161dcbde-013a-808b-8881-e1dfc3a09daf" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-yellow_background"><strong>Systematic random sampling(系統隨機抽樣)</strong></mark><ul id="161dcbde-013a-8065-8449-fce9fedafe49" class="bulleted-list"><li style="list-style-type:square">母體本身<strong>己經有排名、順序</strong>(rank、order)</li></ul><ul id="161dcbde-013a-8008-9366-e3a6df20ac85" class="bulleted-list"><li style="list-style-type:square">一千大製造業，需要200</li></ul><ul id="161dcbde-013a-80fd-a2db-c25c5dfec1db" class="bulleted-list"><li style="list-style-type:square">1000/200=5 → K</li></ul><ul id="161dcbde-013a-801d-a120-d929572b562b" class="bulleted-list"><li style="list-style-type:square">1-K(5) 隨便一個數字 → 3</li></ul><ul id="161dcbde-013a-80e7-ad13-ce61220b23d6" class="bulleted-list"><li style="list-style-type:square">從3開始，在+5，下一個是8，這樣才有200</li></ul></li></ul><ul id="161dcbde-013a-8098-895a-ce9df64de88e" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-yellow_background"><strong>Cluster random sampling (群集隨機抽樣)</strong></mark><ul id="161dcbde-013a-8070-9406-d32f9130b298" class="bulleted-list"><li style="list-style-type:square">希望確定<strong>具有某些特質</strong>的個體被選為樣本。Ex:班級、學校、醫院、地理區</li></ul><ul id="161dcbde-013a-8008-a420-d6af458664db" class="bulleted-list"><li style="list-style-type:square">想了解全國資管所<strong>碩一</strong>的資素養 → 班為單位<figure id="161dcbde-013a-809b-99fc-cc4c5cb56e64" class="image"><a href="image%2018.png"><img style="width:336px" src="image%2018.png"/></a></figure><figure id="161dcbde-013a-80a2-a215-f69b03330eb7" class="image"><a href="image%2019.png"><img style="width:528px" src="image%2019.png"/></a></figure></li></ul></li></ul></li></ul><ul id="161dcbde-013a-8098-9149-e702b708d553" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>抽樣方法選擇</strong></mark><ul id="161dcbde-013a-8000-8155-fe413a87ed72" class="bulleted-list"><li style="list-style-type:circle">完全沒有 → <mark class="highlight-default_background">Simple random</mark></li></ul><ul id="161dcbde-013a-8024-8741-cfa540b405d4" class="bulleted-list"><li style="list-style-type:circle">比例分配 → <mark class="highlight-default_background">Stratify random</mark></li></ul><ul id="161dcbde-013a-8030-85a3-efd237287ea6" class="bulleted-list"><li style="list-style-type:circle">群集 → <mark class="highlight-default_background">Cluster random</mark></li></ul><ul id="161dcbde-013a-804a-a1d8-c25f87cf0dd1" class="bulleted-list"><li style="list-style-type:circle">順序 → <mark class="highlight-default_background">Systematic random</mark></li></ul></li></ul><ul id="161dcbde-013a-80e9-85db-cd4b5d039d5c" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>Sampling Methods(非機率性)</strong></mark><ul id="161dcbde-013a-802c-b438-e8a555da8fe4" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-default_background">非機率性的方法是無法推論到母體的</mark></li></ul><ul id="161dcbde-013a-807c-8920-c96d7e701a73" class="bulleted-list"><li style="list-style-type:circle"><strong>便利抽樣(convenient sampling)</strong><ul id="161dcbde-013a-809e-a3c5-dbc647e2deb6" class="bulleted-list"><li style="list-style-type:square">自己便利隨便抽</li></ul><ul id="161dcbde-013a-80ec-a776-eec833d71777" class="bulleted-list"><li style="list-style-type:square">容易挑自己熟悉的人</li></ul></li></ul><ul id="161dcbde-013a-8016-b447-e12652e3265d" class="bulleted-list"><li style="list-style-type:circle"><strong>立意抽樣(Judgmental sampling)</strong><ul id="161dcbde-013a-805b-8bae-de8f29fcc526" class="bulleted-list"><li style="list-style-type:square">研究者自己認定它可以代表母體</li></ul><ul id="161dcbde-013a-80c8-9238-e9ba188048f1" class="bulleted-list"><li style="list-style-type:square">要證明可以代表母體 → 怎麼證明? → 同質性檢定</li></ul><ul id="161dcbde-013a-8024-939b-e2cba4d0aab7" class="bulleted-list"><li style="list-style-type:square">同質性檢定 → 分析方法</li></ul></li></ul><ul id="161dcbde-013a-80ce-a640-c71fed0f620a" class="bulleted-list"><li style="list-style-type:circle"><strong>雪球抽樣(snow-ball sampling)</strong><ul id="161dcbde-013a-80f7-b9c0-f95e029749d5" class="bulleted-list"><li style="list-style-type:square">田野調查</li></ul><ul id="161dcbde-013a-80ea-bdc6-e6aa2152c789" class="bulleted-list"><li style="list-style-type:square">key person → more</li></ul><ul id="161dcbde-013a-80a7-9556-db72ceaf6f6f" class="bulleted-list"><li style="list-style-type:square">要幾輪? → saturation</li></ul></li></ul></li></ul><ul id="161dcbde-013a-8097-8a5b-ecac00ec97e0" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>Response rate</strong></mark><figure id="161dcbde-013a-808a-84e3-c2b290ebcdb7" class="image"><a href="image%2020.png"><img style="width:480px" src="image%2020.png"/></a></figure><ul id="161dcbde-013a-80f7-b98e-ca813b9cfe31" class="bulleted-list"><li style="list-style-type:circle">問卷蒐集的完整時程─至少需要二-三個月<ul id="161dcbde-013a-805e-8909-dca0bc4f2763" class="bulleted-list"><li style="list-style-type:square">研究所兩年 → 二上 proposal → 二下 survey出去 → 每年3~6月很多問卷 → 丟掉</li></ul></li></ul><ul id="161dcbde-013a-8056-93ed-fd8d6d395524" class="bulleted-list"><li style="list-style-type:circle">過年後到4月是問卷高峰期</li></ul><ul id="161dcbde-013a-802e-ac2f-de39304b68ab" class="bulleted-list"><li style="list-style-type:circle">避開這時段會增加5-10%</li></ul><ul id="161dcbde-013a-8070-ad88-f38ff35ec0ac" class="bulleted-list"><li style="list-style-type:circle">提前進行問卷發放 (升二年級暑假就開始做了)</li></ul></li></ul><ul id="161dcbde-013a-8078-9fb6-e60371679e8b" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>Valid response identification</strong></mark><ul id="161dcbde-013a-80aa-9912-e5833a7551e8" class="bulleted-list"><li style="list-style-type:circle">全部都填3 → 問卷有效還無效?</li></ul><ul id="161dcbde-013a-8070-9ca7-cc026ea7148d" class="bulleted-list"><li style="list-style-type:circle">Repeat question<ul id="161dcbde-013a-8050-a7da-e02fabbdf4f3" class="bulleted-list"><li style="list-style-type:square">一樣的問題，一題填3，一題填4 → 有亂填嗎? → 不一致喔 → 信度問題喔!</li></ul></li></ul><ul id="161dcbde-013a-809c-a62a-de3bee980cb5" class="bulleted-list"><li style="list-style-type:circle">Test re-test<ul id="161dcbde-013a-8031-b44c-e6de781b07fa" class="bulleted-list"><li style="list-style-type:square">一致的要求 → 0.6(探索)? 0.8(驗證)? → 做驗證 → 0.8以上就可以</li></ul></li></ul><ul id="161dcbde-013a-8085-9022-f5ec32dc963b" class="bulleted-list"><li style="list-style-type:circle">Reliability– confirmatory &gt; 0.8<figure id="161dcbde-013a-80b0-8f60-f71b741ea90e" class="image"><a href="image%2021.png"><img style="width:384px" src="image%2021.png"/></a></figure><ul id="161dcbde-013a-8008-b59b-d7137c7202f4" class="bulleted-list"><li style="list-style-type:square">1到5，每一格信度0.2，所以一個填3，一個填4，信度0.8 → 正常</li></ul><ul id="161dcbde-013a-80ed-ad84-d79ca16cb179" class="bulleted-list"><li style="list-style-type:square">1到5，每一格信度0.2，所以一個填3，一個填5，信度0.6 → 亂填</li></ul></li></ul></li></ul><ul id="161dcbde-013a-803d-9a6c-e76da8798d72" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>Useful response vs. Missing Data</strong></mark><ul id="161dcbde-013a-805e-b0f3-dac4301f03b7" class="bulleted-list"><li style="list-style-type:circle">missing data <mark class="highlight-red"><strong>under 10%</strong></mark> for an individual case or observation (<mark class="highlight-blue"><strong>ignore</strong></mark>)<ul id="161dcbde-013a-8074-9f5a-f313a0770add" class="bulleted-list"><li style="list-style-type:square">整份40題，5題沒填 -&gt; 無效</li></ul></li></ul><ul id="161dcbde-013a-80b0-be98-d717b31df3b4" class="bulleted-list"><li style="list-style-type:circle">Variables with as little as <mark class="highlight-red"><strong>15% missing data</strong></mark> are candidates for <mark class="highlight-blue">deletion</mark></li></ul></li></ul><ul id="161dcbde-013a-8018-a796-fc23060ca8c3" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default"><mark class="highlight-yellow_background"><strong>Missing value</strong></mark></mark><ul id="161dcbde-013a-80ce-a09e-c602ca611827" class="bulleted-list"><li style="list-style-type:circle">mean</li></ul><ul id="161dcbde-013a-8051-99ba-f4010dd1471f" class="bulleted-list"><li style="list-style-type:circle">median</li></ul><ul id="161dcbde-013a-80c0-b4fa-eb0ed683b33b" class="bulleted-list"><li style="list-style-type:circle">mode</li></ul><ul id="161dcbde-013a-809f-995f-fcf00a9ff5e6" class="bulleted-list"><li style="list-style-type:circle">補0 → 很糟糕</li></ul><ul id="161dcbde-013a-8058-89b1-fe9d8008d411" class="bulleted-list"><li style="list-style-type:circle">打 . 就好 → 程式會自己判斷</li></ul></li></ul><ul id="161dcbde-013a-800b-88a9-dfef72967074" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default"><mark class="highlight-yellow_background"><strong>Follow-up</strong></mark></mark><figure id="161dcbde-013a-80bc-b2b7-fd2d1e37570b" class="image"><a href="image%2022.png"><img style="width:480px" src="image%2022.png"/></a></figure><ul id="161dcbde-013a-80aa-9b63-d9b09ed25b0a" class="bulleted-list"><li style="list-style-type:circle">third mail沒有second mail的一半 → 小心被告騷擾</li></ul></li></ul><ul id="161dcbde-013a-807f-b553-f330b7825dbe" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>Min sample size</strong></mark><figure id="161dcbde-013a-80e8-b77b-f6ce3550a31c" class="image"><a href="image%2023.png"><img style="width:528px" src="image%2023.png"/></a></figure><figure id="161dcbde-013a-801d-a1fa-f10806f81a9e" class="image"><a href="image%2024.png"><img style="width:528px" src="image%2024.png"/></a></figure><ul id="161dcbde-013a-80ff-af8e-d85fe8afce17" class="bulleted-list"><li style="list-style-type:circle">1. Pilot test using Factor analysis<ul id="162dcbde-013a-802a-9fa8-f7828def81db" class="bulleted-list"><li style="list-style-type:square">收集10~20，做因素分析，產生幾個因素，乘10倍就是最小樣本數</li></ul></li></ul></li></ul><ul id="162dcbde-013a-80ef-810b-f562941cf1c5" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>Analysis min sample size</strong></mark><ul id="162dcbde-013a-80ee-9b4a-d64ec3377bab" class="bulleted-list"><li style="list-style-type:circle">看用甚麼方法</li></ul></li></ul><ul id="162dcbde-013a-80a6-9979-cdc4b71f9a26" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>Non-Response Bias</strong></mark><ul id="162dcbde-013a-80c9-b3fe-c8a9e3190883" class="bulleted-list"><li style="list-style-type:circle">母體1000 -&gt; 樣本200 → 800沒回覆</li></ul><ul id="162dcbde-013a-8088-9505-f35b72b9a12b" class="bulleted-list"><li style="list-style-type:circle">母體跟樣本有相同的行為</li></ul><ul id="162dcbde-013a-8023-b148-f30df37d90e7" class="bulleted-list"><li style="list-style-type:circle">200跟800不一樣的行為了</li></ul><ul id="162dcbde-013a-80a0-829f-cb5c6f09acaa" class="bulleted-list"><li style="list-style-type:circle">所以可以用200推回去嗎?</li></ul><ul id="162dcbde-013a-8075-8c78-ebdd037607f6" class="bulleted-list"><li style="list-style-type:circle">證明200跟800有相同的行為</li></ul><ul id="162dcbde-013a-80fd-bbc0-df44d4cecf59" class="bulleted-list"><li style="list-style-type:circle">時間切割<figure id="162dcbde-013a-80af-ae2f-ce6f4f307088" class="image"><a href="image%2025.png"><img style="width:432px" src="image%2025.png"/></a></figure></li></ul><ul id="162dcbde-013a-8035-8b6a-ed11a1c338d4" class="bulleted-list"><li style="list-style-type:circle">證明同質型<figure id="162dcbde-013a-8096-b291-ce6dca609cb2" class="image"><a href="image%2026.png"><img style="width:480px" src="image%2026.png"/></a></figure></li></ul></li></ul><ul id="162dcbde-013a-801e-8bde-e53317adcb38" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>網路問卷和實體問卷分頭同步進行</strong></mark><ul id="162dcbde-013a-8042-a6c9-cd8dc64a52ed" class="bulleted-list"><li style="list-style-type:circle">是否能合併使用? 無反應偏差的測試 → 同質性檢定</li></ul></li></ul><ul id="162dcbde-013a-80ab-bbbb-d5803ca44f98" class="bulleted-list"><li style="list-style-type:disc">母群體效度(population validity) vs. 生態的效度(ecological validity)<ul id="162dcbde-013a-8012-9914-cb32b9a66ced" class="bulleted-list"><li style="list-style-type:circle">population validity → Model-模式</li></ul><ul id="162dcbde-013a-80e1-a915-f05d6e4484f3" class="bulleted-list"><li style="list-style-type:circle">ecological validity → Theory-理論</li></ul></li></ul><p id="15edcbde-013a-801c-aedf-ccb15250dd43" class="">
+</p><p id="15ddcbde-013a-8093-b99d-e47c81c1e4d8" class="">
+</p><p id="15adcbde-013a-80c9-b823-c1c598179341" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
