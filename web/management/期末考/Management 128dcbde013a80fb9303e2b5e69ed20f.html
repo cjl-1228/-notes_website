@@ -1,0 +1,685 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Management</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="128dcbde-013a-80fb-9303-e2b5e69ed20f" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/nasa_wrights_first_flight.jpg" style="object-position:center 40%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">📁</span></div><h1 class="page-title"><strong>Management</strong></h1><p class="page-description"></p></header><div class="page-body"><nav id="128dcbde-013a-8085-9a05-fa41dd39402f" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#128dcbde-013a-80c0-93ff-d6c1f6880833">第四章-從變動的環境中開創新契機</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#167dcbde-013a-80fc-98b2-d90fe4a67fd1">第五章-企業倫理與社會責任的實踐</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#16adcbde-013a-80a7-a69e-dc0e2b323984">第六章-決策：解決企業面臨的難題</a></div></nav><hr id="128dcbde-013a-8049-a184-f0a20757e5bd"/><h2 id="128dcbde-013a-80c0-93ff-d6c1f6880833" class="">第四章-從變動的環境中開創新契機</h2><ul id="167dcbde-013a-80bc-84ac-ebfceee6d5cd" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>總體環境</strong></mark><ul id="16adcbde-013a-806b-a9c4-f87ec258b656" class="bulleted-list"><li style="list-style-type:circle">總體環境是指<mark class="highlight-default"><strong>一般性的、不限特定企業</strong></mark>的環境因素</li></ul><ul id="167dcbde-013a-8055-8031-fce7f27a13c6" class="bulleted-list"><li style="list-style-type:circle"><strong>科技環境</strong><ul id="16adcbde-013a-80c5-965d-c87d7bd1f647" class="bulleted-list"><li style="list-style-type:square">科技是指應用在商品或服務的生產、配銷過程中的技術與設備。</li></ul><ul id="16adcbde-013a-8033-b883-eaa8d53c6254" class="bulleted-list"><li style="list-style-type:square">科技變遷對企業的影響<ol type="1" id="16adcbde-013a-806b-87a3-f7fcf98cb7de" class="numbered-list" start="1"><li><strong>縮短產品生命週期</strong><ul id="16adcbde-013a-80eb-96a6-c8262e1a6625" class="bulleted-list"><li style="list-style-type:disc">摩爾定律、數位相機的生命週期、網路攝影機的技術進步</li></ul></li></ol><ol type="1" id="16adcbde-013a-809a-a4fe-d81f0042a958" class="numbered-list" start="2"><li><strong>創造新的經營形式</strong><ul id="16adcbde-013a-80d7-97e5-fdeb3ed08275" class="bulleted-list"><li style="list-style-type:disc">通訊科技(B2C)</li></ul><ul id="16adcbde-013a-8098-af4b-d8c3a525ec0f" class="bulleted-list"><li style="list-style-type:disc">供應鏈</li></ul></li></ol><ol type="1" id="16adcbde-013a-80bc-a02d-d6181534fce1" class="numbered-list" start="3"><li><strong>提升企業效率</strong><ul id="16adcbde-013a-80f1-9dbd-c61d668d67a7" class="bulleted-list"><li style="list-style-type:disc">流程再造、降低成本</li></ul><ul id="16adcbde-013a-801e-a8cf-cf172e0454fc" class="bulleted-list"><li style="list-style-type:disc">科技進步</li></ul></li></ol></li></ul></li></ul><ul id="16adcbde-013a-8064-9b87-c656d878fdff" class="bulleted-list"><li style="list-style-type:circle"><strong>社會文化環境</strong><ul id="16adcbde-013a-8010-bd00-ffc6c228223b" class="bulleted-list"><li style="list-style-type:square">文化包含一切知識、宗教、藝術、法律、道德對企業而言，<strong>社會文化的影響是多面向</strong>的</li></ul><ul id="16adcbde-013a-8040-94dd-eac79dfbddac" class="bulleted-list"><li style="list-style-type:square"><strong>社會文化的影響</strong><ul id="16adcbde-013a-80a3-8042-ceaf2bb5fbca" class="bulleted-list"><li style="list-style-type:disc">企業面對的消費者無法自外於社會文化的影響</li></ul><ul id="16adcbde-013a-8056-a96a-e977bffb0476" class="bulleted-list"><li style="list-style-type:disc">企業由人組成，管理者執行任務時必須面對不同文化或價值觀的人力</li></ul></li></ul><ul id="16adcbde-013a-8081-9673-f58d84372754" class="bulleted-list"><li style="list-style-type:square"><strong>縱斷面的差異</strong>-與時變遷的文化<ul id="16adcbde-013a-805f-8365-e23f333288b4" class="bulleted-list"><li style="list-style-type:disc">同一個社會的文化或價值觀會隨著時間而發生變化。</li></ul><ul id="16adcbde-013a-804b-a872-fadb63d98cfa" class="bulleted-list"><li style="list-style-type:disc">價值觀的改變對企業的影響是多元的，可能帶來新的商機，相對的，也可能使既有的產品失去認同。</li></ul></li></ul><ul id="16adcbde-013a-80c7-843d-d1eacfe764ab" class="bulleted-list"><li style="list-style-type:square"><strong>橫斷面的差異</strong>-多元並陳的次文化<ul id="16adcbde-013a-8077-9faa-fd0a5ab1650c" class="bulleted-list"><li style="list-style-type:disc">近年來，社會愈來愈接受次文化多元並陳的現象。</li></ul><ul id="16adcbde-013a-809d-a801-fe38fccc7093" class="bulleted-list"><li style="list-style-type:disc">對企業而言，可以設法區隔特定的族群來提供商品服務，愈來愈常見到產品的行銷訴求會針對次文化團體來進行</li></ul></li></ul></li></ul><ul id="16adcbde-013a-8028-8c8a-d5bef2bfb29b" class="bulleted-list"><li style="list-style-type:circle"><strong>人口統計變數</strong><ul id="16adcbde-013a-80c6-91fb-d9202f27bac4" class="bulleted-list"><li style="list-style-type:square">人口統計變數是指人口的分佈、人口密度、年齡與教育程度等人口特徵</li></ul><ul id="16adcbde-013a-80d6-9fae-e834b5bca25b" class="bulleted-list"><li style="list-style-type:square">彼得杜拉克：「目前的人口組合乃是構成未來勞動力及顧客的基礎，因此，任何策略一定要先考慮到人口結構的變化。」</li></ul></li></ul><ul id="16adcbde-013a-80e6-8151-ecb2103f8a0e" class="bulleted-list"><li style="list-style-type:circle"><strong>經濟環境</strong><ul id="16adcbde-013a-8046-8728-d004e110d2a6" class="bulleted-list"><li style="list-style-type:square">對企業的影響<ul id="16adcbde-013a-8008-bc9f-eca880f2a404" class="bulleted-list"><li style="list-style-type:disc">經濟前景看好 → 消費者勇於消費</li></ul><ul id="16adcbde-013a-801d-9064-e9bf04ab43e1" class="bulleted-list"><li style="list-style-type:disc">經濟前景看壞 → 消費意願低落</li></ul></li></ul><ul id="16adcbde-013a-80e2-98c3-f3194fea6ba7" class="bulleted-list"><li style="list-style-type:square">經濟指標<ul id="16adcbde-013a-8094-94ca-de092da2d2d6" class="bulleted-list"><li style="list-style-type:disc"><strong>景氣對策信號</strong><ul id="16adcbde-013a-80bb-84af-f3153ec1199b" class="bulleted-list"><li style="list-style-type:circle">主要目的在藉燈號以提示應採的景氣對策，並綜合<mark class="highlight-red"><strong>判斷短期未來的景氣</strong></mark>是否將進入過熱或衰退，而預先發出信號。</li></ul><ul id="16adcbde-013a-8075-abe0-e74e3e6a91f9" class="bulleted-list"><li style="list-style-type:circle">信號種類<ul id="16adcbde-013a-8036-9a53-f977525eab03" class="bulleted-list"><li style="list-style-type:square">「<mark class="highlight-red">紅</mark>燈」表示景氣過熱(應剎車)</li></ul><ul id="16adcbde-013a-802a-90d1-fff374402b25" class="bulleted-list"><li style="list-style-type:square">「<mark class="highlight-yellow">黃</mark><mark class="highlight-red">紅</mark>燈」表示景氣活絡(應注意)</li></ul><ul id="16adcbde-013a-800f-b547-ef9ff744d556" class="bulleted-list"><li style="list-style-type:square">「<mark class="highlight-teal">綠</mark>燈」表示景氣穩定(安全狀況)</li></ul><ul id="16adcbde-013a-803b-ace0-d41a241e81dd" class="bulleted-list"><li style="list-style-type:square">「<mark class="highlight-yellow">黃</mark><mark class="highlight-blue">藍</mark>燈」表示景氣欠佳(應注意)</li></ul><ul id="16adcbde-013a-8038-9dbf-d289d6b45c35" class="bulleted-list"><li style="list-style-type:square">「<mark class="highlight-blue">藍</mark>燈」表示景氣衰退(應加速)</li></ul></li></ul></li></ul><ul id="16adcbde-013a-80ca-8c7c-db413d91725a" class="bulleted-list"><li style="list-style-type:disc"><strong>領先指標</strong><ul id="16adcbde-013a-809d-9efc-c6d99398a342" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-default">可用來</mark><mark class="highlight-red"><strong>預測短期未來景氣</strong></mark>變化。</li></ul><ul id="16adcbde-013a-80d9-b1ba-e18734646c06" class="bulleted-list"><li style="list-style-type:circle">目前編製領先指標綜合指數係選定七項領先景氣變動經濟指標加權估算而成：<ol type="1" id="16adcbde-013a-8050-932a-e3a1356ebfb4" class="numbered-list" start="1"><li>製造業平均每月工時</li></ol><ol type="1" id="16adcbde-013a-8079-bdbc-f43db65b3e32" class="numbered-list" start="2"><li>製造業新接訂單指數變動率</li></ol><ol type="1" id="16adcbde-013a-8092-b6e3-d0cdbe8f88b5" class="numbered-list" start="3"><li>海關出口值變動率</li></ol><ol type="1" id="16adcbde-013a-805d-bfbb-c535e8a69964" class="numbered-list" start="4"><li>股價指數變動率</li></ol><ol type="1" id="16adcbde-013a-80d2-b2f4-eece02bfe5ab" class="numbered-list" start="5"><li>躉售物價指數變動率</li></ol><ol type="1" id="16adcbde-013a-80f2-8290-fbe8d3c837dd" class="numbered-list" start="6"><li>貨幣供給M1B變動率</li></ol><ol type="1" id="16adcbde-013a-808d-99ed-fcfb2f673473" class="numbered-list" start="7"><li>台灣地區房屋建築申請面積等</li></ol></li></ul></li></ul><ul id="16adcbde-013a-8020-8ce3-efd128c6c153" class="bulleted-list"><li style="list-style-type:disc"><strong>同時指標</strong><ul id="16adcbde-013a-801f-bdb0-e0b0cef5c939" class="bulleted-list"><li style="list-style-type:circle">應經濟活動中能即時反應的六項因素<ol type="1" id="16adcbde-013a-80f5-aba7-cfd4517be70b" class="numbered-list" start="1"><li>工業生產指數變動率</li></ol><ol type="1" id="16adcbde-013a-8092-ba30-ebeff6946b44" class="numbered-list" start="2"><li>製造業生產指數變動率</li></ol><ol type="1" id="16adcbde-013a-8085-ac56-f0f7a1c1f471" class="numbered-list" start="3"><li>製造業銷售值</li></ol><ol type="1" id="16adcbde-013a-8056-a728-e23042751b51" class="numbered-list" start="4"><li>製造業平均每人每月薪資變動率</li></ol><ol type="1" id="16adcbde-013a-802d-8ce8-e2e917a4cdd9" class="numbered-list" start="5"><li>票據交換金額變動率</li></ol><ol type="1" id="16adcbde-013a-80d5-9c0a-ded1a70ca205" class="numbered-list" start="6"><li>國內貨運量</li></ol></li></ul><ul id="16adcbde-013a-80f0-87e3-c52ff07766e4" class="bulleted-list"><li style="list-style-type:circle">配合景氣對策信號，可驗證景氣的脈動</li></ul></li></ul><ul id="16adcbde-013a-807b-9716-c201ce39d74a" class="bulleted-list"><li style="list-style-type:disc"><strong>失業率</strong><ul id="16adcbde-013a-807d-9aae-ed65480d368c" class="bulleted-list"><li style="list-style-type:circle">年滿15歲以上，扣除就學、監管、服役等非就業人口與勞動力的比值。</li></ul><ul id="16adcbde-013a-8087-9203-ee31cf3c29c9" class="bulleted-list"><li style="list-style-type:circle">失業者<ul id="16adcbde-013a-80b2-90a9-ff75769cde58" class="bulleted-list"><li style="list-style-type:square">年滿15歲</li></ul><ul id="16adcbde-013a-8078-947e-f3aec4011bb2" class="bulleted-list"><li style="list-style-type:square">無工作</li></ul><ul id="16adcbde-013a-80d3-86e8-d55936894c48" class="bulleted-list"><li style="list-style-type:square">隨時可工作</li></ul><ul id="16adcbde-013a-8017-89a1-cc62cc85ec9e" class="bulleted-list"><li style="list-style-type:square">正在尋找工作或已找工作，正等待結果</li></ul></li></ul></li></ul><ul id="16adcbde-013a-80b3-9fa4-fe04dc71dc95" class="bulleted-list"><li style="list-style-type:disc"><strong>通貨膨脹率</strong><ul id="16adcbde-013a-80dd-8f77-c77afddbe58d" class="bulleted-list"><li style="list-style-type:circle">一般物價水準在某一時期內，連續性的以相當的幅度上升</li></ul><ul id="16adcbde-013a-8086-8119-d8c2e416661b" class="bulleted-list"><li style="list-style-type:circle">行政院主計處<ul id="16adcbde-013a-8040-bf2a-eb2d1aba1c7c" class="bulleted-list"><li style="list-style-type:square">消費者物價指數(CPI)</li></ul><ul id="16adcbde-013a-80e0-bbd9-fa7f61389744" class="bulleted-list"><li style="list-style-type:square">躉售物價指數(WPI)</li></ul></li></ul></li></ul></li></ul></li></ul><ul id="16adcbde-013a-801a-883e-c72ace17a622" class="bulleted-list"><li style="list-style-type:circle"><strong>法律與政策環境</strong><ul id="16adcbde-013a-808b-b862-eaadaf3c00bd" class="bulleted-list"><li style="list-style-type:square">法律規範了企業的行為，法律產生變動時，就可能是產業界鉅變的開端。</li></ul><ul id="16adcbde-013a-80c4-8d1e-fd690f5f803c" class="bulleted-list"><li style="list-style-type:square">除了法律以外，政府擬定的財政、貨幣與產業政策，會對總體經濟產生各種不同的效果，進而影響企業的經營。</li></ul><ul id="16adcbde-013a-8064-bed4-ca2083959a4a" class="bulleted-list"><li style="list-style-type:square"> 2011.6.28開放陸客自由行</li></ul></li></ul></li></ul><ul id="167dcbde-013a-80de-ae0a-d3d02a521d09" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>任務環境</strong></mark><ul id="16adcbde-013a-80e9-8714-fd76ec743b42" class="bulleted-list"><li style="list-style-type:circle"><strong>與組織活動有直接關係的任務環境</strong></li></ul><ul id="167dcbde-013a-803c-bf65-f7b9e55e4d9a" class="bulleted-list"><li style="list-style-type:circle"><strong>顧客</strong><ul id="16adcbde-013a-805b-8fcc-e135d6f724ad" class="bulleted-list"><li style="list-style-type:square">顧客是向組織購買商品或獲得服務的人們</li></ul><ul id="16adcbde-013a-802a-8e5d-efd6c3d0fbcc" class="bulleted-list"><li style="list-style-type:square">決定組織能否生存的關鍵因素</li></ul><ul id="16adcbde-013a-8004-a1fb-f8afb8c52b0f" class="bulleted-list"><li style="list-style-type:square">企業必須不斷推陳出新，滿足顧客多變的需求</li></ul></li></ul><ul id="16adcbde-013a-8023-87d7-ec29bbf4d7e5" class="bulleted-list"><li style="list-style-type:circle"><strong>競爭者</strong><ul id="16adcbde-013a-80ac-976d-dda0597b6638" class="bulleted-list"><li style="list-style-type:square">競爭者就是在是同一產業或同一型態的公司中，提供消費者相同的商品或服務。</li></ul><ul id="16adcbde-013a-8005-8a02-fd62417131cb" class="bulleted-list"><li style="list-style-type:square">競爭的型態又分成：<ul id="16adcbde-013a-8069-b0c6-e35e2b9ba52f" class="bulleted-list"><li style="list-style-type:disc"><strong>直接競爭</strong><ul id="16adcbde-013a-806d-92fd-cd2a3065b079" class="bulleted-list"><li style="list-style-type:circle">指提供類似產品或服務的廠商。</li></ul><ul id="16adcbde-013a-8046-86e5-f518c6dc98d7" class="bulleted-list"><li style="list-style-type:circle">根據競爭的狀態區分為：<ul id="16adcbde-013a-8075-8434-e7d1e91ecf1a" class="bulleted-list"><li style="list-style-type:square"><strong>完全競爭</strong>：競爭者的家數眾多，提供的產品近乎同質</li></ul><ul id="16adcbde-013a-80b4-9624-d23fe2d8a489" class="bulleted-list"><li style="list-style-type:square"><strong>獨佔性競爭</strong>：廠商數多，不過產品差異化</li></ul><ul id="16adcbde-013a-8056-952e-f6b740c3dfac" class="bulleted-list"><li style="list-style-type:square"><strong>寡佔</strong>：廠商數目少，生產與定價決策會互相牽制</li></ul><ul id="16adcbde-013a-8002-808f-caaf9b37c2cc" class="bulleted-list"><li style="list-style-type:square"><strong>獨佔</strong>：產業內僅有單一個廠商，沒有近似的替代品</li></ul></li></ul></li></ul><ul id="16adcbde-013a-8050-9a74-e65b3725dbf0" class="bulleted-list"><li style="list-style-type:disc"><strong>間接競爭</strong><ul id="16adcbde-013a-804d-be79-d8ad99b3f36a" class="bulleted-list"><li style="list-style-type:circle">指廠商雖然提供不同的產品，但卻針對相同的顧客，因此會有爭奪顧客的現象出現。</li></ul></li></ul></li></ul></li></ul><ul id="16adcbde-013a-80d1-86f8-f468e14645ab" class="bulleted-list"><li style="list-style-type:circle"><strong>供應商</strong><ul id="16adcbde-013a-8011-a761-c38b1b40a65f" class="bulleted-list"><li style="list-style-type:square">供應商所提供的是企業生產所需的原物料。</li></ul><ul id="16adcbde-013a-8085-a267-cc715161c045" class="bulleted-list"><li style="list-style-type:square"><strong>對企業的影響可透過</strong><mark class="highlight-red"><strong>生產成本</strong></mark><strong>及</strong><mark class="highlight-red"><strong>產品品質</strong></mark><strong>兩種管道</strong></li></ul><ul id="16adcbde-013a-8008-9802-e257d8bc212e" class="bulleted-list"><li style="list-style-type:square">近年來由於中心衛星工廠生產體系的盛行，許多企業都大幅降低供應商的數目。</li></ul></li></ul><ul id="16adcbde-013a-8092-8691-ef1daea087a1" class="bulleted-list"><li style="list-style-type:circle"><strong>人力資源市場</strong><ul id="16adcbde-013a-8043-9c3b-e92113fb3251" class="bulleted-list"><li style="list-style-type:square">指在外部環境中的勞動力，他們是企業人力供應的來源。</li></ul><ul id="16adcbde-013a-80f5-a1c1-d7270a0891be" class="bulleted-list"><li style="list-style-type:square">當前台灣的受到下列兩個因素的衝擊：<ol type="1" id="16adcbde-013a-80d8-bb50-d12f79e65b16" class="numbered-list" start="1"><li><strong>勞動供給減少</strong><ul id="16adcbde-013a-808d-814e-c7cd5dde858d" class="bulleted-list"><li style="list-style-type:disc">企業應考量更有彈性的工作方式</li></ul></li></ol><ol type="1" id="16adcbde-013a-80ee-9eab-c582d3bc6246" class="numbered-list" start="2"><li><strong>知識生命週期縮短</strong><ul id="16adcbde-013a-802e-b27c-fdaf078497b3" class="bulleted-list"><li style="list-style-type:disc">企業應考如何加強人力培訓與教育</li></ul></li></ol></li></ul></li></ul></li></ul><ul id="16adcbde-013a-804d-b411-fbb31e15eee4" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>全球化</strong></mark><ul id="16adcbde-013a-8010-823b-e2e33bb47245" class="bulleted-list"><li style="list-style-type:circle">指全球經濟體系的形成。企業家在世界各地籌集資金，利用世界各地的科技、通訊、管理及人力，在世界各地製造產品，賣給世界任何地方的顧客。</li></ul></li></ul><ul id="16adcbde-013a-800b-8a3e-ece94441ca9f" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>市場的全球化</strong></mark><ul id="16adcbde-013a-803e-8cf5-ea4e5fa6aa6b" class="bulleted-list"><li style="list-style-type:circle">財貨與服務的流通可以跨越國家彊界，而將全球視為一個巨大的市場。</li></ul></li></ul><ul id="16adcbde-013a-8049-8d43-e117d6a7401b" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>金融的全球化</strong></mark><ul id="16adcbde-013a-8071-b267-eaa0588f4ea7" class="bulleted-list"><li style="list-style-type:circle">國際資金移動中，百分之90以上與貿易無關</li></ul><ul id="16adcbde-013a-80e5-ae7c-e0e9607db8d9" class="bulleted-list"><li style="list-style-type:circle">跨國金融活動的重要性隨著金融全球化而愈來愈高</li></ul><ul id="16adcbde-013a-80f2-85de-c1db3d334582" class="bulleted-list"><li style="list-style-type:circle">歸功於資訊及通信科技的進步，使跨國交易或複雜之交易計算得以簡化。</li></ul><ul id="16adcbde-013a-80a7-8889-e253bcdfce52" class="bulleted-list"><li style="list-style-type:circle">跨國交易限制之解除，才排除了跨國交易的根本阻礙<ul id="16adcbde-013a-8041-9149-c4e35449fe27" class="bulleted-list"><li style="list-style-type:square">台灣企業海外籌資的例子愈來愈多</li></ul><ul id="16adcbde-013a-805c-87bc-ca2ae6cb5645" class="bulleted-list"><li style="list-style-type:square">金融海嘯與歐債危機</li></ul></li></ul></li></ul><ul id="16adcbde-013a-80a5-84a4-fb4a63b36f2a" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>亞洲金融風暴、金融大海嘯</strong></mark><ul id="16adcbde-013a-8086-acdf-f153de2ebe68" class="bulleted-list"><li style="list-style-type:circle"> 1997年的亞洲金融風暴，起源於泰國，波及到馬來西亞、新加坡、印尼及菲律賓，而後經過香港達到南韓。這些國家或地區幣值劇貶的結果不僅是外匯存底急速流失，同時還使得國內金融市場極不穩定。</li></ul><ul id="16adcbde-013a-80a7-8c76-f7a30de1c341" class="bulleted-list"><li style="list-style-type:circle">為何亞洲國家會出現金融風暴？即是先前外資流進太多，造成日後外資同時撤出，以致於對匯市及股市產生強烈衝擊。</li></ul></li></ul><ul id="16adcbde-013a-8092-9695-eaa4e7e92cc1" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>製造的全球化</strong></mark><ul id="16adcbde-013a-80c0-9e00-d782e450a46f" class="bulleted-list"><li style="list-style-type:circle">企業在全球各個地點取得製造過程所需之財貨與服務，以完成部分或全部的生產程序。<ul id="16adcbde-013a-807f-a53d-ff936b5f60fc" class="bulleted-list"><li style="list-style-type:square">例如：製造業的龍頭鴻海集團，在中國的廣東深圳和江蘇昆山、歐洲的捷克及美國都有生產基地，目前還計畫在中南美洲的巴西增設據點。</li></ul><ul id="16adcbde-013a-8062-bc2f-c10af20f7022" class="bulleted-list"><li style="list-style-type:square">又如美國波音公司製造的波音777客機所需要的13萬個零件，是由分布在全球545個供應商提供，包括台灣、日本、新加坡、義大利。</li></ul></li></ul></li></ul><ul id="16adcbde-013a-8038-b16a-c8956565c782" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>台灣在製造全球化中的角色</strong></mark><ul id="16adcbde-013a-80ce-a63f-d09563796321" class="bulleted-list"><li style="list-style-type:circle">國際大廠代工廠(OEM)</li></ul><ul id="16adcbde-013a-80f6-a2aa-d83920670baf" class="bulleted-list"><li style="list-style-type:circle">資訊產品的第三大生產國(次於美、日)</li></ul><ul id="16adcbde-013a-80cc-9b01-c7a17da6f9f1" class="bulleted-list"><li style="list-style-type:circle">台灣接單、大陸生產<ul id="16adcbde-013a-8044-bb0d-c1d3e59e3d72" class="bulleted-list"><li style="list-style-type:square">1980年代之後，生產基地轉移到中國大陸等地區</li></ul><ul id="16adcbde-013a-80f9-b409-e228a2a81838" class="bulleted-list"><li style="list-style-type:square">製造業國外生產比例逐年增高</li></ul></li></ul></li></ul><ul id="16adcbde-013a-809b-a1da-ffb8e326e597" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>人力資源的全球化</strong></mark><ul id="16adcbde-013a-80c1-a320-d14792169309" class="bulleted-list"><li style="list-style-type:circle">勞動力的跨界移動，也就是人力的遷徙以競逐工作機會。<ul id="16adcbde-013a-809e-af11-dfa24b4e77c4" class="bulleted-list"><li style="list-style-type:square">美國矽谷的高階主管，多來自印度或中國</li></ul><ul id="16adcbde-013a-80f3-ae93-f0798e1616f6" class="bulleted-list"><li style="list-style-type:square">藝術家、設計師、表演家、運動明星同樣不受國界限制</li></ul></li></ul><ul id="16adcbde-013a-80d3-a59e-e54d71f86ffe" class="bulleted-list"><li style="list-style-type:circle">勞動機會的跨界移動，也就是工作機會的全球移動<ul id="16adcbde-013a-80f8-8465-cb6897677bde" class="bulleted-list"><li style="list-style-type:square">全球化造成開發中國家工作機會喪失與失業率增加的原因：<ol type="1" id="16adcbde-013a-8065-b6ab-c4f3edd474d3" class="numbered-list" start="1"><li>跨國公司基於全球布局的考量，將已開發國家的工作機會，輸出到部分開發中國家</li></ol><ol type="1" id="16adcbde-013a-80ec-be08-e97d64fcd9fa" class="numbered-list" start="2"><li>貿易自由化使得國外產品取代國內產品，國內產品的生產減少或消失</li></ol><ol type="1" id="16adcbde-013a-8072-bcd1-f0372b95af25" class="numbered-list" start="3"><li>採用新科技，降低勞動使用與對勞動力的依賴。</li></ol></li></ul><ul id="16adcbde-013a-80b3-af7f-fd813dda6a13" class="bulleted-list"><li style="list-style-type:square">未來趨勢<ul id="16adcbde-013a-80df-b54c-d8772571b684" class="bulleted-list"><li style="list-style-type:disc">高盛集團認為未來10年，美國將有600萬工作機會外流到印度、愛爾蘭、以色列，或者其他勞動成本低、科技人才素質高的國家</li></ul></li></ul></li></ul></li></ul><ul id="16adcbde-013a-802f-9215-c6ec82298129" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>全球市場的進入模式</strong></mark><ul id="16adcbde-013a-8048-aa22-c11ea7bd56c7" class="bulleted-list"><li style="list-style-type:circle">出口模式、授權、加盟、策略聯盟、合資、獨資經營</li></ul></li></ul><ul id="16adcbde-013a-80e5-b220-c31f3a05fc5c" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>組織與環境的互動機制</strong></mark><ul id="16adcbde-013a-806f-8dc0-f160813b4116" class="bulleted-list"><li style="list-style-type:circle">組織的被動適應機制<ul id="16adcbde-013a-800a-b80e-e5beace895d7" class="bulleted-list"><li style="list-style-type:square"><strong>跨界角色</strong><ul id="16adcbde-013a-8079-a18c-da13992cfaa3" class="bulleted-list"><li style="list-style-type:disc">幫助組織連結與協調關鍵的外部不確定來源的單位</li></ul><ul id="16adcbde-013a-80bb-b4f5-c1d33b015a6b" class="bulleted-list"><li style="list-style-type:disc">其目的有二：<ol type="1" id="16adcbde-013a-80f1-801b-f2a9e5b9db88" class="numbered-list" start="1"><li>發現並處理環境中變動的資訊</li></ol><ol type="1" id="16adcbde-013a-8096-bc02-e5aac808584d" class="numbered-list" start="2"><li>表達企業對該環境要素的興趣</li></ol></li></ul></li></ul><ul id="16adcbde-013a-80dd-a55f-c1347167a794" class="bulleted-list"><li style="list-style-type:square"><strong>強化規劃與預測能力</strong><ul id="16adcbde-013a-80bb-a3a3-ea93726202ec" class="bulleted-list"><li style="list-style-type:disc">會運用預測及規劃活動來因應環境變化</li></ul></li></ul><ul id="16adcbde-013a-80f9-8571-f81283584e93" class="bulleted-list"><li style="list-style-type:square"><strong>發展彈性結構</strong><ol type="1" id="16adcbde-013a-8013-8cdd-dae12bd9964c" class="numbered-list" start="1"><li><strong>有機式組織(organic structure)</strong><ul id="16adcbde-013a-801c-9ca6-c20bd0f67534" class="bulleted-list"><li style="list-style-type:disc">有許多工作團隊來研發新產品、處理政府的法令政策變動、推動新產品上市等，在變動劇烈環境中有較佳的。</li></ul></li></ol><ol type="1" id="16adcbde-013a-80e3-9e8e-f29f5826e862" class="numbered-list" start="2"><li><strong>機械性組織(machine structure)</strong><ul id="16adcbde-013a-8066-8a74-ed3928d906ec" class="bulleted-list"><li style="list-style-type:disc">視組織為整合性、條理化，以及高度官僚化的機器在運作的精密結構。</li></ul></li></ol></li></ul><ul id="16adcbde-013a-8029-b7ba-d8baba2f0a87" class="bulleted-list"><li style="list-style-type:square">合併、購併與合資<ul id="16adcbde-013a-807b-9368-d245c01f8f71" class="bulleted-list"><li style="list-style-type:disc">企業購併，也是一個降低環境不確定性的方</li></ul></li></ul></li></ul><ul id="16adcbde-013a-803b-ae26-d9605651f958" class="bulleted-list"><li style="list-style-type:circle">組織的主動影響機制<ul id="16adcbde-013a-8091-b02d-d593c19d3e04" class="bulleted-list"><li style="list-style-type:square"><strong>廣告及公共關係</strong><ul id="16adcbde-013a-80fb-9797-f715ef53a0b5" class="bulleted-list"><li style="list-style-type:disc">企業主動影響利害關係人在心目中對企業的定位與印象。</li></ul></li></ul><ul id="16adcbde-013a-8098-bd8b-ff6c4897a25f" class="bulleted-list"><li style="list-style-type:square"><strong>廣告</strong><ul id="16adcbde-013a-80eb-a0d9-ddaa5d47b0dc" class="bulleted-list"><li style="list-style-type:disc">主要是針對消費者推廣產品，影響消費者喜好。</li></ul></li></ul><ul id="16adcbde-013a-809f-a524-e8adaa51e5bd" class="bulleted-list"><li style="list-style-type:square"><strong>公共關係</strong><ul id="16adcbde-013a-80ab-a945-ceffb9dee52a" class="bulleted-list"><li style="list-style-type:disc">非單只針對消費者，而是試圖影響所有與企業有關的人、事、物。</li></ul><ul id="16adcbde-013a-808b-ba4d-def17e145403" class="bulleted-list"><li style="list-style-type:disc">標竿企業聲望。</li></ul><ul id="16adcbde-013a-809a-8733-e06f51d767a5" class="bulleted-list"><li style="list-style-type:disc">媒體報導。</li></ul></li></ul><ul id="16adcbde-013a-80aa-902c-c7c5bbffa1f2" class="bulleted-list"><li style="list-style-type:square"><strong>政策性活動</strong><ul id="16adcbde-013a-80fd-a51e-c73f8ccf7820" class="bulleted-list"><li style="list-style-type:disc">又稱為遊說(lobbying) </li></ul><ul id="16adcbde-013a-8039-9d1b-e0455a941e3b" class="bulleted-list"><li style="list-style-type:disc">組織企圖去影響政府的法令及政策</li></ul><ul id="16adcbde-013a-8087-8aa3-c03daae6fb3c" class="bulleted-list"><li style="list-style-type:disc">企業領導者：王永慶、張忠謀、郭台銘、施振榮、</li></ul><ul id="16adcbde-013a-80fd-8134-d9a85d6f6176" class="bulleted-list"><li style="list-style-type:disc">遊說的限制<ul id="16adcbde-013a-80ea-8994-de229999ffbf" class="bulleted-list"><li style="list-style-type:circle">台灣2007年通過遊說法</li></ul><ul id="16adcbde-013a-80fd-9c84-d9a1ce1e6ed8" class="bulleted-list"><li style="list-style-type:circle">不得對國防、外交、大陸事務進行遊說</li></ul></li></ul></li></ul><ul id="16adcbde-013a-8046-8673-d1ae3ef5d88a" class="bulleted-list"><li style="list-style-type:square"><strong>商會 </strong><ul id="16adcbde-013a-809b-b2cb-e8d6a50ad9d7" class="bulleted-list"><li style="list-style-type:disc">目的在於結合業務類似的企業，來影響經營環境，包括政府的法律及規定。</li></ul><ul id="16adcbde-013a-80f8-8f37-c052c6e2fac5" class="bulleted-list"><li style="list-style-type:disc">台灣六大工商團體<ul id="16adcbde-013a-8012-b018-c6e6f38ec060" class="bulleted-list"><li style="list-style-type:circle">工商協進會、全國工總、全國商總、中小企業協會、工業協進會、電機電子工會</li></ul><ul id="16adcbde-013a-80e0-8b04-e066a424c2aa" class="bulleted-list"><li style="list-style-type:circle">每年的新聞：新春團拜</li></ul></li></ul></li></ul></li></ul></li></ul><hr id="12ddcbde-013a-80a5-938b-fbf30d871484"/><h2 id="167dcbde-013a-80fc-98b2-d90fe4a67fd1" class="">第五章-企業倫理與社會責任的實踐</h2><ul id="16adcbde-013a-8070-8fc5-d4fd5e113001" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>當代企業所面臨的倫理議題</strong></mark><ul id="16adcbde-013a-80e5-9e7d-c6284c2e416e" class="bulleted-list"><li style="list-style-type:circle">倫理：社會對行為對錯的道德判斷</li></ul><ul id="16adcbde-013a-803b-9923-d3592da68beb" class="bulleted-list"><li style="list-style-type:circle">企業倫理：企業行為處世的對錯信念，或遵循的道德原則與標準</li></ul></li></ul><ul id="16adcbde-013a-80a4-a4a1-d8710fc842cc" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>倫理的兩難</strong></mark><ul id="16adcbde-013a-8028-9833-d9f26c08c7f1" class="bulleted-list"><li style="list-style-type:circle">意指在不同的道德選擇之下，面對可能的利益衝突，而產生難以抉擇的困難。</li></ul><ul id="16adcbde-013a-80f8-8b46-d5078771034e" class="bulleted-list"><li style="list-style-type:circle">管理者決策時的考量<ul id="16adcbde-013a-809b-8e81-dc95b13980cc" class="bulleted-list"><li style="list-style-type:square">成本、消費者、環境保護...等多重議題。</li></ul></li></ul></li></ul><ul id="16adcbde-013a-8007-917d-c094abe6b57c" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>功利主義原則</strong></mark><ul id="16adcbde-013a-80f0-9fca-d5670b1df33f" class="bulleted-list"><li style="list-style-type:circle">主張企業以提供最多數人的最大效用為道德原則</li></ul><ul id="16adcbde-013a-80ec-b057-cb06258e003f" class="bulleted-list"><li style="list-style-type:circle">管理者衡量不同關係人之間的利害關係，決定一個可以為最多數人提供效用的方案。</li></ul></li></ul><ul id="16adcbde-013a-800f-af95-dea900681fe5" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>功利主義原則的問題</strong></mark><ul id="16adcbde-013a-8080-9059-d90e6a5e39ec" class="bulleted-list"><li style="list-style-type:circle">以結果為重，可能會將有損他人權益的過程合理化</li></ul><ul id="16adcbde-013a-80ac-908b-f1580679ae7c" class="bulleted-list"><li style="list-style-type:circle">決策者在現實生活中，並無法取得決策所需的所有資訊，加上許多行為的成本與利益難以計算，功利主義原則使用起來並不容易。</li></ul></li></ul><ul id="16adcbde-013a-807a-b24e-e5ddad09f8f8" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>基本權利原則</strong></mark><ul id="16adcbde-013a-809b-89e4-d61c1a513219" class="bulleted-list"><li style="list-style-type:circle">強調每個人的權力與自由的重要性</li></ul><ul id="16adcbde-013a-8083-904b-d0b2663a7172" class="bulleted-list"><li style="list-style-type:circle">企業的決策必須基於對基本道德權利的考量<ul id="16adcbde-013a-8070-88e9-d80741ab2229" class="bulleted-list"><li style="list-style-type:square">自由</li></ul><ul id="16adcbde-013a-806c-a5db-e2aeebb124b8" class="bulleted-list"><li style="list-style-type:square">生命安全</li></ul><ul id="16adcbde-013a-80c5-a432-e5399141702f" class="bulleted-list"><li style="list-style-type:square">私有財產</li></ul><ul id="16adcbde-013a-8009-ac90-e67f215f40c3" class="bulleted-list"><li style="list-style-type:square">個人隱私</li></ul><ul id="16adcbde-013a-80df-be9b-d57621fa7cb0" class="bulleted-list"><li style="list-style-type:square">言論自由</li></ul></li></ul><ul id="16adcbde-013a-80c1-9070-d2ba6e46f715" class="bulleted-list"><li style="list-style-type:circle">一個方案即便對多數人有好處，只要會危害到任何人的基本權利，就不應該採取。</li></ul></li></ul><ul id="16adcbde-013a-80a3-b4e0-e8247a7074f6" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>基本權利原則的問題</strong></mark><ul id="16adcbde-013a-80b6-bcde-ee30507dacf0" class="bulleted-list"><li style="list-style-type:circle">個人權利與社會福祉的衝突</li></ul></li></ul><ul id="16adcbde-013a-8088-bde0-e9689a405a79" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>公平正義原則</strong></mark><ul id="16adcbde-013a-808a-a09a-c684fe9c8211" class="bulleted-list"><li style="list-style-type:circle">將可能的好處與壞處，依公平正義的程序分配給所有人</li></ul><ul id="16adcbde-013a-8022-b602-c6183271df94" class="bulleted-list"><li style="list-style-type:circle">分配正義<ul id="16adcbde-013a-800a-9aa5-cbc945a8ef98" class="bulleted-list"><li style="list-style-type:square">例如：獎勵員工績效，是根據員工的付出與績效，不受種族或性別等因素的影響。</li></ul></li></ul><ul id="16adcbde-013a-80bd-85b0-deb5408c9c2c" class="bulleted-list"><li style="list-style-type:circle">程序正義<ul id="16adcbde-013a-80ec-b061-eb990d0ee650" class="bulleted-list"><li style="list-style-type:square">例如：員工的升遷，是根據一套事先設定規則與標準。5.1 當代企業所面臨的倫理問題</li></ul></li></ul></li></ul><ul id="16adcbde-013a-8051-9139-fd7120be8bcf" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>公平正義原則的問題</strong></mark><ul id="16adcbde-013a-80bf-b0e6-e8711b5ed8e7" class="bulleted-list"><li style="list-style-type:circle">齊頭式的平等，將降低個人的冒險精神<ul id="16adcbde-013a-80b7-a116-fb9485b89e64" class="bulleted-list"><li style="list-style-type:square">國營事業，依據年資升遷，降低新進員工積極進取的意願</li></ul></li></ul><ul id="16adcbde-013a-80f6-9299-e6ec3daa3024" class="bulleted-list"><li style="list-style-type:circle">公平正義僅考慮客觀數字的平等，卻忽略主觀的感受。</li></ul></li></ul><ul id="16adcbde-013a-80c8-b8b2-daa2a6822225" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>均衡務實原則</strong></mark><ul id="16adcbde-013a-8046-b135-cbc610307cd3" class="bulleted-list"><li style="list-style-type:circle">企業在處理道德議題時，同時考量決策的效用及後果，對個人權益的影響，以及是否符合公平正義，以補足各自不足的地方。</li></ul><ul id="16adcbde-013a-806d-8d04-eb1601d11019" class="bulleted-list"><li style="list-style-type:circle">決策者自問：「如果我是受影響的一方，當別人做出這樣的決定，我會有什麼樣的反應？」</li></ul><ul id="16adcbde-013a-80b4-a44c-c7dd0bc881a6" class="bulleted-list"><li style="list-style-type:circle">衡務實原則只是一個門檻，透過不斷的試誤，管理者從中得到教訓，可以讓下個決策更好，更周到。</li></ul></li></ul><ul id="16adcbde-013a-8060-adca-c13f1cc98837" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background">倫理與法律</mark><ul id="16adcbde-013a-80d9-a4ce-ff4f27df4fcc" class="bulleted-list"><li style="list-style-type:circle">法律是企業遵循原則的最低的底限<ul id="16adcbde-013a-8007-a760-da5c3c9ef103" class="bulleted-list"><li style="list-style-type:square">法律對員工設定最低工資保障</li></ul></li></ul><ul id="16adcbde-013a-8057-9028-c9df27c76d0e" class="bulleted-list"><li style="list-style-type:circle">符合法律，不一定就符合倫理要求<ul id="16adcbde-013a-806d-90b2-c31130a2fa98" class="bulleted-list"><li style="list-style-type:square">法律的制定的調整落後於倫理</li></ul><ul id="16adcbde-013a-809d-a6e3-d8dc8c0d5f70" class="bulleted-list"><li style="list-style-type:square">法律或有未全之處</li></ul></li></ul><ul id="16adcbde-013a-80d3-8d47-f8397e481c1a" class="bulleted-list"><li style="list-style-type:circle">當法律未全之時，企業的倫理行為<ul id="16adcbde-013a-807e-a592-f9b3d5c23f75" class="bulleted-list"><li style="list-style-type:square">社會觀感</li></ul><ul id="16adcbde-013a-8039-b8a9-e41e40c667a2" class="bulleted-list"><li style="list-style-type:square">自發行為</li></ul></li></ul></li></ul><ul id="16adcbde-013a-8057-8ad8-d6207c0ef490" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>企業的利害關係人</strong></mark><ul id="16adcbde-013a-80ba-bcf8-c15f22cf42a3" class="bulleted-list"><li style="list-style-type:circle">利害關係人是指：在企業內外，受企業活動影響其利害的個人或團體</li></ul><ul id="16adcbde-013a-807f-8b81-d9bc396fc482" class="bulleted-list"><li style="list-style-type:circle">根據與企業關係的遠近，分為：<ul id="16adcbde-013a-80fb-8d82-fae93596cea9" class="bulleted-list"><li style="list-style-type:square">主要利害關係人<ol type="1" id="16adcbde-013a-80c8-b1c3-cbf0401aba35" class="numbered-list" start="1"><li><strong>投資者</strong><ul id="16adcbde-013a-8016-a332-e363ffd76def" class="bulleted-list"><li style="list-style-type:disc">一般投資人<ul id="16adcbde-013a-80c1-b134-cb4add4f4eb9" class="bulleted-list"><li style="list-style-type:circle">例如股市中的股民</li></ul></li></ul><ul id="16adcbde-013a-80c0-bd38-d817877c752e" class="bulleted-list"><li style="list-style-type:disc">創業投資人<ul id="16adcbde-013a-80b4-b7f8-c1ffa0228707" class="bulleted-list"><li style="list-style-type:circle">指將資金投資於具有高成長潛力，以獲得其部分所有權的企業、小型集團，或者退休基金</li></ul></li></ul><ul id="16adcbde-013a-80d0-b16c-d6e0de79009e" class="bulleted-list"><li style="list-style-type:disc">天使投資人<ul id="16adcbde-013a-80d5-bbf7-f7d9c4c955c9" class="bulleted-list"><li style="list-style-type:circle">擁有雄厚資金作為投資工具的個人，以現金換取公司相對等值的所有權</li></ul></li></ul><ul id="16adcbde-013a-8032-98d1-ff82b78f5707" class="bulleted-list"><li style="list-style-type:disc">企業對投資者的責任<ul id="16adcbde-013a-8097-ba0f-fd99f66bea6b" class="bulleted-list"><li style="list-style-type:circle">投資者在投資企業時，承擔極大風險</li></ul><ul id="16adcbde-013a-8005-af3a-d146f85f57a5" class="bulleted-list"><li style="list-style-type:circle">企業應盡的責任<ul id="16adcbde-013a-80db-ad69-e8cc0b972a46" class="bulleted-list"><li style="list-style-type:square">在經濟上給予回饋，讓投資者獲得適當報酬</li></ul><ul id="16adcbde-013a-8033-8401-f2785ae242f6" class="bulleted-list"><li style="list-style-type:square">企業必須誠實、負責任，才能確保投資人的心血不會白流</li></ul></li></ul></li></ul></li></ol><ol type="1" id="16adcbde-013a-80d6-a146-e7323276075b" class="numbered-list" start="2"><li><strong>消費者</strong><ul id="16adcbde-013a-8060-aa76-e37d8452a9fa" class="bulleted-list"><li style="list-style-type:disc">是購買企業提供的產品與服務，使企業獲得生存所需的收入與利潤的人。</li></ul><ul id="16adcbde-013a-80ca-b71d-d6fab52916bb" class="bulleted-list"><li style="list-style-type:disc">顧客導向<ul id="16adcbde-013a-8057-8bc6-c9387f33e2bc" class="bulleted-list"><li style="list-style-type:circle">企業應該了解顧客的欲望與需求，並且設計能夠滿足這些需求與欲望的產品或服務。</li></ul></li></ul><ul id="16adcbde-013a-802c-b7ff-e90a6c126dcc" class="bulleted-list"><li style="list-style-type:disc">企業對消費者的責任<ul id="16adcbde-013a-80cd-96ef-f33936f4578b" class="bulleted-list"><li style="list-style-type:circle">安全<ul id="16adcbde-013a-80c0-b8a7-c1eff464aa70" class="bulleted-list"><li style="list-style-type:square">消費者在正常使用產品的狀況下，可以安心不受損害。</li></ul></li></ul><ul id="16adcbde-013a-8012-871c-ce53963e156d" class="bulleted-list"><li style="list-style-type:circle">溝通<ul id="16adcbde-013a-803f-9d2b-e55c55fa7a0b" class="bulleted-list"><li style="list-style-type:square">主動告知消費者有關產品或服務的實際狀況，並對消費者的疑問提出回應</li></ul></li></ul><ul id="16adcbde-013a-80bd-8a2d-ff95abac7b16" class="bulleted-list"><li style="list-style-type:circle">選擇<ul id="16adcbde-013a-80de-a1bd-eed7afdaabf1" class="bulleted-list"><li style="list-style-type:square">企業必須保障消費者有多類的產品與服務，在具有競爭力的價格下選擇。</li></ul></li></ul><ul id="16adcbde-013a-80a1-812b-e3804509d8bc" class="bulleted-list"><li style="list-style-type:circle">尊重<ul id="16adcbde-013a-801d-a4a9-fe03160a539e" class="bulleted-list"><li style="list-style-type:square">消費者必須獲得企業的尊重及申訴的權利。</li></ul><ul id="16adcbde-013a-80c7-98b7-dce96456d620" class="bulleted-list"><li style="list-style-type:square">以客為尊，尊重消費者並提供良好的服務。</li></ul></li></ul></li></ul></li></ol><ol type="1" id="16adcbde-013a-8098-a09d-cf3958cd8296" class="numbered-list" start="3"><li>員工<ul id="16adcbde-013a-80fc-a6c8-e1c0deff81b7" class="bulleted-list"><li style="list-style-type:disc">指在企業內工作的勞動人力</li></ul><ul id="16adcbde-013a-80a1-a29f-cb5eab064537" class="bulleted-list"><li style="list-style-type:disc">員工對企業的期望<ol type="1" id="16adcbde-013a-8010-85b9-ed732925274f" class="numbered-list" start="1"><li>一份有意義的工作</li></ol><ol type="1" id="16adcbde-013a-8006-9e96-c7b0d63fc11f" class="numbered-list" start="2"><li>獲得與付出或績效相當的報酬</li></ol><ol type="1" id="16adcbde-013a-8061-97b1-f7b6c215c143" class="numbered-list" start="3"><li>能在企業內安身立命，並圓滿的完成工作</li></ol></li></ul><ul id="16adcbde-013a-80ac-a620-c7cd6c4d015d" class="bulleted-list"><li style="list-style-type:disc">企業對員工的責任<ul id="16adcbde-013a-809d-879c-f27097402ff7" class="bulleted-list"><li style="list-style-type:circle">提供一個安全的工作環境</li></ul><ul id="16adcbde-013a-8080-aff2-d67fef778356" class="bulleted-list"><li style="list-style-type:circle">合理的薪資架構及升遷管道</li></ul><ul id="16adcbde-013a-8028-83ea-ef3e56160432" class="bulleted-list"><li style="list-style-type:circle">儘量讓工作有意義</li></ul><ul id="16adcbde-013a-8037-bc9f-cf852d607a46" class="bulleted-list"><li style="list-style-type:circle">投資於員工訓練與發展</li></ul></li></ul></li></ol></li></ul><ul id="16adcbde-013a-80ef-adf8-c68619c9e63f" class="bulleted-list"><li style="list-style-type:square">次要利害關係人<ol type="1" id="16adcbde-013a-80e6-8006-ea66c97f2eff" class="numbered-list" start="1"><li>工會<ul id="16adcbde-013a-80ea-adcf-fcf84fc7f208" class="bulleted-list"><li style="list-style-type:disc">工會是一種組織，透過這個組織，員工可以表達對薪資、工時、以及工作條件等議題的意見給管理者</li></ul><ul id="16adcbde-013a-80f5-a914-e9cb550734fe" class="bulleted-list"><li style="list-style-type:disc">歐美地區的工會力量很大</li></ul><ul id="16adcbde-013a-8079-8f4a-e68ad1e43457" class="bulleted-list"><li style="list-style-type:disc">台灣工會力量並不大</li></ul></li></ol><ol type="1" id="16adcbde-013a-80ef-afa4-c3470ba676ae" class="numbered-list" start="2"><li>政府機構<ul id="16adcbde-013a-8014-9645-e5ff987854fb" class="bulleted-list"><li style="list-style-type:disc">政府政策會對企業營運造成很大影響<ul id="16adcbde-013a-8024-ab76-e0f4d5a69f22" class="bulleted-list"><li style="list-style-type:circle">環保政策 vs. 限制重汙染產業</li></ul></li></ul><ul id="16adcbde-013a-8077-b20f-e64495bf1401" class="bulleted-list"><li style="list-style-type:disc">大型企業或產業工會，會對政府機構進行遊說，影響政策走向</li></ul></li></ol><ol type="1" id="16adcbde-013a-807a-ad52-d24231a5e363" class="numbered-list" start="3"><li>社會大眾<ul id="16adcbde-013a-8001-84e5-ef87e86ead93" class="bulleted-list"><li style="list-style-type:disc">企業也是社會的一員，社會大眾對企業的期許，期望企業扮演好社會公民的角色</li></ul><ul id="16adcbde-013a-808e-8d46-edff4195bd5f" class="bulleted-list"><li style="list-style-type:disc">因此，企業必須對社會表現出尊重，並予以回饋，做出有利於社會大眾的行為。</li></ul><ul id="16adcbde-013a-80a9-b958-d7e8df9e74f8" class="bulleted-list"><li style="list-style-type:disc">取之於社會，用之於社會</li></ul></li></ol></li></ul></li></ul></li></ul><ul id="16adcbde-013a-800e-b66e-ef409fabade4" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>經濟責任</strong></mark><ul id="16adcbde-013a-805b-ba03-c5293c995ccb" class="bulleted-list"><li style="list-style-type:circle">企業必須提供具有價值的商品與服務給顧客</li></ul><ul id="16adcbde-013a-8025-a60f-df42dcb52abe" class="bulleted-list"><li style="list-style-type:circle">提供利潤報酬給所有權人與股東</li></ul><ul id="16adcbde-013a-801e-90dd-e6850f2a88d4" class="bulleted-list"><li style="list-style-type:circle">提供薪資報酬給員工</li></ul><ul id="16adcbde-013a-80f3-814f-cd5145c7881e" class="bulleted-list"><li style="list-style-type:circle">彼得杜拉克：「一個在經濟環境中逐漸沒落的企業，不可能是個好鄰居、好雇主，或者對社會盡責任。」</li></ul></li></ul><ul id="16adcbde-013a-8073-a496-dbea39260435" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>法律責任</strong></mark><ul id="16adcbde-013a-80f2-8c90-d6fdfba74d3f" class="bulleted-list"><li style="list-style-type:circle">企業必須在法令規章的規範之下營運</li></ul><ul id="16adcbde-013a-80ca-92eb-cf5c28647728" class="bulleted-list"><li style="list-style-type:circle">合法的行為是最低的道德標準，不違法不等於合宜</li></ul><ul id="16adcbde-013a-8089-a085-f885416b92a7" class="bulleted-list"><li style="list-style-type:circle">法律並非靜止，企業必須與時俱進</li></ul><ul id="16adcbde-013a-80cd-8029-f05fde109422" class="bulleted-list"><li style="list-style-type:circle">全球化時代，企業要注意國外法規的變化</li></ul><ul id="16adcbde-013a-80b5-85ab-c10a5d8fb3ba" class="bulleted-list"><li style="list-style-type:circle">網路普及後，著作權法也成為企業法律上的新課題</li></ul></li></ul><ul id="16adcbde-013a-8097-84c2-f2992b34748a" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>道德責任</strong></mark><ul id="16adcbde-013a-80da-98c2-f2099f465a31" class="bulleted-list"><li style="list-style-type:circle">指企業符合社會期望，做出符合社會基本價值的行為。</li></ul><ul id="16adcbde-013a-8037-bbb8-ea0574e795b4" class="bulleted-list"><li style="list-style-type:circle">盡到超乎法律規定以外的責任，做出符合倫理、對的事情。<ul id="16adcbde-013a-8073-9e7b-efeee62a151f" class="bulleted-list"><li style="list-style-type:square">3C產業的資源回收計畫</li></ul></li></ul></li></ul><ul id="16adcbde-013a-8077-8cc0-c26e4e3086c0" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>自由意志責任</strong></mark><ul id="16adcbde-013a-807f-89f3-c0c45572e09f" class="bulleted-list"><li style="list-style-type:circle">指企業在經濟、法律，以及道德責任之外，透過自己的判斷與選擇，做出自願性的奉獻。</li></ul></li></ul><ul id="16adcbde-013a-803c-a423-cc26dc79e8b9" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>建立符合倫理的企業文化</strong></mark><ol type="1" id="16adcbde-013a-80ab-9563-f17e27aa8bfd" class="numbered-list" start="1"><li>讓員工知覺企業本身需盡的倫理行為<ul id="16adcbde-013a-80b3-b7ce-ce4e5aa34055" class="bulleted-list"><li style="list-style-type:disc">建立道德倫理章程，作為員工遇到倫理問題時的依循根據</li></ul><ul id="16adcbde-013a-806b-9841-eb556bf3083f" class="bulleted-list"><li style="list-style-type:disc">口耳相傳的故事，或者在儀式、典禮中傳頌倫理美德的價值。</li></ul></li></ol><ol type="1" id="16adcbde-013a-800c-aa54-f74522c60797" class="numbered-list" start="2"><li>從教育訓練落實員工的倫理行為<ul id="16adcbde-013a-806f-a7c1-f7f9c856b6f6" class="bulleted-list"><li style="list-style-type:disc">在教育訓練的課程中，加入企業倫理的訓練，教導員工在面對倫理問題時，該有的理性態度，以及問題的解決程序</li></ul></li></ol><ol type="1" id="16adcbde-013a-8065-a6f8-e0bbe2b57957" class="numbered-list" start="3"><li>將企業需盡的倫理行為化為行動<ul id="16adcbde-013a-8076-8317-f2edf41e8b69" class="bulleted-list"><li style="list-style-type:disc">獎勵與懲罰機制的建立，獎勵符合道德的行為、懲罰不符合道德的行為</li></ul><ul id="16adcbde-013a-80ad-9247-ccc856d5b686" class="bulleted-list"><li style="list-style-type:disc">設定明確且合理的工作目標</li></ul><ul id="16adcbde-013a-80b2-b3d2-f42ae8661d9b" class="bulleted-list"><li style="list-style-type:disc">對於容易引起道德危機的工作，在工作流程中需特別謹慎，設立良好的稽核機制</li></ul></li></ol><ol type="1" id="16adcbde-013a-804d-955e-e5ba4ac15790" class="numbered-list" start="4"><li>管理者以身作則實踐倫理<ul id="16adcbde-013a-8009-a355-e74602a49638" class="bulleted-list"><li style="list-style-type:disc">導者的道德標準會由上而下傳遞，影響組織整體道德環境的建立。</li></ul><ul id="16adcbde-013a-80aa-b608-df1da286a42f" class="bulleted-list"><li style="list-style-type:disc">倫理領導：指領導者做出符合倫理的決策，以及倫理的行為。</li></ul><ul id="16adcbde-013a-8088-8ec4-df9ca4e71edf" class="bulleted-list"><li style="list-style-type:disc">當領導者的行為符合倫理道德時，員工的行為也比較容易趨向倫理道德。</li></ul><ul id="16adcbde-013a-80e1-bdb4-e772a6a20621" class="bulleted-list"><li style="list-style-type:disc">領導者的行為如果與組織的要求不相符，會造成員工認知上的衝突</li></ul></li></ol><hr id="16adcbde-013a-80ea-9380-e24796fead1e"/></li></ul><h2 id="16adcbde-013a-80a7-a69e-dc0e2b323984" class="">第六章-決策：解決企業面臨的難題</h2><ul id="16adcbde-013a-802f-b9ba-ff2e65eae9d1" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>決策(decision)</strong></mark><ul id="16adcbde-013a-809f-a553-c840758e2ca6" class="bulleted-list"><li style="list-style-type:circle">指從解決問題的可行方案中，做出選擇。</li></ul></li></ul><ul id="16adcbde-013a-80ed-8c9f-dd2b6e66f6b2" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>制訂決策(decision-making)</strong></mark><ul id="16adcbde-013a-8012-94c7-fcc84117d1ec" class="bulleted-list"><li style="list-style-type:circle">從找出問題到確認可行方案，並做出選擇以解決問題的過程。</li></ul></li></ul><ul id="16adcbde-013a-8088-baa3-f41ac32e4451" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>例行性決策</strong></mark><ul id="16adcbde-013a-8038-8065-c5eaec052b05" class="bulleted-list"><li style="list-style-type:circle">指針對經常出現的問題所進行的決策</li></ul><ul id="16adcbde-013a-80f6-885d-f418c9e0f761" class="bulleted-list"><li style="list-style-type:circle">個人或組織會針對這些問題的解決發展出一套規則或指導原則，一旦情況出現，可以立即應用。</li></ul></li></ul><ul id="16adcbde-013a-8046-ad5b-c849c90171fe" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>非例行性決策</strong></mark><ul id="16adcbde-013a-80f1-8328-e1837fc4ef97" class="bulleted-list"><li style="list-style-type:circle">指針對特殊、無明確定義、不確定性高的問題所進行的決策。</li></ul><ul id="16adcbde-013a-80f5-ba7e-ff8c9c3bb2f9" class="bulleted-list"><li style="list-style-type:circle">通常沒有固定或明確的答案，一旦做出選擇，影響通常很大</li></ul><ul id="16adcbde-013a-80d5-91c3-e2651d539f5e" class="bulleted-list"><li style="list-style-type:circle">產生非例行性決策的原因<ol type="1" id="16adcbde-013a-801f-9d65-fa29a2dd76af" class="numbered-list" start="1"><li>決策結果的風險與不確定性</li></ol><ol type="1" id="16adcbde-013a-80d5-90f7-d73afaca4fc2" class="numbered-list" start="2"><li>資訊模糊性</li></ol><ol type="1" id="16adcbde-013a-808b-9314-d8e66ee30247" class="numbered-list" start="3"><li>時間限制愈資訊成本</li></ol></li></ul></li></ul><ul id="16adcbde-013a-8001-9d18-f9f0af6626ba" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>資訊不完整(incomplete information)</strong></mark><ul id="16adcbde-013a-8027-9403-d3fbcd5269b8" class="bulleted-list"><li style="list-style-type:circle">指決策者針對問題的解決所蒐集的各種資訊，由於資訊本身或是資訊蒐集過程的一些特性，使得決策者無法取得所需的所有資訊。</li></ul><ul id="16adcbde-013a-80a5-809f-f7ca29083621" class="bulleted-list"><li style="list-style-type:circle">造成資訊不完整的原因<ol type="1" id="16adcbde-013a-80a7-988c-f30303987387" class="numbered-list" start="1"><li>風險與不確定性</li></ol><ol type="1" id="16adcbde-013a-80df-94c3-fb4ec439a2cf" class="numbered-list" start="2"><li>資訊模糊性</li></ol><ol type="1" id="16adcbde-013a-80b1-ab83-e1a3a4b9d3e1" class="numbered-list" start="3"><li>時間限制與成本</li></ol></li></ul></li></ul><ul id="16adcbde-013a-802b-b7fe-f4ce10c7d6b9" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>風險與不確定性</strong></mark><ul id="16adcbde-013a-80e4-abf4-e53fddaa1f21" class="bulleted-list"><li style="list-style-type:circle">風險(risk)<ul id="16adcbde-013a-80c1-96f0-c82ae881f8c6" class="bulleted-list"><li style="list-style-type:square">是指不利事件發生的可能性。</li></ul><ul id="16adcbde-013a-805c-b8c9-e0f71dc69ad5" class="bulleted-list"><li style="list-style-type:square">對決策方案估算出的不成功機率。</li></ul></li></ul><ul id="16adcbde-013a-80fb-b60e-fb116db7872f" class="bulleted-list"><li style="list-style-type:circle">不確定性<ul id="16adcbde-013a-8067-95e3-ce672a32249d" class="bulleted-list"><li style="list-style-type:square">指決策者無法事先獲得足夠的資訊來評估風險的機率，而面臨的不確定狀況。</li></ul></li></ul></li></ul><ul id="16adcbde-013a-8046-b193-d3afce6ce24b" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>資訊模糊性</strong></mark><ul id="16adcbde-013a-80bb-8e28-f4f41da0eca8" class="bulleted-list"><li style="list-style-type:circle">模糊的資訊(ambiguous information)</li></ul><ul id="16adcbde-013a-80dd-9766-f59ab9c4280e" class="bulleted-list"><li style="list-style-type:circle">資訊的涵義都不甚清楚，可以用不同的向度來詮釋</li></ul></li></ul><ul id="16adcbde-013a-806a-a57c-ef88c79fa4ba" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>時間限制與資訊成本</strong></mark><ul id="16adcbde-013a-8027-9091-d15c25018228" class="bulleted-list"><li style="list-style-type:circle">指蒐集資訊的過程裡，沒有足夠的時間與預算找出所有的可行方案，並加以一一評估</li></ul></li></ul><ul id="16adcbde-013a-808a-a5c3-f41b11fbc7a6" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>決策中常見的認知謬誤</strong></mark><ul id="16adcbde-013a-806e-a857-ca3e02101345" class="bulleted-list"><li style="list-style-type:circle"><strong>先有結論，再找證據(search for supportive evidence)</strong><ul id="16adcbde-013a-80d0-9ac2-d75b9b291803" class="bulleted-list"><li style="list-style-type:square">先有既定結論，再找支持該結論的證據</li></ul><ul id="16adcbde-013a-808d-b157-c73407999b96" class="bulleted-list"><li style="list-style-type:square">對不支持既定結論的適時則採取「選擇性忽略」的態度</li></ul></li></ul><ul id="16adcbde-013a-80ce-9c6a-d10497e584e8" class="bulleted-list"><li style="list-style-type:circle"><strong>標準不一致(inconsistency)</strong><ul id="16adcbde-013a-808d-86ce-d834d86e6751" class="bulleted-list"><li style="list-style-type:square">面對同樣的決策情境，卻未採用相同的決策標準</li></ul></li></ul><ul id="16adcbde-013a-80a7-9fa4-e56914ab8650" class="bulleted-list"><li style="list-style-type:circle"><strong>過於保守 (conservation)</strong><ul id="16adcbde-013a-80b2-a0f7-dc99b31ba4cb" class="bulleted-list"><li style="list-style-type:square">面對新的資訊與證據時，無法改變自己的心智，以致錯過先機</li></ul></li></ul><ul id="16adcbde-013a-807c-92a1-de90a81de9d2" class="bulleted-list"><li style="list-style-type:circle"><strong>便利性 (availability) 的誤認</strong><ul id="16adcbde-013a-809b-9dec-d6843e2facd8" class="bulleted-list"><li style="list-style-type:square">容易讓人聯想的事件會讓人誤以為這件事常常發生，此種現象稱為便利性的謬誤</li></ul></li></ul><ul id="16adcbde-013a-80c5-a204-cb4d534ace4e" class="bulleted-list"><li style="list-style-type:circle"><strong>先入為主 (anchoring)</strong><ul id="16adcbde-013a-804e-a026-ea0dc5fce19e" class="bulleted-list"><li style="list-style-type:square">過度受到初始狀態或第一印象的影響，以致影響其他訊息的判讀</li></ul></li></ul><ul id="16adcbde-013a-8094-be5f-f32c7db8086e" class="bulleted-list"><li style="list-style-type:circle"><strong>穿鑿附會 (illusory correlations)</strong><ul id="16adcbde-013a-806e-a7c5-fe24db714d5c" class="bulleted-list"><li style="list-style-type:square">將不相關的行為或事件誤以為是有關聯的，或是將不相關的事件當作決定某件事成敗的原因。</li></ul></li></ul><ul id="16adcbde-013a-80ef-8897-e878c8ce965c" class="bulleted-list"><li style="list-style-type:circle"><strong>選擇性認知 (selective perception)</strong><ul id="16adcbde-013a-80cc-9275-d58ff577df9f" class="bulleted-list"><li style="list-style-type:square">因為人會依自我經驗或背景來看待問題，因此面對資訊時，會挑選自己願意接受的訊息</li></ul><ul id="16adcbde-013a-80a0-93ea-f64be13b1dcf" class="bulleted-list"><li style="list-style-type:square">只看自己想看的，只聽自己想聽的！</li></ul></li></ul><ul id="16adcbde-013a-803f-bbbb-ed956cb81339" class="bulleted-list"><li style="list-style-type:circle"><strong>歸因效果 (attribution of success and failure)</strong><ul id="16adcbde-013a-8030-84bc-e6e2bfb077ad" class="bulleted-list"><li style="list-style-type:square">人們很容易將成功跟於個人的努力，卻將失敗視為命運作祟</li></ul><ul id="16adcbde-013a-80fe-95d6-c66d2eca4089" class="bulleted-list"><li style="list-style-type:square">歸因的心態會讓人失去從錯誤中學習的機會</li></ul></li></ul><ul id="16adcbde-013a-80d4-bbfd-c05893e4e273" class="bulleted-list"><li style="list-style-type:circle"><strong>過於樂觀，一廂情願(optimism, wishful thinking)</strong><ul id="16adcbde-013a-80ca-ba1d-fcf6b3437dab" class="bulleted-list"><li style="list-style-type:square">高估自己的知識，低估風險，因此誇大控制事件的能力</li></ul></li></ul><ul id="16adcbde-013a-80e7-bf77-ce83cafea4a3" class="bulleted-list"><li style="list-style-type:circle"><strong>加碼投注</strong><ul id="16adcbde-013a-80bf-9b16-fd1d641f7c9f" class="bulleted-list"><li style="list-style-type:square">儘管先前決策的結果不佳，但決策者仍然繼續投入更多資源</li></ul></li></ul></li></ul><ul id="16adcbde-013a-80e4-b0f9-e26e842a45da" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>經濟人的決策模式</strong></mark><ul id="16adcbde-013a-80b1-a922-c3a171c76912" class="bulleted-list"><li style="list-style-type:circle">經濟人的決策模式也稱為古典決策模式或理性決策模式(rational decision-making model)</li></ul><ul id="16adcbde-013a-807d-8c4e-fbe2fef4daf3" class="bulleted-list"><li style="list-style-type:circle">假設決策者基於自利(self interest)，選擇個人利益極大化</li></ul><ul id="16adcbde-013a-80e9-bc54-c845dbdb8f39" class="bulleted-list"><li style="list-style-type:circle">決策者可以掌握所有所需資訊，列出所有的可行方案，做出最佳決策(optimum decision)</li></ul><ul id="16adcbde-013a-8069-9b95-e668e0593f8e" class="bulleted-list"><li style="list-style-type:circle">步驟<ol type="1" id="16adcbde-013a-804e-9a7a-fb0071597aba" class="numbered-list" start="1"><li>擬定目標</li></ol><ol type="1" id="16adcbde-013a-80b3-9b49-c6f09c6d703d" class="numbered-list" start="2"><li>列出所有可行方案與其可能造成之結果</li></ol><ol type="1" id="16adcbde-013a-80c3-97f0-f086407d0369" class="numbered-list" start="3"><li>根據預先設定的標準，將可行方案進行評比</li></ol><ol type="1" id="16adcbde-013a-80da-b8c8-e4506fae0e82" class="numbered-list" start="4"><li>選擇最佳的可行方案</li></ol></li></ul></li></ul><ul id="16adcbde-013a-80dc-9ff6-fd267da21557" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>行政人的決策模式</strong></mark><ul id="16adcbde-013a-808a-be6d-ecbada0edfa3" class="bulleted-list"><li style="list-style-type:circle">行政人的決策模式(the administrative model)由諾貝爾經濟學獎得主賽門(Simon, H. A.)與馬曲(March, J.)在1978年提出</li></ul><ul id="16adcbde-013a-80bd-b932-f6da699522c8" class="bulleted-list"><li style="list-style-type:circle">是基於有限理性、資訊不完整與滿意水準下，所進行的決策模式。</li></ul><ul id="16adcbde-013a-80cc-8474-d5b8e0aae125" class="bulleted-list"><li style="list-style-type:circle">認為決策者不可能取得決策所需的完整資訊，也無法完全吸收所有資訊，因此決策充滿風險與不確定性</li></ul><ul id="16adcbde-013a-8047-b0b1-df8b1c07491c" class="bulleted-list"><li style="list-style-type:circle">行政決策模式的基礎<ul id="16adcbde-013a-8041-a652-dfaaf78c6dfb" class="bulleted-list"><li style="list-style-type:square">有限理性 + 滿意水準 = 行政決策模式</li></ul><ul id="16adcbde-013a-8047-81d1-faa920b9fc96" class="bulleted-list"><li style="list-style-type:square">有限理性(bounded rationality)<ul id="16adcbde-013a-800d-ae61-ee3f4ede9339" class="bulleted-list"><li style="list-style-type:disc">決策者決策時僅能根據手邊所能獲得的資訊進行判斷</li></ul><ul id="16adcbde-013a-80c1-ba0f-d93f73acf825" class="bulleted-list"><li style="list-style-type:disc">由於資訊不完整以及人類本身認知能力的限制與謬誤，使得人們的決策能力受限。</li></ul><ul id="16adcbde-013a-804b-8135-cb9634da02f7" class="bulleted-list"><li style="list-style-type:disc">決策者面臨龐大資訊與難以計數的可行方案，因此無法完整評估，只能就近方便，根據有限資訊判斷。</li></ul></li></ul><ul id="16adcbde-013a-809e-b693-d9c8d6b2ffbb" class="bulleted-list"><li style="list-style-type:square">滿意水準(satisficing)<ul id="16adcbde-013a-80d8-8921-c605cada1849" class="bulleted-list"><li style="list-style-type:disc">決策者在眾多方案中，選擇一個滿意且可以接受的可行方案，而非窮盡力量找到最適合的方案。</li></ul><ul id="16adcbde-013a-8023-97f2-c0f7821a8a26" class="bulleted-list"><li style="list-style-type:disc">決策者不可能無限制地蒐集資訊，期待在毫無風險的狀況下做決策；因此只能在有顯的資源與空間中，找到可以將效益極大化的滿意方案。</li></ul></li></ul></li></ul></li></ul><ul id="16adcbde-013a-8042-9867-d6a27590b8a0" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>經濟人與行政人的比較</strong></mark><figure id="16adcbde-013a-808a-a2b3-efeb1b9a200d" class="image" style="text-align:left"><a href="image.png"><img style="width:432px" src="image.png"/></a></figure></li></ul><ul id="16adcbde-013a-800b-bf92-ceb5629ba8e8" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>組織的決策</strong></mark><ol type="1" id="16adcbde-013a-8059-a27a-e7f395b57abd" class="numbered-list" start="1"><li>認定階段的例行活動<ol type="a" id="16adcbde-013a-8016-a60a-d193f8018445" class="numbered-list" start="1"><li>決策的辨識 (decision recognition)<ul id="16adcbde-013a-803e-a0a7-d234418b3866" class="bulleted-list"><li style="list-style-type:disc">亦即確認是否有決策的必要</li></ul><ul id="16adcbde-013a-805d-bd6c-c44aecba4fb9" class="bulleted-list"><li style="list-style-type:disc">是一切決策之始</li></ul></li></ol><ol type="a" id="16adcbde-013a-809f-9455-c87c7c0fcac6" class="numbered-list" start="2"><li>診斷 (diagnosis)<ul id="16adcbde-013a-80b2-b025-c7fc97318179" class="bulleted-list"><li style="list-style-type:disc">運用既有的或新的資訊管道，釐清並定義該議題</li></ul></li></ol><ol type="a" id="16adcbde-013a-8030-9ff6-e402dd09bf04" class="numbered-list" start="3"><li>界定範圍<ul id="16adcbde-013a-8099-a2ee-fe15573febed" class="bulleted-list"><li style="list-style-type:disc">問題的邊界條件：是指決策的結果最低應滿足的條件</li></ul><ul id="16adcbde-013a-800d-be58-dc9f9d4c3d5b" class="bulleted-list"><li style="list-style-type:disc">診斷問題後的步驟<ul id="16adcbde-013a-8005-bef5-df62e1aea3a2" class="bulleted-list"><li style="list-style-type:circle">第一步：先確認問題的類型</li></ul><ul id="16adcbde-013a-800d-b0fe-f778c1420e2e" class="bulleted-list"><li style="list-style-type:circle">第二步：釐清問題的定義，找出癥結點</li></ul><ul id="16adcbde-013a-8053-a239-ebc96d3634b7" class="bulleted-list"><li style="list-style-type:circle">第三步：明確界定解決方案的範圍，亦即找出問題的邊界條件</li></ul></li></ul></li></ol></li></ol><ol type="1" id="16adcbde-013a-80ac-8e51-e2a280e6ba5f" class="numbered-list" start="2"><li>發展階段的例行活動<ol type="a" id="16bdcbde-013a-80e7-b3e0-f9ede99c1d89" class="numbered-list" start="1"><li>搜尋(search)<ul id="16bdcbde-013a-803b-8512-d99b65bb1d9b" class="bulleted-list"><li style="list-style-type:disc">是指尋找各種可行方案</li></ul><ul id="16bdcbde-013a-8014-a5ca-f1a58b3a840c" class="bulleted-list"><li style="list-style-type:disc">四種搜尋類型<ul id="16bdcbde-013a-8025-94b9-ee097c3b284b" class="bulleted-list"><li style="list-style-type:circle">從記憶中搜尋<ul id="16bdcbde-013a-8092-9587-ca727fd6b2d3" class="bulleted-list"><li style="list-style-type:square">從現有文件或人員既存記憶中找尋</li></ul></li></ul><ul id="16bdcbde-013a-8026-b928-d28cef5fb2fd" class="bulleted-list"><li style="list-style-type:circle">被動式搜尋<ul id="16bdcbde-013a-800a-83e8-ce68acb03c13" class="bulleted-list"><li style="list-style-type:square">被動等待解決方案出現</li></ul></li></ul><ul id="16bdcbde-013a-8063-b7cc-f2169938aee1" class="bulleted-list"><li style="list-style-type:circle">誘捕式搜尋<ul id="16bdcbde-013a-8027-be16-efd088b783cf" class="bulleted-list"><li style="list-style-type:square">如同獵人設陷阱，讓可行方案自投羅網</li></ul></li></ul><ul id="16bdcbde-013a-8098-bc3d-da82024fb039" class="bulleted-list"><li style="list-style-type:circle">主動式搜尋<ul id="16bdcbde-013a-8016-8db6-da525508dbd7" class="bulleted-list"><li style="list-style-type:square">直接去尋找可尋方案</li></ul></li></ul></li></ul></li></ol><ol type="a" id="16bdcbde-013a-80c7-87c0-ea7bb09ce0f6" class="numbered-list" start="2"><li>設計(design)<ul id="16bdcbde-013a-80cb-b6e0-c794c787876d" class="bulleted-list"><li style="list-style-type:disc">對於無法藉由搜尋找到解決方案的決策問題，必須自行設計解決方案</li></ul><ul id="16bdcbde-013a-80e2-927c-d931eaac3d7d" class="bulleted-list"><li style="list-style-type:disc">兩種方式<ul id="16bdcbde-013a-8013-aaf6-e8f827156886" class="bulleted-list"><li style="list-style-type:circle">由零開始，量身訂作</li></ul><ul id="16bdcbde-013a-8085-b76d-e172a28ce714" class="bulleted-list"><li style="list-style-type:circle">修正既有的解決方案</li></ul></li></ul></li></ol><ol type="a" id="16bdcbde-013a-8015-945e-e7feb763d5be" class="numbered-list" start="3"><li>篩選(screen)<ul id="16bdcbde-013a-8055-9a8c-c3b47fb3ccff" class="bulleted-list"><li style="list-style-type:disc">當多個可行方案出現時，可利用篩選工作消除掉一些不合適的方案</li></ul></li></ol></li></ol><ol type="1" id="16bdcbde-013a-8010-bd31-c9e04212565a" class="numbered-list" start="3"><li>汰擇階段的例行活動<ol type="a" id="16bdcbde-013a-8027-ba59-d7a95d854811" class="numbered-list" start="1"><li>評估與選擇(evaluation-choice)<ul id="16bdcbde-013a-805f-98e0-d28163e046f1" class="bulleted-list"><li style="list-style-type:disc">判斷(judgment) -&gt;依個人直覺作決定</li></ul><ul id="16bdcbde-013a-8037-8fd9-f0b37c4a513b" class="bulleted-list"><li style="list-style-type:disc">協商(bargaining) → 由一群目標不一定相同的決策者在各自判斷後，再互相協調做出決定</li></ul><ul id="16bdcbde-013a-8012-9dc9-ca2b604af6b8" class="bulleted-list"><li style="list-style-type:disc">分析(analysis) → 由技術幕僚針對適時進行評估後，再加上管理層面的考量而做出的判斷或協商</li></ul></li></ol><ol type="a" id="16bdcbde-013a-8056-83d7-c47010308f65" class="numbered-list" start="2"><li>核准認可(authorization)<ul id="16bdcbde-013a-8014-86a5-eaf3a2840609" class="bulleted-list"><li style="list-style-type:disc">取得上層單位的認可，以便取得分配資源與執行決策的權力</li></ul></li></ol></li></ol></li></ul><ul id="16bdcbde-013a-800b-a395-d7f15267d59a" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>支持性的例行活動</strong></mark><ul id="16bdcbde-013a-8088-bd65-c43b0eaad06e" class="bulleted-list"><li style="list-style-type:circle">管理者透過一些活動讓決策程序更順利地進行，此類活動稱為支持性的活動</li></ul><ul id="16bdcbde-013a-80ff-b000-f7085ea46408" class="bulleted-list"><li style="list-style-type:circle">常見的三種支持性例行活動<ul id="16bdcbde-013a-80f1-838d-f45bd73c08fd" class="bulleted-list"><li style="list-style-type:square">決策控制活動(decision control routine)<ul id="16bdcbde-013a-800b-9d1e-ea38b196b51a" class="bulleted-list"><li style="list-style-type:disc">決策控制包含決策的規劃(decision planning)與轉換(switching)</li></ul><ul id="16bdcbde-013a-8055-a7f7-ce7f282a9d49" class="bulleted-list"><li style="list-style-type:disc">決策規劃是指決策者首先要建立決策的範圍，決定解決方案的概略時間表</li></ul><ul id="16bdcbde-013a-80a1-8470-f3dc33652564" class="bulleted-list"><li style="list-style-type:disc">接著估計投入資源並建立初步限制，才能發展出理想的解決方案</li></ul></li></ul><ul id="16bdcbde-013a-80b3-8247-fe94033e8300" class="bulleted-list"><li style="list-style-type:square">決策溝通活動(communication routine)<ul id="16bdcbde-013a-807f-89d5-e593ac8049f0" class="bulleted-list"><li style="list-style-type:disc">溝通在決策過程的任何階段都不可或缺</li></ul><ul id="16bdcbde-013a-8031-9f66-c0058aca4ac5" class="bulleted-list"><li style="list-style-type:disc">三類與溝通有關的活動<ul id="16bdcbde-013a-8010-979b-e7c33c5364f9" class="bulleted-list"><li style="list-style-type:circle">探索(exploration) → 對資訊的綜合性評估</li></ul><ul id="16bdcbde-013a-80ac-8796-cb86dfc06856" class="bulleted-list"><li style="list-style-type:circle">調查(investigation) → 針對特定目標來尋找資訊或研究</li></ul><ul id="16bdcbde-013a-80c2-b2e2-cc8e92c69c13" class="bulleted-list"><li style="list-style-type:circle">散佈(dissemination) → 散播決策程序中的相關資訊，以取得支持</li></ul></li></ul></li></ul><ul id="16bdcbde-013a-80fa-96cd-f76d743b993e" class="bulleted-list"><li style="list-style-type:square">政治性活動(political routines)<ul id="16bdcbde-013a-8040-8a88-c40a00f71cd4" class="bulleted-list"><li style="list-style-type:disc">政治性活動通常是由具有影響決策結果的人所進行，會在協議活動中出現</li></ul><ul id="16bdcbde-013a-804d-9edb-cc4b36d1b825" class="bulleted-list"><li style="list-style-type:disc">當決策結果越重要、越具爭議性、組織外部人士對決策過程的影響越大時，就需要越多的政治性例行活動</li></ul></li></ul></li></ul></li></ul><ul id="16bdcbde-013a-802d-ad73-ee7daad8bb28" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>英特爾決策方式</strong></mark><ul id="16bdcbde-013a-80ce-8523-eb06e771fcdc" class="bulleted-list"><li style="list-style-type:circle">大鳴大放 → 鼓勵員工多提供意見</li></ul><ul id="16bdcbde-013a-8048-b337-c079c8e64aa5" class="bulleted-list"><li style="list-style-type:circle">明確的決策 → 制訂明確的決策</li></ul><ul id="16bdcbde-013a-8022-bff8-d88f1142171c" class="bulleted-list"><li style="list-style-type:circle">全員全力支持 → 要求員工嚴格執行決策的內容</li></ul></li></ul><ul id="16bdcbde-013a-8044-96f5-d883f518389b" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>焦點團體法(focus group)</strong></mark><ul id="16bdcbde-013a-8018-9e05-f7aed8643520" class="bulleted-list"><li style="list-style-type:circle">邀請6~10人與一味具有技術能力的主持人一起開會，討論與產品或服務相關的議題。</li></ul><ul id="16bdcbde-013a-8055-94ae-fd6e170a2ca5" class="bulleted-list"><li style="list-style-type:circle">主持人必須客觀且對該議題學識豐富，能激發參與者討論，巧妙連結參與者的想象與主題</li></ul><ul id="16bdcbde-013a-8068-b986-d0998c367860" class="bulleted-list"><li style="list-style-type:circle">一般用於新產品開發，亦用於篩選新構想與概念</li></ul><ul id="16bdcbde-013a-8088-8aa8-fdba6ca29977" class="bulleted-list"><li style="list-style-type:circle">缺點是資料來源不夠廣泛，所得結果不宜直接推論為全體的想法</li></ul></li></ul><ul id="16bdcbde-013a-8071-85a3-da13bc6e443f" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>腦力激盪術(brainstorming)</strong></mark><ul id="16bdcbde-013a-80be-ad20-e88099f7db59" class="bulleted-list"><li style="list-style-type:circle">由6~8人組成小組，成員被要求用各種天馬行空的想象力去思考解決方式</li></ul><ul id="16bdcbde-013a-80f5-a63b-f52ba68aaf2c" class="bulleted-list"><li style="list-style-type:circle">成員不應包括該領域內的專家，以免抑制其他成員的想法</li></ul><ul id="16bdcbde-013a-8076-8351-c5c4fa56ced2" class="bulleted-list"><li style="list-style-type:circle">腦力激盪的四個原則<ul id="16bdcbde-013a-80b2-bdfc-f3229abe7501" class="bulleted-list"><li style="list-style-type:square">拒絕批評</li></ul><ul id="16bdcbde-013a-805c-a847-cd7ccf7540a1" class="bulleted-list"><li style="list-style-type:square">歡迎自由聯想</li></ul><ul id="16bdcbde-013a-80d8-8ee4-fdd0d7f3d71c" class="bulleted-list"><li style="list-style-type:square">以量孕質</li></ul><ul id="16bdcbde-013a-806d-8421-f6ae932560e0" class="bulleted-list"><li style="list-style-type:square">合併改進</li></ul></li></ul></li></ul><ul id="16bdcbde-013a-8078-b560-eb5221eb2782" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>高登法</strong></mark><ul id="16bdcbde-013a-8091-b0b0-df7a339666fc" class="bulleted-list"><li style="list-style-type:circle">由威廉‧   高登發明，從前述的腦力激盪術衍伸而來，又稱逐步激盪法(synectics)</li></ul><ul id="16bdcbde-013a-801a-b669-d0b16c7e502f" class="bulleted-list"><li style="list-style-type:circle">與腦力激盪類似，但一開始不明確告知主題，而由主持人在討論中循序透露內容</li></ul><ul id="16bdcbde-013a-80e2-8312-dc4ccab0a560" class="bulleted-list"><li style="list-style-type:circle">高登法最好由不同專業的人參加</li></ul><ul id="16bdcbde-013a-802b-9016-c6282f471166" class="bulleted-list"><li style="list-style-type:circle">五個引導「構想孕育」會議的重要原則<ul id="16bdcbde-013a-80ba-8cf5-d24aeeb6e84a" class="bulleted-list"><li style="list-style-type:square">遞延</li></ul><ul id="16bdcbde-013a-804a-b0aa-e12e99ce4bc3" class="bulleted-list"><li style="list-style-type:square">客體自主</li></ul><ul id="16bdcbde-013a-80ed-a935-fb46789dbb99" class="bulleted-list"><li style="list-style-type:square">利用共同點</li></ul><ul id="16bdcbde-013a-809a-aed4-ecaa81844162" class="bulleted-list"><li style="list-style-type:square">若即若離</li></ul><ul id="16bdcbde-013a-8081-a165-e1aee8f39b76" class="bulleted-list"><li style="list-style-type:square">利用隱喻</li></ul></li></ul></li></ul><ul id="16bdcbde-013a-80a3-8dbc-daefc9dcf8be" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>記名團體術(nominal group technique)</strong></mark><ul id="16bdcbde-013a-80c9-a2ed-e588fe17ee73" class="bulleted-list"><li style="list-style-type:circle">是一種有系統的激發創意方式，由德爾貝思克(Delbecq)和凡狄文(Van de Ven)所提出</li></ul><ul id="16bdcbde-013a-8021-b400-ecd20cae0794" class="bulleted-list"><li style="list-style-type:circle">邀請一群決策者或專家開會，將構想先寫下再輪流提出，接受提問或批評，最後整合意見</li></ul><ul id="16bdcbde-013a-803d-81ac-cba2c4426711" class="bulleted-list"><li style="list-style-type:circle">當議題具有爭議性，或是不同的管理者想要採取不同的行動時，最適合採用記名團體技術</li></ul></li></ul><ul id="16bdcbde-013a-8094-a851-c0085bc9696e" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>德菲法(Delphi technique)</strong></mark><ul id="16bdcbde-013a-80ee-abe0-dd9bea1b7a9b" class="bulleted-list"><li style="list-style-type:circle">讓不同地區的參與決策者透過回答問卷的方式，可以一起討論解決方案</li></ul><ul id="16bdcbde-013a-8069-b099-d79ac5b5e765" class="bulleted-list"><li style="list-style-type:circle">四個步驟：<ul id="16bdcbde-013a-80ec-9c18-f182256db87a" class="bulleted-list"><li style="list-style-type:square">導者具體寫下討論題目，並提出一連串問題讓參與者回答</li></ul><ul id="16bdcbde-013a-80cf-8a81-ceab5653727c" class="bulleted-list"><li style="list-style-type:square">將問卷送至各個專家，請其提出解答再寄回給主導人</li></ul><ul id="16bdcbde-013a-806c-8eb0-f2c8168ab45a" class="bulleted-list"><li style="list-style-type:square">高階主管組成團隊來記錄與摘要問題的回答，再將結果寄回給參與者，要求在參考他人意見後修正自己意見</li></ul><ul id="16bdcbde-013a-801d-8219-e2246f15bfde" class="bulleted-list"><li style="list-style-type:square">不斷重複以上流程，直到有明顯的共識為止</li></ul></li></ul></li></ul><ul id="16bdcbde-013a-806d-8b2a-cd698a4ab2f4" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>作業資訊系統(operation information system)</strong></mark><ul id="16bdcbde-013a-80fd-bd76-f0fb6999681c" class="bulleted-list"><li style="list-style-type:circle">主要工作是支援組織處理日常作業，協助非管理階層或較基層的管理者，執行低階的作業管理功能與決策</li></ul><ul id="16bdcbde-013a-8031-886a-d231f7835d31" class="bulleted-list"><li style="list-style-type:circle">包含：<ul id="16bdcbde-013a-8009-8279-ff55294d05ad" class="bulleted-list"><li style="list-style-type:square">交易處理系統：紀錄及處理日常交易產生的資料</li></ul><ul id="16bdcbde-013a-800a-8008-e3125e041892" class="bulleted-list"><li style="list-style-type:square">流程控制系統：管理生產活動中產品品質與數量的資訊系統</li></ul><ul id="16bdcbde-013a-8021-b05d-cae87fb90dca" class="bulleted-list"><li style="list-style-type:square">辦公室自動化系統：協助工作執行的電腦資訊工具</li></ul></li></ul></li></ul><ul id="16bdcbde-013a-806b-8d2c-d0eb0aa2da73" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>管理資訊系統(management information system, MIS)</strong></mark><ul id="16bdcbde-013a-807f-bcef-ec84eb9728f8" class="bulleted-list"><li style="list-style-type:circle">為管理者篩選資訊，突顯出重要訊息的電腦系統</li></ul><ul id="16bdcbde-013a-804f-b2d8-c15245571927" class="bulleted-list"><li style="list-style-type:circle">包含三大部分：<ul id="16bdcbde-013a-80e6-97d5-fac8abb9bb57" class="bulleted-list"><li style="list-style-type:square">資訊報告系統：根據作業資訊系統的資料產生各種報表，提供決策者進行例行性決策</li></ul><ul id="16bdcbde-013a-8094-8c1c-e095104f2ea5" class="bulleted-list"><li style="list-style-type:square">決策支援系統：提供特殊資訊以支援非例行性決策的制訂</li></ul><ul id="16bdcbde-013a-8041-abf2-fd7e164c636a" class="bulleted-list"><li style="list-style-type:square">高階決策系統：提供高階主管即時、容易存取的資訊，作為組織制訂策略目標的重要依據</li></ul></li></ul><p id="16bdcbde-013a-8076-b681-f5764bb367cc" class="">
+</p></li></ul></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
