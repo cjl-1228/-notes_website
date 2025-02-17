@@ -255,12 +255,24 @@
 
                         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-5">
                             <div class="m-3">
-                                <a href="web/Project/Project.html" >
-                                    <img src="img/project.png" >
+                                <a href="web/Project/Project.html" onclick="return checkPassword(event)">
+                                    <img src="img/project.png">
                                 </a>
                                 <div class="mt-3">專題</div>
                             </div>
                         </div>
+                        
+                        <script>
+                        function checkPassword(event) {
+                            event.preventDefault(); // 防止直接跳轉
+                            const correctPassword = "zaq1XSW@"; // 設定正確密碼
+                            const userInput = prompt("請輸入密碼：");
+                        
+                            if (userInput === correctPassword) {
+                                window.location.href = "web/Project/Project.html"; // 密碼正確才跳轉
+                            }
+                        }
+                        </script>
 
                         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-5">
                             <div class="m-3">
